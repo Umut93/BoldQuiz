@@ -174,8 +174,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BuisnessLayer\Admin.cs" />
+    <Compile Include="Models\BuisnessLayer\Answer.cs" />
+    <Compile Include="Models\BuisnessLayer\Category.cs" />
+    <Compile Include="Models\BuisnessLayer\Game.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\BuisnessLayer\Player.cs" />
+    <Compile Include="Models\BuisnessLayer\Question.cs" />
+    <Compile Include="Models\BuisnessLayer\Quiz.cs" />
+    <Compile Include="Models\BuisnessLayer\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
