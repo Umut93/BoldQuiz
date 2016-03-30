@@ -5,10 +5,10 @@ using System.Web;
 
 namespace BoldQuizMVC.Models
 {
-    public class Quiz
+    public class QuizModel
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<CategoryModel> Categories { get; set; }
     }
 }

@@ -5,9 +5,9 @@ using System.Web;
 
 namespace BoldQuizMVC.Models
 {
-    public class Admin : User
+    public class AdminModel : UserModel
     {
-        public Admin(string ID, string userName, string passWord) : base(ID, userName, passWord) {
+        public AdminModel(string ID, string userName, string passWord) : base(ID, userName, passWord) {
 
        
 

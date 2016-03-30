@@ -182,16 +182,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ModelLayer\Admin.cs" />
-    <Compile Include="Models\ModelLayer\Answer.cs" />
-    <Compile Include="Models\ModelLayer\Category.cs" />
-    <Compile Include="Models\ModelLayer\Game.cs" />
+    <Compile Include="Models\ModelLayer\AdminModel.cs" />
+    <Compile Include="Models\ModelLayer\AnswerModel.cs" />
+    <Compile Include="Models\ModelLayer\CategoryModel.cs" />
+    <Compile Include="Models\ModelLayer\GameModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ModelLayer\Player.cs" />
-    <Compile Include="Models\ModelLayer\Question.cs" />
-    <Compile Include="Models\ModelLayer\Quiz.cs" />
-    <Compile Include="Models\ModelLayer\User.cs" />
+    <Compile Include="Models\ModelLayer\PlayerModel.cs" />
+    <Compile Include="Models\ModelLayer\QuestionModel.cs" />
+    <Compile Include="Models\ModelLayer\QuizModel.cs" />
+    <Compile Include="Models\ModelLayer\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
