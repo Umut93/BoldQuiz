@@ -7,6 +7,6 @@ namespace BoldQuizMVC.Models
 {
     public class Quiz
     {
-        public List<Category> categories;
+        public List<Category> categories { get; set; }
     }
 }

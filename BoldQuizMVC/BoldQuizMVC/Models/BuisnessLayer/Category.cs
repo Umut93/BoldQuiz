@@ -7,9 +7,9 @@ namespace BoldQuizMVC.Models
 {
     public class Category
     {
-        public List<Game> games;
-        public Quiz quiz;
-        public List<Question> quetions;
+        public List<Game> games { get; set; }
+        public Quiz quiz { get; set; }
+        public List<Question> quetions { get; set; }
 
     }
 }

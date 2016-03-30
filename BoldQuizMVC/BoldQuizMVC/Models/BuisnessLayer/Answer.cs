@@ -7,8 +7,8 @@ namespace BoldQuizMVC.Models
 {
     public class Answer
     {
-        public Question quetion;
-        public string answerText;
-        public Boolean isCorrect;
+        public Question quetion {get; set;}
+        public string answerText { get; set; }
+        public Boolean isCorrect { get; set; }
     }
 }
