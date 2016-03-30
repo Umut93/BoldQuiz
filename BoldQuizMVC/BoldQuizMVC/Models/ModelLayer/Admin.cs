@@ -7,6 +7,13 @@ namespace BoldQuizMVC.Models
 {
     public class Admin : User
     {
-        
+        public Admin(string ID, string userName, string passWord) : base(ID, userName, passWord) {
+
+       
+
+        }
+
+       
+    
     }
 }
