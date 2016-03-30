@@ -5,11 +5,11 @@ using System.Web;
 
 namespace BoldQuizMVC.Models
 {
-    public abstract class UserModel
+    public abstract class User
     {
       
 
-        protected UserModel(string ID, string userName, string passWord)
+        protected User(string ID, string userName, string passWord)
         {
             this.ID = ID;
             this.userName = userName;
