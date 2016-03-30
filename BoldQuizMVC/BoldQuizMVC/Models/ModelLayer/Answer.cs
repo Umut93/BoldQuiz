@@ -14,11 +14,11 @@ namespace BoldQuizMVC.Models
         public Boolean isCorrect { get; set; }
 
 
-        public Answer (Question question, string answerText, Boolean iscorrect)
+        public Answer (Question question, string answerText)
         {
             this.question = question;
             this.answerText = answerText;
-            this.isCorrect = false;
+            
 
         }
         
