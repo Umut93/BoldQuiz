@@ -9,15 +9,15 @@ namespace BoldQuizMVC.Models
     
     public class Answer
     {
-        public Question question { get; set; }
-        public string answerText { get; set; }
-        public Boolean isCorrect { get; set; }
+        public Question Question { get; set; }
+        public string AnswerText { get; set; }
+        public Boolean IsCorrect { get; set; }
 
 
-        public Answer (Question question, string answerText)
+        public Answer (Question Question, string AnswerText)
         {
-            this.question = question;
-            this.answerText = answerText;
+            this.Question = Question;
+            this.AnswerText = AnswerText;
             
 
         }

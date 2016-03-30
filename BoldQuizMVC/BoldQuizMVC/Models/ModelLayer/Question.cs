@@ -7,7 +7,9 @@ namespace BoldQuizMVC.Models
 {
     public class Question
     {
-        public Category category { get; set; }
-        public List<Answer> answers { get; set; }
+        public string Title { get; set; }
+        public int Point { get; set; }
+        public Category Category { get; set; }
+        public List<Answer> Answers { get; set; }
     }
 }

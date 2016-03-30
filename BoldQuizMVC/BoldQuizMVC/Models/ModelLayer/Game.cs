@@ -7,6 +7,8 @@ namespace BoldQuizMVC.Models
 {
     public class Game
     {
-        public Player player { get; set; }
+        public string name { get; set; }
+        public Player Player { get; set; }
+        public List<Category> categories { get; set; }
     }
 }

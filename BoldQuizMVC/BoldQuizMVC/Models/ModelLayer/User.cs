@@ -15,8 +15,8 @@ namespace BoldQuizMVC.Models
             this.userName = userName;
             this.passWord = passWord;
         }
-        public string ID;
-        public string userName;
-        public string passWord;
+        public string ID { get; private set;}
+        public string userName { get; set; }
+        public string passWord { get; set; }
     }
 }
