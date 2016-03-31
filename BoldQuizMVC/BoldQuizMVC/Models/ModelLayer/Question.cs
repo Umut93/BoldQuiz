@@ -8,7 +8,8 @@ namespace BoldQuizMVC.Models
     public class Question
     {
         public string Title { get; set; }
-        public int Point { get; set; }
+        public string Point { get; set; }
+        public string QuestionText { get; set; }
         public Category Category { get; set; }
         public List<Answer> Answers { get; set; }
     }

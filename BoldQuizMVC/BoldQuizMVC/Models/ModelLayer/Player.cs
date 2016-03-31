@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BoldQuizMVC.Models
 {
-    public class Player : User
+    public class Player : User_
     {
         
         public Player(String ID, string userName, string passWord, string gender, Game game ):base (ID, userName, passWord)
