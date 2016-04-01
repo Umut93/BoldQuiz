@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modeler
+namespace Models
 {
-    class Program
+    public class Admin_ : User_
     {
-        static void Main(string[] args)
+        public Admin_(string ID, string userName, string passWord) : base(ID, userName, passWord)
         {
+
+
         }
     }
-}

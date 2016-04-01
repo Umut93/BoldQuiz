@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoldQuizMVC", "BoldQuizMVC\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoldQuizMVC.Tests", "BoldQuizMVC.Tests\BoldQuizMVC.Tests.csproj", "{8AAC5C9E-DFA2-4BE7-9CDF-68369B1D3C2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{C4511E3E-2BF9-4CAD-BAA0-99490227A7FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8AAC5C9E-DFA2-4BE7-9CDF-68369B1D3C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AAC5C9E-DFA2-4BE7-9CDF-68369B1D3C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AAC5C9E-DFA2-4BE7-9CDF-68369B1D3C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4511E3E-2BF9-4CAD-BAA0-99490227A7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4511E3E-2BF9-4CAD-BAA0-99490227A7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4511E3E-2BF9-4CAD-BAA0-99490227A7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4511E3E-2BF9-4CAD-BAA0-99490227A7FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
