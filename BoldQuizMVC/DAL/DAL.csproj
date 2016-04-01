@@ -59,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{87742e4b-7c5e-4de2-9dfa-5f957e363f50}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{c4511e3e-2bf9-4cad-baa0-99490227a7ff}</Project>
       <Name>Models</Name>
