@@ -9,7 +9,7 @@ namespace Models
     public class Game
     {
         public string Name { get; set; }
-        public Player Player { get; set; }
+        public List<Player> Players { get; set; }
         public List<Category> categories { get; set; }
     }
 }

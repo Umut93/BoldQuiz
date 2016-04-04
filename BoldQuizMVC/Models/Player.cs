@@ -16,5 +16,6 @@ namespace Models
         }
         public string gender { get; set; }
         public Game game { get; set; }
+        public int Levels { get; set; }
     }
 }

@@ -9,10 +9,8 @@ namespace Models
     public class Category
     {
         public string Name { get; set; }
-        public string Levels { get; set; }
         public int Score { get; set; }
         public List<Game> Games { get; set; }
-        public Quiz Quiz { get; set; }
         public List<Question> Quetions { get; set; }
 
     }
