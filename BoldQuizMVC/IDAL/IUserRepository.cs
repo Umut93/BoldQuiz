@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IDAL
 {
-   public interface IUserRepository
+   public class IUserRepository
     {
     }
 }
