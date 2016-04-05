@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-   public class CategoryRepository
+   public class SectionRepository
     {
     }
 }

@@ -12,7 +12,7 @@ namespace Models
         {
             this.name = name;
             List<Level> levels = new List<Level>();
-            List<Room> rooms = new List<Room>;
+            List<Room> rooms = new List<Room>();
             List<Question> quetions = new List<Question>();
 
 

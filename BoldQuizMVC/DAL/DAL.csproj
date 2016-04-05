@@ -51,10 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerRepository.cs" />
-    <Compile Include="CategoryRepository.cs" />
+    <Compile Include="SectionRepository.cs" />
     <Compile Include="GameRepository.cs" />
     <Compile Include="QuestionRepository.cs" />
-    <Compile Include="QuizRepository.cs" />
+    <Compile Include="RoomRepository.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
