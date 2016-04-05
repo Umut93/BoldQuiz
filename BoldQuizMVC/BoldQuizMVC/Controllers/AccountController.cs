@@ -174,16 +174,16 @@ namespace BoldQuizMVC.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
-        {
-            if (userId == null || code == null)
-            {
-                return View("Error");
-            }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
-        }
+        //[AllowAnonymous]
+        //public async Task<ActionResult> ConfirmEmail( int? userId, string code)
+        //{
+        //    if (userId == null || code == null)
+        //    {
+        //        return View("Error");
+        //    }
+        //    var result = await UserManager.ConfirmEmailAsync(userId.Value, code);
+        //    return View(result.Succeeded ? "ConfirmEmail" : "Error");
+        //}
 
         //
         // GET: /Account/ForgotPassword
