@@ -9,8 +9,9 @@ namespace Models
     public class Question
     {
         public string Title { get; set; }
-        public string QuestionText { get; set; }
-        public Category Category { get; set; }
+        public int point;
         public List<Answer> Answers { get; set; }
+        public Level level { get; set; }
+        public Section section { get; set; }
     }
 }
