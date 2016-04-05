@@ -9,9 +9,10 @@ namespace Models
     public class Player : User_
     {
 
-        public Player(String ID, string userName, string passWord, string gender) : base(ID, userName, passWord)
+        public Player(String ID, string userName, string passWord, string gender, Room room) : base(ID, userName, passWord)
         {
             this.gender = gender;
+            this.room = room;
             
         }
         public string gender { get; set; }

@@ -8,6 +8,15 @@ namespace Models
 {
    public class Level
     {
+        public Level (string name, int score, Section section)
+        {
+            this.name = name;
+            this.score = score;
+            this.section = section;
+            List<Room> rooms = new List<Room>();
+            List<Question> quetions = new List<Question>();
+        }
+
         public string name { get; private set; }
         public int score { get; private set; }
         public Section section { get; private set; }
