@@ -15,6 +15,7 @@ namespace Models
             
         }
         public string gender { get; set; }
+        public Room room { get; private set; }
         //public int Levels { get; set; }
     }
 }

@@ -8,11 +8,11 @@ namespace Models
 {
    public class Level
     {
-        public string name;
-        public int score;
-        public Section section;
-        public List<Room> rooms;
-        public List<Question> quetions;
+        public string name { get; private set; }
+        public int score { get; private set; }
+        public Section section { get; private set; }
+        public List<Room> rooms { get; private set; }
+        public List<Question> quetions { get; private set; }
 
     }
 }

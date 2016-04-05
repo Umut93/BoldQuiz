@@ -8,8 +8,12 @@ namespace Models
 {
     public class Room
     {
-        public int point;
-        public Section section;
+        public int point { get; private set; }
+        public Section section { get; private set; }
+        public List<Player> players { get; private set; }
+        public List<Level> levels { get; private set; }
+
+
 
     }
 }

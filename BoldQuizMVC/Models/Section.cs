@@ -8,6 +8,7 @@ namespace Models
 {
     public class Section
     {
+        public string name { get; private set; }
         public List<Level> levels{ get; set; }
         public List<Room> rooms { get; set; }
         public List<Question> quetions { get; set; }
