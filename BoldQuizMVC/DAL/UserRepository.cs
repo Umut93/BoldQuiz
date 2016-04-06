@@ -12,7 +12,7 @@ namespace DAL
 {
     public class UserRepository : IUserRepository
     {
-        private SqlConnection con;
+        private SqlConnection connection;
 
        // public UserRepository()
         //{
