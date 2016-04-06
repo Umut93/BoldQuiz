@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class GameRepository
+    public class LevelRepository: BaseRepository
     {
+        public LevelRepository(string connectionstring) : base(connectionstring)
+        {
+        }
     }
 }

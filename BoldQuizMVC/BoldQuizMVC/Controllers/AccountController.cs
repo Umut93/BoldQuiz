@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BoldQuizMVC.Models;
+using DAL;
+using Models;
 
 namespace BoldQuizMVC.Controllers
 {
@@ -17,12 +19,14 @@ namespace BoldQuizMVC.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private PlayerRepository playerRepository;
 
         public AccountController()
         {
+            playerRepository = new PlayerRepository("DefaultConnection");
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -151,10 +155,12 @@ namespace BoldQuizMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, user_type = "Player" };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    Player player = new Player(user.Id.ToString(), user.UserName, user.PasswordHash, model.Gender, null);
+                    playerRepository.addPlayer(player);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

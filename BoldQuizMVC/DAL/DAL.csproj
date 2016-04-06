@@ -50,9 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnswerRepository.cs" />
+    <Compile Include="AdminRepository.cs" />
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="LevelRepository.cs" />
+    <Compile Include="PlayerRepository.cs" />
     <Compile Include="SectionRepository.cs" />
-    <Compile Include="GameRepository.cs" />
     <Compile Include="QuestionRepository.cs" />
     <Compile Include="RoomRepository.cs" />
     <Compile Include="UserRepository.cs" />

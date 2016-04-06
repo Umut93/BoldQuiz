@@ -10,15 +10,12 @@ using System.Configuration;
 
 namespace DAL
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository
     {
-        private SqlConnection connection;
-
-       // public UserRepository()
-        //{
-         //   string connectString = ConfigurationManager.
-           // this.con = new SqlConnection();
-
+        public UserRepository(string connectionstring) : base(connectionstring)
+        {
         }
+
     }
-//}
+    }
+

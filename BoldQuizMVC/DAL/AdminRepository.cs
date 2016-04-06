@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class RoomRepository : BaseRepository
+   public class AdminRepository : BaseRepository
     {
-        public RoomRepository(string connectionstring) : base(connectionstring)
+        public AdminRepository(string connectionstring) : base(connectionstring)
         {
+
         }
     }
 }
