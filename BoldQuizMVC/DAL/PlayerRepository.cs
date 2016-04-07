@@ -16,7 +16,7 @@ namespace DAL
 
 
         public void addPlayer(Player player) {
-            con.Execute("INSERT INTO Player(userId, gender) VALUES (@userID, @gender)", new {userID = player.ID, gender = player.gender}); 
+        con.Execute("INSERT INTO Player(userId, gender) VALUES (@userID, @gender)", new {userID = player.ID, gender = player.gender}); 
 
 
         }
