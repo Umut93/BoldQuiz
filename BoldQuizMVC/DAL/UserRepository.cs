@@ -7,6 +7,8 @@ using Dapper;
 using System.Threading.Tasks;
 using IDAL;
 using System.Configuration;
+using Models;
+
 
 namespace DAL
 {
