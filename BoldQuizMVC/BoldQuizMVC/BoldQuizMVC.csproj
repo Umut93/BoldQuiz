@@ -256,11 +256,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Answer\" />
-    <Folder Include="Views\Category\" />
-    <Folder Include="Views\Game\" />
     <Folder Include="Views\Player\" />
     <Folder Include="Views\Question\" />
-    <Folder Include="Views\Quiz\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

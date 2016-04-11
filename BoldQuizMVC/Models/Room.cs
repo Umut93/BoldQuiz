@@ -9,8 +9,9 @@ namespace Models
     public class Room
     {
 
-        public Room(int point, int ID, Section section) {
+        public Room(int ID,int point,  Section section) {
 
+            this.ID = ID;
             this.point = point;
             this.section = section;
             List<Player> players = new List<Player>();
