@@ -15,8 +15,9 @@ namespace DAL
         }
 
 
-        //public List<Question> getQuestions() {
-        //   string sql = 
+        //public List<Question> getBarca() {
+        //   string sql = "Select Top 52 FROM Question "
+        //   return con.Query<Question>(sql).toList();
 
         }
     }
