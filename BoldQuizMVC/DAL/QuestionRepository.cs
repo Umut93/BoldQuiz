@@ -13,8 +13,10 @@ namespace DAL
         public QuestionRepository(string connectionstring) : base(connectionstring)
         {
         }
-       // public List<Question> getQuestions() {
-           // string sql = 
+
+
+        //public List<Question> getQuestions() {
+        //   string sql = 
 
         }
     }

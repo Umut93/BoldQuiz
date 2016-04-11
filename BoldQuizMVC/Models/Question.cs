@@ -8,8 +8,9 @@ namespace Models
 {
     public class Question
     {
-        public Question(string title, int point, Section sectiom) {
+        public Question(int ID, string title, int point, Section sectiom) {
 
+            this.ID = ID;
             this.title = title;
             this.point = point;
             this.section = section;
@@ -18,7 +19,7 @@ namespace Models
            
             
         }
-
+        public int ID { get; set; }
         public string title { get; set; }
         public int point { get; set; }
         public List<Answer> Answers { get; set; }

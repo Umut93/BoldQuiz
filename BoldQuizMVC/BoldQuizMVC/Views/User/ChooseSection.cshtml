@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Models.Section>
+@{
+    ViewBag.Title = "ChooseSection";
+}
+
+<h2>ChooseSection</h2>
+
+<form method="post" action="@Url.Action("chooseSection", "User")">
+
+@foreach (var item in Model)
+{
+   <button value="@item.ID" name="sectionTeam"> @item.name  </button>
+
+}
+</form>
+
+

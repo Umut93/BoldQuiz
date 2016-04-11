@@ -8,8 +8,9 @@ namespace Models
 {
    public class Level
     {
-        public Level (string name, int score, Section section)
+        public Level (int ID, string name, int score, Section section)
         {
+            this.ID = ID;
             this.name = name;
             this.score = score;
             this.section = section;
@@ -17,6 +18,7 @@ namespace Models
             List<Question> quetions = new List<Question>();
         }
 
+        public int ID { get; set; }
         public string name { get; private set; }
         public int score { get; private set; }
         public Section section { get; private set; }

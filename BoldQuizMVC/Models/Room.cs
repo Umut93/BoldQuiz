@@ -9,13 +9,14 @@ namespace Models
     public class Room
     {
 
-        public Room(int point, Section section) {
+        public Room(int point, int ID, Section section) {
 
             this.point = point;
             this.section = section;
             List<Player> players = new List<Player>();
             List<Level> levels = new List<Level>();
         }
+        public int ID { get; set; }
         public int point { get; private set; }
         public Section section { get; private set; }
         public List<Player> players { get; private set; }
