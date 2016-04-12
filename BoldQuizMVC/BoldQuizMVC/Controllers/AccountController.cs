@@ -159,7 +159,7 @@ namespace BoldQuizMVC.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    Player player = new Player(user.Id.ToString(), user.UserName, user.PasswordHash, model.Gender, null);
+                    Player player = new Player(user.Id, user.UserName, user.PasswordHash, model.Gender, null);
                     playerRepository.addPlayer(player);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

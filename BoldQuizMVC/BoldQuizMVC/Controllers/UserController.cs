@@ -13,12 +13,17 @@ namespace BoldQuizMVC.Controllers
     public class UserController : Controller
     {
         private UserRepository users;
+        private PlayerRepository players;
         private SectionRepository sections;
         private RoomRepository rooms;
 
         public UserController()
         {
+            users = new UserRepository("DefaultConnection");
             sections = new SectionRepository("DefaultConnection");
+            rooms = new RoomRepository("DefaultConnection");
+            players = new PlayerRepository("DefaultConnection");
+
 
         }
         
@@ -46,8 +51,10 @@ namespace BoldQuizMVC.Controllers
             Room room = new Room(0, section);
 
             rooms.createRoom(room);
-            ApplicationUser user = users.findOneUser(User.Identity.) 
+            Player player = players.findOnePlayer(User.Identity.Name);
 
+            player.room = room;
+            players.updatePlayer(player);
             return RedirectToAction("Index", "Home");
 
         }

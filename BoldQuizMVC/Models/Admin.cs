@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Admin_ : User_
+    public class Admin_ : ApplicationUser
     {
-        public Admin_(string ID, string userName, string passWord) : base(ID, userName, passWord)
+        public Admin_(int ID, string userName, string passWord)
         {
-
+            this.Id = ID;
+            this.UserName = UserName;
+            this.PasswordHash = passWord;
 
         }
     }

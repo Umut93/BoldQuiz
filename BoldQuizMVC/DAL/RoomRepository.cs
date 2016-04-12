@@ -14,12 +14,12 @@ namespace DAL
         }
 
             public void createRoom(Room room) {
-            string sql = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid)";
-            con.Execute(sql, new { sectionid = room.section.ID });
+            //string sql = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid)";
+            //con.Execute(sql, new { sectionid = room.section.ID });
 
             // Finder det ID som er blevet generet i Databasen som er ovenstående.
-            string findID = "scope_identity()";
-            room.ID =  con.ExecuteScalar<int>(findID);
+            string findID = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid); select scope_identity()";
+            room.ID =  con.ExecuteScalar<int>(findID, new { sectionid = room.section.ID});
         }
 
       
