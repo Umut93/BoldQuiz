@@ -6,11 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Models;
+using Models.Identity;
 
 namespace BoldQuizMVC.Controllers
 {
     public class UserController : Controller
     {
+        private UserRepository users;
         private SectionRepository sections;
         private RoomRepository rooms;
 
@@ -44,10 +46,12 @@ namespace BoldQuizMVC.Controllers
             Room room = new Room(0, section);
 
             rooms.createRoom(room);
-           
+            ApplicationUser user = users.findOneUser(User.Identity.) 
+
             return RedirectToAction("Index", "Home");
 
         }
+
         
         
     }
