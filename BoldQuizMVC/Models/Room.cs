@@ -17,6 +17,16 @@ namespace Models
             List<Player> players = new List<Player>();
             List<Level> levels = new List<Level>();
         }
+
+        public Room(int point, Section section)
+        {
+
+            this.point = point;
+            this.section = section;
+            List<Player> players = new List<Player>();
+            List<Level> levels = new List<Level>();
+
+        }
         public int ID { get; set; }
         public int point { get; private set; }
         public Section section { get; private set; }

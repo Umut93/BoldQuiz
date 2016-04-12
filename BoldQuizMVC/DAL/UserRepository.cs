@@ -23,12 +23,12 @@ namespace DAL
         }
 
 
-        //public void createSection()
-        //{
+        public User_ findOneUser(int ID)
+        {
+            string sql = ("Select * from AspNetUsers where Id = @ID";
+            con.Query<AspNetUsers>();
 
-        // SectionRepository section= new SectionRepository("DefaultConnection");
-        // section.getSections();
-        //}
+        }
 
       
 

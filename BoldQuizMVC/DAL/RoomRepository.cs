@@ -13,10 +13,12 @@ namespace DAL
         {
         }
 
-        public void createRoom(Room room) {
+            public void createRoom(Room room) {
             string sql = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid)";
             con.Execute(sql, new { sectionid = room.section.ID });
         }
+
+      
 
     }
 }
