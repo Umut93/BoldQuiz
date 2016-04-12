@@ -22,6 +22,14 @@ namespace DAL
             room.ID =  con.ExecuteScalar<int>(findID, new { sectionid = room.section.ID});
         }
 
+
+        //public void deleteRoom(Room room)
+        //{
+        //    string sql = "DELETE FROM Room where ID = @Id ";
+        //    con.Execute(sql, new { ID = room.ID });
+
+
+        //}
       
 
     }

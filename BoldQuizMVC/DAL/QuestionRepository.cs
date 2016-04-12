@@ -14,10 +14,12 @@ namespace DAL
         {
         }
 
-
-        //public List<Question> getBarca() {
-        //   string sql = "Select Top 52 FROM Question "
-        //   return con.Query<Question>(sql).toList();
+        //public List<Question> getBarcaQuetions()
+        //{
+        //    string sql = "Select TOP 51 * from Question ";
+        //    con.Query<Question>(sql, )
+        //}
+        
 
         }
     }
