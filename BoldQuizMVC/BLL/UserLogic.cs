@@ -22,7 +22,7 @@ namespace BLL
     }
 
 
-        public void chooseSection(int id, string userName)
+        public Room chooseSection(int id, string userName)
         {
             Section section = sectionLogic.findOneSection(id);
 
@@ -33,7 +33,8 @@ namespace BLL
 
             player.room = room;
             playerRepository.updatePlayer(player);
-        
+
+            return room;
         }
     }
 }

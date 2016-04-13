@@ -36,6 +36,7 @@ namespace BoldQuizMVC.Controllers
             List<Section> sections = sectionLogic.getSections();
 
 
+
             return View(sections);
         }
 
@@ -43,9 +44,11 @@ namespace BoldQuizMVC.Controllers
         public ActionResult chooseSection(int sectionTeam)
         {
 
-            userLogic.chooseSection(sectionTeam, User.Identity.Name);
+            Room room = userLogic.chooseSection(sectionTeam, User.Identity.Name);
+
+
             
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Details", "Room", new { id = room.ID });
 
         }
 
