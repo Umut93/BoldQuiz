@@ -5,25 +5,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Models;
 using Models.Identity;
+using BLL;
 
 namespace BoldQuizMVC.Controllers
 {
     public class UserController : Controller
+
     {
-        private UserRepository users;
-        private PlayerRepository players;
-        private SectionRepository sections;
-        private RoomRepository rooms;
+        private UserLogic userLogic;
+        private SectionLogic sectionLogic;
 
         public UserController()
         {
-            users = new UserRepository("DefaultConnection");
-            sections = new SectionRepository("DefaultConnection");
-            rooms = new RoomRepository("DefaultConnection");
-            players = new PlayerRepository("DefaultConnection");
-
+            userLogic = new UserLogic();
+            sectionLogic = new SectionLogic();
 
         }
         
@@ -37,24 +33,18 @@ namespace BoldQuizMVC.Controllers
         [HttpGet]
         public ActionResult chooseSection()
         {
-           List<Section> section = sections.getSections();
+            List<Section> sections = sectionLogic.getSections();
 
 
-            return View(section);
+            return View(sections);
         }
 
         [HttpPost]
         public ActionResult chooseSection(int sectionTeam)
         {
-            Section section = sections.findOneSection(sectionTeam);
+
+            userLogic.chooseSection(sectionTeam, User.Identity.Name);
             
-            Room room = new Room(0, section);
-
-            rooms.createRoom(room);
-            Player player = players.findOnePlayer(User.Identity.Name);
-
-            player.room = room;
-            players.updatePlayer(player);
             return RedirectToAction("Index", "Home");
 
         }

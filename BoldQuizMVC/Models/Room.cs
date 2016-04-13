@@ -15,7 +15,7 @@ namespace Models
             this.point = point;
             this.section = section;
             List<Player> players = new List<Player>();
-            List<Level> levels = new List<Level>();
+            List<Room_levels> levels = new List<Room_levels>();
         }
 
         public Room(int point, Section section)
@@ -31,7 +31,7 @@ namespace Models
         public int point { get; private set; }
         public Section section { get; private set; }
         public List<Player> players { get; private set; }
-        public List<Level> levels { get; private set; }
+        public List<Room_levels> levels { get; set; }
 
 
 

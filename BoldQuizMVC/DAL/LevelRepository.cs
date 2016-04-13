@@ -13,5 +13,7 @@ namespace DAL
         public LevelRepository(string connectionstring) : base(connectionstring)
         {
         }
+
+        
     }
 }
