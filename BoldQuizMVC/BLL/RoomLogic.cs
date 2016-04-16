@@ -32,7 +32,7 @@ namespace BLL
         {
             Room room = roomRepository.findOneRoom(id);
 
-            room.levels = room_LevelsRepository.getRoom_Levels(id);
+            room.Levels = room_LevelsRepository.getRoom_Levels(id);
 
             return room;
         }

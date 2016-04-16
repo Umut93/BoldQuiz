@@ -11,20 +11,20 @@ namespace Models
     {
         public Player() { }
 
-        public Player(int ID, string userName, string passWord, string gender, Room room) 
+        public Player(int ID, string UserName, string PassWord, string Gender, Room Room) 
         {
             this.Id = ID;
             this.UserName = UserName;
-            this.gender = gender;
-            this.room = room;
+            this.Gender = Gender;
+            this.Room = Room;
 
             
             
             
             
         }
-        public string gender { get; set; }
-        public Room room { get; set; }
+        public string Gender { get; set; }
+        public Room Room { get; set; }
        
     }
 }

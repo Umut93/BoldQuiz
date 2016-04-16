@@ -8,22 +8,22 @@ namespace Models
 {
    public class Level
     {
-        public Level (int ID, string name, int score, Section section)
+        public Level (int ID, string Name, int Score, Section Section)
         {
             this.ID = ID;
-            this.name = name;
-            this.score = score;
-            this.section = section;
-            List<Room> rooms = new List<Room>();
-            List<Question> quetions = new List<Question>();
+            this.Name = Name;
+            this.Score = Score;
+            this.Section = Section;
+            List<Room> Rooms = new List<Room>();
+            List<Question> Quetions = new List<Question>();
         }
 
         public int ID { get; set; }
-        public string name { get; private set; }
-        public int score { get; private set; }
-        public Section section { get; private set; }
-        public List<Room> rooms { get; private set; }
-        public List<Question> quetions { get; private set; }
+        public string Name { get; private set; }
+        public int Score { get; private set; }
+        public Section Section { get; private set; }
+        public List<Room> Rooms { get; private set; }
+        public List<Question> Quetions { get; private set; }
 
     }
 }

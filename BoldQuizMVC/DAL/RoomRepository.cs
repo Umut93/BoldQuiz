@@ -17,7 +17,7 @@ namespace DAL
   
             // Finder det ID som er blevet generet i Databasen som er ovenstående.
             string findID = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid); select scope_identity()";
-            room.ID =  con.ExecuteScalar<int>(findID, new { sectionid = room.section.ID});
+            room.ID =  con.ExecuteScalar<int>(findID, new { sectionid = room.Section.ID});
         }
 
 

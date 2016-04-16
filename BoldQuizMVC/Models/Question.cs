@@ -8,22 +8,22 @@ namespace Models
 {
     public class Question
     {
-        public Question(int ID, string title, int point, Section sectiom) {
+        public Question(int ID, string Title, int Point, Section Section) {
 
             this.ID = ID;
-            this.title = title;
-            this.point = point;
-            this.section = section;
-            List<Answer> answers = new List<Answer>();
-            List<Level> levels = new List<Level>();
+            this.Title = Title;
+            this.Point = Point;
+            this.Section = Section;
+            List<Answer> Answers = new List<Answer>();
+            List<Level> Levels = new List<Level>();
            
             
         }
         public int ID { get; set; }
-        public string title { get; set; }
-        public int point { get; set; }
+        public string Title { get; set; }
+        public int Point { get; set; }
         public List<Answer> Answers { get; set; }
-        public List<Level> levels { get; set; }
-        public Section section { get; set; }
+        public List<Level> Levels { get; set; }
+        public Section Section { get; set; }
     }
 }

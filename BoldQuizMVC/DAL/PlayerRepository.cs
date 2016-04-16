@@ -17,7 +17,7 @@ namespace DAL
 
 
         public void addPlayer(Player player) {
-        con.Execute("INSERT INTO Player(userId, gender) VALUES (@userID, @gender)", new {userID = player.Id, gender = player.gender}); 
+        con.Execute("INSERT INTO Player(userId, gender) VALUES (@userID, @gender)", new {userID = player.Id, gender = player.Gender}); 
 
 
         }
@@ -39,7 +39,7 @@ namespace DAL
         public void updatePlayer(Player player) {
 
             string sql = "Update Player set gender = @gender, room_id = @room_id WHERE userID = @userID";
-            con.Execute(sql, new { gender = player.gender, room_id = player.room.ID, userID = player.Id });
+            con.Execute(sql, new { gender = player.Gender, room_id = player.Room.ID, userID = player.Id });
 
 
         }

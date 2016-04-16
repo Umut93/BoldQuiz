@@ -8,20 +8,20 @@ namespace Models
 {
     public class Section
     {
-        public Section(int ID, string name)
+        public Section(int ID, string Name)
         {
             this.ID = ID;
-            this.name = name;
-            List<Level> levels = new List<Level>();
-            List<Room> rooms = new List<Room>();
-            List<Question> quetions = new List<Question>();
+            this.Name = Name;
+            List<Level> Levels = new List<Level>();
+            List<Room> Rooms = new List<Room>();
+            List<Question> Quetions = new List<Question>();
 
 
         }
         public int ID { get; set; }
-        public string name { get; private set; }
-        public List<Level> levels{ get; set; }
-        public List<Room> rooms { get; set; }
-        public List<Question> quetions { get; set; }
+        public string Name { get; private set; }
+        public List<Level> Levels{ get; set; }
+        public List<Room> Rooms { get; set; }
+        public List<Question> Quetions { get; set; }
     }
 }

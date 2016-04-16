@@ -31,7 +31,7 @@ namespace BLL
             roomLogic.createroom(room);
             Player player = playerRepository.findOnePlayer(userName);
 
-            player.room = room;
+            player.Room = room;
             playerRepository.updatePlayer(player);
 
             return room;
