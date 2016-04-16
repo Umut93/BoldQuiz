@@ -20,7 +20,7 @@ namespace DAL
         }
         public Section findOneSection(int id) {
 
-            string sql = "Select * FROM Section where id = @id";
+            string sql = "Select * FROM Section where ID = @id";
             return  con.Query<Section>(sql, new { id = id }).First();
 
         }

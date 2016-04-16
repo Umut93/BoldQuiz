@@ -26,7 +26,7 @@ namespace DAL
         public ApplicationUser findOneUser(int ID)
         {
             string sql = "Select * from AspNetUsers where Id = @ID";
-            return  con.Query<ApplicationUser>(sql, new { ÍD = ID}).First();
+            return  con.Query<ApplicationUser>(sql, new { ID = ID}).First();
         }
 
 

@@ -24,14 +24,14 @@ namespace DAL
 
         public Player findOnePlayer(int id)
         {
-            string sql = "Select* from AspNetUsers join Player on Id = userID where Id = @id";
+            string sql = "Select * from AspNetUsers JOIN Player on Id = userID where Id = @id";
             return  con.Query<Player>(sql, new { id = id }).Single(); 
 
         }
 
         public Player findOnePlayer(string UserName)
         {
-            string sql = "Select* from AspNetUsers join Player on Id = userID where UserName = @userName";
+            string sql = "Select * from AspNetUsers JOIN Player on Id = userID where UserName = @userName";
             return con.Query<Player>(sql, new { userName = UserName }).Single();
 
         }
