@@ -11,18 +11,20 @@ namespace Models
         public string ID { get; set; }
         public Boolean IsUnlocked { get; set; }
         public Boolean IsCompleted { get; set; }
-        public List<Room> Rooms { get; set; }
-        public List<Level> Levels { get; set; }
+        public Room Room { get; set; }
+        public Level Level { get; set; }
 
 
-        public Room_levels(string ID, Boolean IsUnclocked, Boolean IsCompleted)  {
+        public Room_levels(string ID, Boolean IsUnclocked, Boolean IsCompleted, Room room, Level level)  {
 
             this.ID = ID;
             this.IsUnlocked =IsUnlocked ;
             this.IsCompleted = IsCompleted;
-            Rooms = new List<Room>();
-            Levels = new List<Level>();
+            this.Room = room;
+            this.Level = level;
         }
+
+        public Room_levels() { }
 
     }
 

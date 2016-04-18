@@ -14,10 +14,11 @@ namespace DAL
         {
         }
 
+        //Jeg joiner to tabeller Room_levels og Level sammen og deres information befolker jeg på hver af deres objekter. Returner jeg Room_levels! I det room_level som har en enkelt Level som objekt, bliver den befolket med level. Se det som venstre tabel og højre tabel!
         public List<Room_levels> getRoom_Levels(int room_id)
         {
-            string sql = "SELECT * from Room_levels where room_id = @room_id";
-            return con.Query<Room_levels>(sql, new { room_id = room_id }).ToList();
+            string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID where room_id = @room_id";
+            return con.Query<Room_levels, Level, Room_levels>(sql, (room_level, level) => { room_level.Level = level; return room_level; }, new { room_id = room_id }).ToList();
         }
     }
 }

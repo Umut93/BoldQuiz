@@ -10,6 +10,7 @@ namespace BLL
 {
    public class RoomLogic
     {
+        private SectionLogic sectionLogic;
         private RoomRepository roomRepository;
         private Room_LevelsRepository room_LevelsRepository;
 
@@ -18,7 +19,7 @@ namespace BLL
         {
             roomRepository = new RoomRepository("DefaultConnection");
             room_LevelsRepository = new Room_LevelsRepository("DefaultConnection");
-
+            sectionLogic = new SectionLogic();
         }
 
 
@@ -31,6 +32,8 @@ namespace BLL
         public Room getRoom(int id)
         {
             Room room = roomRepository.findOneRoom(id);
+
+            room.Section = sectionLogic.findOneSection(room.SectionID);
 
             room.Levels = room_LevelsRepository.getRoom_Levels(id);
 

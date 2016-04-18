@@ -25,5 +25,7 @@ namespace Models
         public List<Room> Rooms { get; private set; }
         public List<Question> Quetions { get; private set; }
 
+        public Level() { }
+
     }
 }

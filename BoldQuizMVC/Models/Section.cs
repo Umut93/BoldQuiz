@@ -18,6 +18,8 @@ namespace Models
 
 
         }
+
+        public Section() { }
         public int ID { get; set; }
         public string Name { get; private set; }
         public List<Level> Levels{ get; set; }

@@ -1,7 +1,18 @@
-﻿
+﻿@model Models.Room
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h1>Detaljer</h1>
 
+<h2>@Model.Section.Name </h2>
+<button> Inviter ven </button>
+<h3> @Model.Point Point</h3>
+
+
+@foreach (var item in Model.Levels)
+{
+    <button>@item.Level.Name</button>
+    <text> @item.Level.Score </text> 
+
+}

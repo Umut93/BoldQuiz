@@ -14,6 +14,7 @@ namespace Models
             this.ID = ID;
             this.Point = point;
             this.Section = Section;
+            this.SectionID = Section.ID;
             List<Player> players = new List<Player>();
             List<Room_levels> levels = new List<Room_levels>();
         }
@@ -23,14 +24,18 @@ namespace Models
 
             this.Point = Point;
             this.Section = Section;
+            this.SectionID = Section.ID;
             List<Player> players = new List<Player>();
             List<Level> levels = new List<Level>();
 
         }
+        public Room () { }
+
+        public int SectionID { get; set;}
         public int ID { get; set; }
-        public int Point { get; private set; }
-        public Section Section { get; private set; }
-        public List<Player> Players { get; private set; }
+        public int Point { get; set; }
+        public Section Section { get; set; }
+        public List<Player> Players { get; set; }
         public List<Room_levels> Levels { get; set; }
 
 
