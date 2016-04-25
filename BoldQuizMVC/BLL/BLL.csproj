@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QuestionLogic.cs" />
     <Compile Include="RoomLogic.cs" />
     <Compile Include="SectionLogic.cs" />
     <Compile Include="UserLogic.cs" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,21 @@ namespace BoldQuizMVC.Controllers
 {
     public class QuizController : Controller
     {
-        // GET: Quiz
-        public ActionResult Index()
+        private QuestionLogic questionLogic;
+
+        public QuizController ()
         {
-            return View();
+            questionLogic = new QuestionLogic();
+
+        }
+
+        // GET: Quiz
+        public ActionResult Index(int levelID)
+        {
+          List<Question> question =  questionLogic.Get10Questions(levelID);
+
+            ViewBag.ID = levelID;
+            return View(question);
         }
     }
 }

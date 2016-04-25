@@ -14,11 +14,12 @@ namespace DAL
         {
         }
 
-        //public List<Question> getBarcaQuetions()
-        //{
-        //    string sql = "Select TOP 51 * from Question ";
-        //    con.Query<Question>(sql, )
-        //}
+        public List<Question> GetQuetionsForLevel(int levelID)
+        {
+         string sql = "SELECT * FROM Level_Question JOIN Question ON question_id = ID JOIN Answer on question.ID = Answer.question_id where  level_id = @levelID; ";
+         return  con.Query<Question, Answer, Question>(sql, (question, answer) => { question.Answers.Add(answer); return question; }, new { levelD = levelID }).ToList();
+
+        }
         
 
         }
