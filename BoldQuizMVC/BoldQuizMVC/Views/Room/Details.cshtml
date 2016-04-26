@@ -37,5 +37,9 @@
 </div>
 <script>$("#myModal").on("show.bs.modal", function (e) {
     var id = e.relatedTarget.dataset.id;
-    $("#quizFrame").attr("src", "/Quiz/index?levelID=" + id);
+    var questions;
+    $.getJSON("/QuizController/index", function (data) {
+        console.log(data);
+    });
+   // $("#quizFrame").attr("src", "/Quiz/index?levelID=" + id);
 })</script>
