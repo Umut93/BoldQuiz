@@ -6,6 +6,22 @@
 
 @foreach (var item in Model)
 {
+<div>
+    <strong>@item.Title </strong>
+    <ul style="list-style: none;">
+       @foreach (var answer in item.Answers)
+       {
+        <li><input type="radio" name=" @item.ID" value="@answer.AnswerText"  />@answer.AnswerText </li>
+           
+       }
+        </ul >
+
+
+
+
+
+
+</div>
 
 }
 

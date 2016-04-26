@@ -23,7 +23,7 @@ namespace BoldQuizMVC.Controllers
         {
           List<Question> question =  questionLogic.Get10Questions(levelID);
 
-            return Json(question);
+            return View(question);
         }
     }
 }

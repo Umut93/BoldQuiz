@@ -14,11 +14,18 @@ namespace Models
             this.Title = Title;
             this.Point = Point;
             this.Section = Section;
-            List<Answer> Answers = new List<Answer>();
-            List<Level> Levels = new List<Level>();
+             Answers = new List<Answer>();
+             Levels = new List<Level>();
            
             
         }
+
+        public Question() {
+          Answers = new List<Answer>();
+          Levels = new List<Level>();
+
+        }
+
         public int ID { get; set; }
         public string Title { get; set; }
         public int Point { get; set; }
