@@ -14,8 +14,8 @@ namespace Models
             this.Title = Title;
             this.Point = Point;
             this.Section = Section;
-             Answers = new List<Answer>();
-             Levels = new List<Level>();
+            Answers = new List<Answer>();
+            Levels = new List<Level>();
            
             
         }

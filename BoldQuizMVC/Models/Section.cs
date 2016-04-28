@@ -12,9 +12,9 @@ namespace Models
         {
             this.ID = ID;
             this.Name = Name;
-            List<Level> Levels = new List<Level>();
-            List<Room> Rooms = new List<Room>();
-            List<Question> Quetions = new List<Question>();
+            Levels = new List<Level>();
+            Rooms = new List<Room>();
+            Quetions = new List<Question>();
 
 
         }

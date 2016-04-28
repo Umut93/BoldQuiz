@@ -14,8 +14,8 @@ namespace Models
             this.Name = Name;
             this.Score = Score;
             this.Section = Section;
-            List<Room> Rooms = new List<Room>();
-            List<Question> Quetions = new List<Question>();
+            Rooms = new List<Room>();
+            Quetions = new List<Question>();
         }
 
         public int ID { get; set; }
