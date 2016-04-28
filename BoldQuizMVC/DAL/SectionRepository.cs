@@ -12,12 +12,15 @@ namespace DAL
         public SectionRepository(string connectionstring) : base(connectionstring)
         {
         }
+
+        //Retriving all the sections
         public List<Section> getSections()
         {
             string sql = "Select * from Section";
             return con.Query<Section>(sql).ToList();
 
         }
+        //Retrieving one Section
         public Section findOneSection(int id) {
 
             string sql = "Select * FROM Section where ID = @id";

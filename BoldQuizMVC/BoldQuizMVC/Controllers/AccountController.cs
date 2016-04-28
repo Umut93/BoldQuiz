@@ -21,6 +21,8 @@ namespace BoldQuizMVC.Controllers
         private ApplicationUserManager _userManager;
         private PlayerRepository playerRepository;
 
+
+        // Instanting the playerrepository
         public AccountController()
         {
             playerRepository = new PlayerRepository("DefaultConnection");

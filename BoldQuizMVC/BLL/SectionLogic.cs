@@ -12,7 +12,7 @@ namespace BLL
     {
         private SectionRepository sectionRepository;
 
-
+        //Instantiating 
         public SectionLogic()
         {
 
@@ -20,13 +20,14 @@ namespace BLL
 
         }
 
+        //Find one Section by the ID
         public Section findOneSection (int id)
         {
          return sectionRepository.findOneSection(id);
         }
 
 
-
+        //Getting a list of sections.
         public List<Section> getSections() {
 
           return sectionRepository.getSections();

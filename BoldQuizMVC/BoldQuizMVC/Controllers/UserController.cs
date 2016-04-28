@@ -16,6 +16,8 @@ namespace BoldQuizMVC.Controllers
         private UserLogic userLogic;
         private SectionLogic sectionLogic;
 
+
+        //Instantiating the logic classes
         public UserController()
         {
             userLogic = new UserLogic();
@@ -30,6 +32,8 @@ namespace BoldQuizMVC.Controllers
             return View();
         }
 
+
+        //The view when you choose the section.
         [HttpGet]
         public ActionResult chooseSection()
         {
@@ -39,6 +43,8 @@ namespace BoldQuizMVC.Controllers
 
             return View(sections);
         }
+
+        //After choosing the section you redirect to a specific room(id).
 
         [HttpPost]
         public ActionResult chooseSection(int sectionTeam)

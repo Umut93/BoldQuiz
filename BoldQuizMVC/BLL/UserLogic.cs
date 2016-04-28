@@ -13,6 +13,8 @@ namespace BLL
         private SectionLogic sectionLogic;
         private RoomLogic roomLogic;
 
+
+        //Instantiating classes and repository classes.
         public UserLogic ()
         {
             playerRepository = new PlayerRepository("DefaultConnection");
@@ -21,7 +23,7 @@ namespace BLL
 
     }
 
-
+        //After finding the section - creating the room and assigning the player in a room. 
         public Room chooseSection(int id, string userName)
         {
             Section section = sectionLogic.findOneSection(id);

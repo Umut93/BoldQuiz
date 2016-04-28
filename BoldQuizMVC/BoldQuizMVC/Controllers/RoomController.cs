@@ -14,12 +14,14 @@ namespace BoldQuizMVC.Controllers
         private RoomLogic roomLogic;
         // GET: Room
 
-public RoomController()
+        //instantiating the roomLogic
+        public RoomController()
         {
             roomLogic = new RoomLogic();
 
         }
 
+        //Room view
         public ActionResult Details(int id)
 
         {

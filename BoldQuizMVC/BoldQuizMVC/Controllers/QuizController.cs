@@ -12,6 +12,8 @@ namespace BoldQuizMVC.Controllers
     {
         private QuestionLogic questionLogic;
 
+
+        // Instantiating the questionLogic
         public QuizController ()
         {
             questionLogic = new QuestionLogic();
@@ -19,6 +21,7 @@ namespace BoldQuizMVC.Controllers
         }
 
         // GET: Quiz
+        //Getting the 10 questions by giving a levelID.
         public ActionResult Index(int levelID)
         {
           List<Question> question =  questionLogic.Get10Questions(levelID);

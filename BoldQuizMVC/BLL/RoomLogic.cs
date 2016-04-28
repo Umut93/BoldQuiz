@@ -14,7 +14,7 @@ namespace BLL
         private RoomRepository roomRepository;
         private Room_LevelsRepository room_LevelsRepository;
 
-
+        //Instantiating the classes and repository classes
         public RoomLogic()
         {
             roomRepository = new RoomRepository("DefaultConnection");
@@ -23,12 +23,15 @@ namespace BLL
         }
 
 
+        //Creating the room
         public void createroom(Room room)
         {
             roomRepository.createRoom(room);
 
             }
 
+
+        //Getting the room by searching the ID
         public Room getRoom(int id)
         {
             Room room = roomRepository.findOneRoom(id);
