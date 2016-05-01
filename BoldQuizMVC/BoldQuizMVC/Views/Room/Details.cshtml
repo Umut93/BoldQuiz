@@ -9,7 +9,11 @@
 <button> Inviter ven </button>
 <h3> @Model.Point Point</h3>
 
+@* For every level name, it's get passed in the button. Data-toggle="modal" opens the modal window and data-target="#myModal" points tot the id of the modal.
 
+
+
+*@
 @foreach (var item in Model.Levels)
 {
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id ="@item.Level.ID">@item.Level.Name</button>
@@ -23,7 +27,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Spørgsmål</h4>
             </div>
             <div class="modal-body">
                 <iframe id="quizFrame"></iframe>
@@ -39,5 +43,6 @@
 <script>$("#myModal").on("show.bs.modal", function (e) {
     var id = e.relatedTarget.dataset.id;
     
+    @* jQuery: Selector takes the iframeID and sets both the arguments *@
     $("#quizFrame").attr("src", "/Quiz/index?levelID=" + id);
 })</script>
