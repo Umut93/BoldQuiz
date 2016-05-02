@@ -1,4 +1,4 @@
-﻿@model List<Models.Question>
+﻿@model List<BoldQuizMVC.Models.QuestionViewModels>
 @{
     
     Layout = null;
@@ -6,17 +6,23 @@
 
 
 @* For every question, it will show up the main question and then the and responsible answers as well. *@
-@foreach (var item in Model)
-{
-<div>
-    <strong>@item.Title </strong>
+
+<form method="post" action="/Quiz/submitQuiz"> 
+   @for (int i = 0; i < Model.Count; i++)
+
+   {
+       
+           var item = Model[i];
+        <input type="hidden" name="@Html.NameFor(x=> Model[i].QuestionTitle)" value=" @item.QuestionID" />
+        <div>
+            <strong>@item.QuestionTitle</strong>
     <ul style="list-style: none;">
-       @foreach (var answer in item.Answers)
-       {
-        <li><input type="radio" name=" @item.ID" value="@answer.AnswerText"  />@answer.AnswerText </li>
-           
-       }
-        </ul >
+        @foreach (var answer in item.Answers)
+        {
+            <li><input type="radio" name=" @item.QuestionID" value="@answer.AnswerText" />@answer.AnswerText </li>
+
+        }
+    </ul>
 
 
 
@@ -25,5 +31,7 @@
 
 </div>
 
-}
+    }
+    <button> Godkend </button>
+</form>
 
