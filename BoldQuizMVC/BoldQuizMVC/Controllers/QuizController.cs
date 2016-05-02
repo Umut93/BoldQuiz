@@ -22,11 +22,13 @@ namespace BoldQuizMVC.Controllers
         }
 
         // GET: Quiz
-        //Getting the 10 questions by giving a levelID.
+        //Getting the 10 questions by giving a levelID. Afterwards populating the data in the viewModels!
         public ActionResult Index(int levelID)
         {
             List<Question> question = questionLogic.Get10Questions(levelID);
+
             List<QuestionViewModels> viewModel = new List<QuestionViewModels>();
+
             foreach (var item in question) {
 
                 QuestionViewModels questionViewModel = new QuestionViewModels();

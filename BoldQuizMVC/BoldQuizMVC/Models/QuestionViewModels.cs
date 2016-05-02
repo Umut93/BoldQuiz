@@ -5,6 +5,8 @@ using System.Web;
 
 namespace BoldQuizMVC.Models
 {
+
+    // Creating viewModels for representing the needed data when the user is interacting with view. These propeties are needed when the user faces the website.
     public class QuestionViewModels
     {
         public int QuestionID { get; set; }
