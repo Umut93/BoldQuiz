@@ -12,6 +12,8 @@ namespace BoldQuizMVC.Models
         public int QuestionID { get; set; }
         public String QuestionTitle { get; set;}
         public List<AnswerViewModel> Answers{get; set;}
+        public int SelectedAnswerID { get; set; }
+        
 }
 
 
@@ -19,7 +21,15 @@ namespace BoldQuizMVC.Models
     {
         public int ID { get; set; }
         public string AnswerText { get; set; }
-        public bool IsSelected {get; set; }
+
+
+    }
+
+
+    public class QuizViewModel
+    {
+        public int LevelID { get; set; }
+        public List<QuestionViewModels> questions { get; set; }
 
     }
 

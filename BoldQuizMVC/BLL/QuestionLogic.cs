@@ -24,6 +24,19 @@ namespace BLL
         return questions = questions.OrderBy(x=>Guid.NewGuid()).Take(10).ToList();
            
         }
+
+        // Getting the answer id and seeing if it is true
+        public bool isAnsweredCorrect (int id)
+        {
+            var answer = questionRepository.getAnswer(id);
+
+            return answer.IsCorrect;
+
+
+        }
+        
     }
+
+    
 
 }

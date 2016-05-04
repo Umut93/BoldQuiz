@@ -34,13 +34,22 @@ namespace DAL
 
                }
                quetions.FirstOrDefault(x => x.ID == question.ID).Answers.Add(answer);
-             //question.Answers.Add(answer);
+            
 
              return question;
            }, new { levelID = levelID }).ToList();
 
             return quetions;
         }
+
+        //Getting the PK from Answer
+        public Answer getAnswer (int id)
+        {
+            string sql = "Select * FROM Answer where id = @id;";
+            return con.Query<Answer>(sql, new { id = id }).Single(); 
+           
+        }
+
 
 
     }

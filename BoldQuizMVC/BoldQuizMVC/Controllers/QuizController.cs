@@ -26,8 +26,11 @@ namespace BoldQuizMVC.Controllers
         public ActionResult Index(int levelID)
         {
             List<Question> question = questionLogic.Get10Questions(levelID);
+            QuizViewModel viewModel = new QuizViewModel();
+            viewModel.LevelID = levelID;
 
-            List<QuestionViewModels> viewModel = new List<QuestionViewModels>();
+
+            viewModel.questions = new List<QuestionViewModels>();
 
             foreach (var item in question) {
 
@@ -41,24 +44,38 @@ namespace BoldQuizMVC.Controllers
                     AnswerViewModel answerViewModel = new AnswerViewModel();
                     answerViewModel.AnswerText = answers.AnswerText;
                     answerViewModel.ID = answers.ID;
-                    answerViewModel.IsSelected = false;
+                    
 
                     questionViewModel.Answers.Add(answerViewModel);
 
                 }
 
-                viewModel.Add(questionViewModel);
+                viewModel.questions.Add(questionViewModel);
 
             } 
             return View(viewModel);
         }
 
+        //Couting the right answers
     [HttpPost]
-    public ActionResult submitQuiz(List<QuestionViewModels> questions)
+    public string submitQuiz(List<QuestionViewModels> questions)
         {
+            int correctedAnswers = 0;
+            foreach (var question in questions)
+            {
+                
+                var isCorrect = questionLogic.isAnsweredCorrect(question.SelectedAnswerID);
+
+                if (isCorrect)
+                {
+                    correctedAnswers++;
+
+                }
+
+            }
 
 
-            return null;
+            return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10";
         }
     }
 }

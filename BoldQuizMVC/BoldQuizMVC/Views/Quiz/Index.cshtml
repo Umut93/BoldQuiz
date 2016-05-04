@@ -1,4 +1,4 @@
-﻿@model List<BoldQuizMVC.Models.QuestionViewModels>
+﻿@model BoldQuizMVC.Models.QuizViewModel
 @{
     
     Layout = null;
@@ -8,25 +8,25 @@
 @* For every question, it will show up the main question and then the and responsible answers as well. NameFor is the location of the object in the array - the range is 0-9. *@
 
 <form method="post" action="/Quiz/submitQuiz"> 
-   @for (int i = 0; i < Model.Count; i++)
+
+    <input type="hidden" name="@Html.NameFor(x=> Model.LevelID)" value=" @Model.LevelID" />
+
+
+   @for (int i = 0; i < Model.questions.Count; i++)
 
    {
        
-         var item = Model[i];
-        <input type="hidden" name="@Html.NameFor(x=> Model[i].QuestionTitle)" value=" @item.QuestionID" />
+         var item = Model.questions[i];
+        <input type="hidden" name="@Html.NameFor(x=> Model.questions[i].QuestionID)" value=" @item.QuestionID" />
         <div>
             <strong>@item.QuestionTitle</strong>
     <ul style="list-style: none;">
-        @foreach (var answer in item.Answers)
+        @for(int index =0; index < item.Answers.Count; index++)
         {
-            <li><input type="radio" name=" @item.QuestionID" value="@answer.AnswerText" />@answer.AnswerText </li>
+            <li><input type="radio" name="@Html.NameFor(x=> Model.questions[i].SelectedAnswerID)" value=" @Model.questions[i].Answers[index].ID" />@Model.questions[i].Answers[index].AnswerText </li>
 
         }
     </ul>
-
-
-
-
 
 
 </div>
