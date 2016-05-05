@@ -56,7 +56,7 @@ namespace BoldQuizMVC.Controllers
             return View(viewModel);
         }
 
-        //Couting the right answers
+        //Couting the right answers x/x
     [HttpPost]
     public string submitQuiz(List<QuestionViewModels> questions)
         {
