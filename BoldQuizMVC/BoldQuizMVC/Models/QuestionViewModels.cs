@@ -7,6 +7,9 @@ namespace BoldQuizMVC.Models
 {
 
     // Creating viewModels for representing the needed data when the user is interacting with view. These propeties are needed when the user faces the website.
+    
+        
+        // Question: ID, Title, list of answers, and the selectedID (represent the selected possible answer from the radio buttons)
     public class QuestionViewModels
     {
         public int QuestionID { get; set; }
@@ -16,7 +19,7 @@ namespace BoldQuizMVC.Models
         
 }
 
-
+    //Answer: ID and the Answertext
     public class AnswerViewModel 
     {
         public int ID { get; set; }
@@ -25,7 +28,7 @@ namespace BoldQuizMVC.Models
 
     }
 
-
+    //Quiz: The ID of the Level and the QuizViewmodel along with its properties
     public class QuizViewModel
     {
         public int LevelID { get; set; }
