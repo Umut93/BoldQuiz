@@ -22,36 +22,37 @@ select,
 textarea {
     max-width: 280px;
 }
-
+/*Rest buttons are greyed out*/
 .level_buttons button[disabled]{
     background-color:gray;
  
 }
-
+/*The first button*/
 .level_buttons button:nth-of-type(1)
 {
     background-color: green;
 }
-
+/*The second button*/
 .level_buttons button:nth-of-type(2)
 {
     background-color: yellowgreen;
 }
-
+/*The three button*/
 .level_buttons button:nth-of-type(3)
 {
     background-color: orangered;
 }
-
+/*The fourth button*/
 .level_buttons button:nth-of-type(4)
 {
     background-color: red;
 }
-
+/*The fifth button*/
 .level_buttons button:nth-of-type(5)
 {
     background-color: red;
 }
+/*The space between the buttons*/
 .level_buttons button {
 
     margin:10px;

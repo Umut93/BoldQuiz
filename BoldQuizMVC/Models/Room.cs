@@ -15,8 +15,8 @@ namespace Models
             this.Point = point;
             this.Section = Section;
             this.SectionID = Section.ID;
-             Players = new List<Player>();
-             Levels = new List<Room_levels>();
+            Players = new List<Player>();
+            Levels = new List<Room_levels>();
         }
 
         public Room(int Point, Section Section)

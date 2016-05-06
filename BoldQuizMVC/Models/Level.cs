@@ -17,6 +17,7 @@ namespace Models
             Rooms = new List<Room>();
             Quetions = new List<Question>();
         }
+        public Level() { }
 
         public int ID { get; set; }
         public string Name { get; private set; }
@@ -25,7 +26,7 @@ namespace Models
         public List<Room> Rooms { get; private set; }
         public List<Question> Quetions { get; private set; }
 
-        public Level() { }
+        
 
     }
 }

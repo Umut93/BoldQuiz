@@ -20,13 +20,14 @@ namespace BLL
 
         }
 
-
+        //Getting the specific room with its level.
         public Room_levels getRoom_level(int room_id, int level_id)
 
         {
            return room_LevelsRepository.getRoom_level(room_id, level_id);
         }
 
+        //Updating the room_level's property. Whether is open or not, score..
         public void updateRoomLevel(Room_levels room_level)
         {
            room_LevelsRepository.updateRoomLevel(room_level);

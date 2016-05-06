@@ -21,13 +21,14 @@ namespace DAL
             return con.Query<Room_levels, Level, Room_levels>(sql, (room_level, level) => { room_level.Level = level; return room_level; }, new { room_id = room_id }).ToList();
         }
 
+        //Joining Room_levels + Level + Room. Every Room has its own id and level_id. Its function after sql string!
         public Room_levels getRoom_level(int room_id, int level_id)
         {
-            string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID join Room on room_id = Room.ID where room_id = @room_id AND level_id = @level_id";
+            string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID JOIN Room on room_id = Room.ID where room_id = @room_id AND level_id = @level_id";
             return con.Query<Room_levels, Level, Room, Room_levels>(sql, (room_level, level, room) => { room_level.Level = level; room_level.Room = room;  return room_level; }, new { room_id = room_id, level_id = level_id }).SingleOrDefault();
 
         }
-
+        //Dynamic way to keep track of every room with its level_id. Every room has its own id and level_id as well for scored sake.
         public void updateRoomLevel(Room_levels roomLevel)
         {
             string sql = "UPDATE Room_Levels SET isUnlocked = @isUnlocked, isCompleted = @isCompleted, savedScore = @savedScore where room_id = @room_id AND level_id = @level_id ";

@@ -13,8 +13,8 @@ namespace DAL
         {
         }
             
-           //Creating a room by passing the properties in the database.  
-           // Scope_identity tager den sidste generede identiy i tabellen.
+         //Creating a room by passing the properties in the database.  
+         // Scope_identity tager den sidste generede identiy i tabellen.
          public void createRoom(Room room)
         {
             string findID = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid); select scope_identity()";

@@ -6,7 +6,7 @@
 <h2>Vælg din spilkategori</h2>
 
 <!--form action = "URL" - Where to send the form-data when the form is submitted. -->
-
+<!-- Every section is created as a button and here is where you choose your section. Afterwareds you direct to a room (id) -->
 <form method="post" action="@Url.Action("chooseSection", "User")">
 
 @foreach (var item in Model)
