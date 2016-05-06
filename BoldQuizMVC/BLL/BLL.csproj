@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="QuestionLogic.cs" />
     <Compile Include="RoomLogic.cs" />
+    <Compile Include="Room_LevelsLogic.cs" />
     <Compile Include="SectionLogic.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

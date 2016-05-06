@@ -14,13 +14,25 @@
 
 
 *@
+<div class="level_buttons">
 @foreach (var item in Model.Levels)
-{
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id ="@item.Level.ID">@item.Level.Name</button>
     
+{
+    
+    if (item.IsUnlocked)
+    {
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="@item.Level.ID">@item.Level.Name</button>
+
+        
+
+    }
+    else
+    {
+        <button type="button" class="btn btn-primary btn-lg" disabled>@item.Level.Name</button>
+    }
 
 }
-
+</div>
 <!-- Modal BootStrap -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -39,10 +51,10 @@
         </div>
     </div>
 </div>
-<!-- 	$("#---") take the ID -->
+<!-- 	$("#---") RelatedTarget you know the id of the level when you click the button -->
 <script>$("#myModal").on("show.bs.modal", function (e) {
     var id = e.relatedTarget.dataset.id;
     
     @* jQuery: Selector takes the iframeID and sets both the arguments *@
-    $("#quizFrame").attr("src", "/Quiz/index?levelID=" + id);
+    $("#quizFrame").attr("src", "/Quiz/index?levelID=" + id + "&roomID=@(Model.ID)");
 })</script>

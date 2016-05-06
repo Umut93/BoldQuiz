@@ -9,13 +9,14 @@ namespace Models
     public class Room_levels
     {
         public string ID { get; set; }
-        public Boolean IsUnlocked { get; set; }
-        public Boolean IsCompleted { get; set; }
+        public bool IsUnlocked { get; set; }
+        public bool IsCompleted { get; set; }
         public Room Room { get; set; }
-        public Level Level { get; set; }
+        public Level Level { get; set;} 
+        public int SavedScore {get; set;}
 
 
-        public Room_levels(string ID, Boolean IsUnclocked, Boolean IsCompleted, Room room, Level level)  {
+        public Room_levels(string ID, bool IsUnclocked, bool IsCompleted, Room room, Level level)  {
 
             this.ID = ID;
             this.IsUnlocked =IsUnlocked ;

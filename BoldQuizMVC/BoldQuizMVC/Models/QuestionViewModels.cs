@@ -33,7 +33,9 @@ namespace BoldQuizMVC.Models
     {
         public int LevelID { get; set; }
         public List<QuestionViewModels> questions { get; set; }
+        public int RoomID { get; set; }
 
     }
 
+  
 }
