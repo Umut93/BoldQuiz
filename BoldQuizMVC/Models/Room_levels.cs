@@ -14,6 +14,7 @@ namespace Models
         public Room Room { get; set; }
         public Level Level { get; set;} 
         public int SavedScore {get; set;}
+       
 
 
         public Room_levels(string ID, bool IsUnclocked, bool IsCompleted, Room room, Level level)  {

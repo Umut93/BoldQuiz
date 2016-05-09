@@ -57,3 +57,10 @@ textarea {
 
     margin:10px;
 }
+/*This unicode show the padlock*/
+.level_buttons button[disabled]::after{
+    content:"\f023"; 
+    font-family:FontAwesome;
+    margin: 5px;
+ 
+}

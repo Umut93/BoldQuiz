@@ -83,6 +83,17 @@ namespace BoldQuizMVC.Controllers
             }
             room_level.SavedScore = correctedAnswers;
             room_LevelsLogic.updateRoomLevel(room_level);
+
+            // The requirements for opening the next level. NextroomLevel opens the nezt level after compeleting the right answers-
+            if (correctedAnswers >= room_level.Level.Score)
+            {
+                Room_levels nextRoomLevel = room_LevelsLogic.getRoom_level(model.RoomID, room_level.Level.Next_level);
+
+                nextRoomLevel.IsUnlocked = true;
+
+                room_LevelsLogic.updateRoomLevel(nextRoomLevel);
+          
+            }
  
             return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10";
         }

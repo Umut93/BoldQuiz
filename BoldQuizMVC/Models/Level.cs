@@ -25,8 +25,9 @@ namespace Models
         public Section Section { get; private set; }
         public List<Room> Rooms { get; private set; }
         public List<Question> Quetions { get; private set; }
+        public int Next_level { get; set; }
 
-        
+
 
     }
 }
