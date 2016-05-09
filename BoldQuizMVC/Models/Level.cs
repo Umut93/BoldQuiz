@@ -7,7 +7,16 @@ using System.Threading.Tasks;
 namespace Models
 {
    public class Level
-    {
+    {   public int ID { get; set; }
+        public string Name { get; private set; }
+        public int Score { get; private set; }
+        public Section Section { get; private set; }
+        public List<Room> Rooms { get; private set; }
+        public List<Question> Quetions { get; private set; }
+        public int Next_level { get; set; }
+
+        public Level() { }
+
         public Level (int ID, string Name, int Score, Section Section)
         {
             this.ID = ID;
@@ -17,15 +26,9 @@ namespace Models
             Rooms = new List<Room>();
             Quetions = new List<Question>();
         }
-        public Level() { }
+      
 
-        public int ID { get; set; }
-        public string Name { get; private set; }
-        public int Score { get; private set; }
-        public Section Section { get; private set; }
-        public List<Room> Rooms { get; private set; }
-        public List<Question> Quetions { get; private set; }
-        public int Next_level { get; set; }
+      
 
 
 

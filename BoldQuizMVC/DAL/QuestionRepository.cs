@@ -19,7 +19,7 @@ namespace DAL
         //Eliminerer samme forekomst 2 gange
         //Tjek om spørgsmålet allerede findes på listen (linje 27-28) Linjen 33 så er den allerede på listen selvom det er samme kode osv.
 
-        public List<Question> GetQuetionsForLevel(int levelID)
+        public List<Question> getQuetionsForLevel(int levelID)
         {
 
             List<Question> quetions = new List<Question>();

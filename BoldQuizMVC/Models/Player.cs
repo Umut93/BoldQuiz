@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 namespace Models
 {
     public class Player : ApplicationUser
-    {
-        public Player() { }
+    {   public string Gender { get; set; }
+        public Room Room { get; set; }
+
+
+        
 
         public Player(int ID, string UserName, string PassWord, string Gender, Room Room) 
         {
@@ -17,14 +20,8 @@ namespace Models
             this.UserName = UserName;
             this.Gender = Gender;
             this.Room = Room;
-
-            
-            
-            
-            
         }
-        public string Gender { get; set; }
-        public Room Room { get; set; }
+       public Player() { }
        
     }
 }

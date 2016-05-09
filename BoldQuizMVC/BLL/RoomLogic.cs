@@ -24,7 +24,7 @@ namespace BLL
 
 
         //Creating the room
-        public void createroom(Room room)
+        public void createRoom(Room room)
         {
             roomRepository.createRoom(room);
 

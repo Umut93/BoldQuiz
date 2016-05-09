@@ -15,7 +15,7 @@ namespace Models
         public Level Level { get; set;} 
         public int SavedScore {get; set;}
        
-
+        public Room_levels() { }
 
         public Room_levels(string ID, bool IsUnclocked, bool IsCompleted, Room room, Level level)  {
 
@@ -26,7 +26,7 @@ namespace Models
             this.Level = level;
         }
 
-        public Room_levels() { }
+       
 
     }
 

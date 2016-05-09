@@ -8,6 +8,14 @@ namespace Models
 {
     public class Room
     {
+        public int SectionID { get; set;}
+        public int ID { get; set; }
+        public int Point { get; set; }
+        public Section Section { get; set; }
+        public List<Player> Players { get; set; }
+        public List<Room_levels> Levels { get; set; }
+
+        public Room () { }
 
         public Room(int ID,int point,  Section Section) {
 
@@ -29,14 +37,9 @@ namespace Models
             List<Level> levels = new List<Level>();
 
         }
-        public Room () { }
+       
 
-        public int SectionID { get; set;}
-        public int ID { get; set; }
-        public int Point { get; set; }
-        public Section Section { get; set; }
-        public List<Player> Players { get; set; }
-        public List<Room_levels> Levels { get; set; }
+       
 
 
 

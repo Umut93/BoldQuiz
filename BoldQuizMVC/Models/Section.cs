@@ -8,6 +8,16 @@ namespace Models
 {
     public class Section
     {
+        
+        public int ID { get; set; }
+        public string Name { get; private set; }
+        public List<Level> Levels{ get; set; }
+        public List<Room> Rooms { get; set; }
+        public List<Question> Quetions { get; set; }
+
+        public Section() { }
+
+
         public Section(int ID, string Name)
         {
             this.ID = ID;
@@ -15,15 +25,11 @@ namespace Models
             Levels = new List<Level>();
             Rooms = new List<Room>();
             Quetions = new List<Question>();
-
+      
+            
 
         }
 
-        public Section() { }
-        public int ID { get; set; }
-        public string Name { get; private set; }
-        public List<Level> Levels{ get; set; }
-        public List<Room> Rooms { get; set; }
-        public List<Question> Quetions { get; set; }
+      
     }
 }

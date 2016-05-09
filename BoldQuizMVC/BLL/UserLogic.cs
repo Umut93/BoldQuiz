@@ -30,7 +30,7 @@ namespace BLL
 
             Room room = new Room(0, section);
 
-            roomLogic.createroom(room);
+            roomLogic.createRoom(room);
             Player player = playerRepository.findOnePlayer(userName);
 
             player.Room = room;
