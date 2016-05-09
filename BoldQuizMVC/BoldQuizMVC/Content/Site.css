@@ -57,7 +57,7 @@ textarea {
 
     margin:10px;
 }
-/*This unicode show the padlock*/
+/*This unicode show the padlock from FontAwesome. After selector inserts padlocks after content of each selected elements  */
 .level_buttons button[disabled]::after{
     content:"\f023"; 
     font-family:FontAwesome;
