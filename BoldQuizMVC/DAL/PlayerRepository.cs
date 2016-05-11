@@ -47,14 +47,7 @@ namespace DAL
 
         }
 
-        //public void deletePlayer(Player player)
-        //{
-
-        //    string sql = "DELETE FROM Player WHERE userID = @userID";
-        //    con.Execute(sql, new { userID = player.Id });
-
-
-        //}
+     
 
         }
 }

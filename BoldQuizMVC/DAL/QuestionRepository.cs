@@ -51,6 +51,13 @@ namespace DAL
         }
 
 
+        public List<Question> playerQuestion(int playerID, int level_ID)
+        {
+            string sql = "SELECT * FROM Player_question JOIN Question on question_id = Question.ID where player_id = @user_ID AND level_id = @level_id";
+            return con.Query<Question>(sql, new { user_ID = playerID, level_id = level_ID }).ToList();
+
+        }
+
 
     }
 }

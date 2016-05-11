@@ -4,6 +4,10 @@
     Layout = null;
 }
 
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/Cookies.js"></script>
+
+
 
 @* For every question, it will show up the main question and then the and responsible answers as well. NameFor is the location of the object in the array - the range is 0-9. Html.NameFor returns a string *@
 
@@ -26,7 +30,7 @@
     <ul style="list-style: none;">
         @for(int index =0; index < item.Answers.Count; index++)
         {
-            <li><input type="radio" name="@Html.NameFor(x=> Model.questions[i].SelectedAnswerID)" value=" @Model.questions[i].Answers[index].ID" />@Model.questions[i].Answers[index].AnswerText </li>
+            <li><input onclick="handleSeleteced()" class="button-answer" type="radio" name="@Html.NameFor(x=> Model.questions[i].SelectedAnswerID)" value=" @Model.questions[i].Answers[index].ID" />@Model.questions[i].Answers[index].AnswerText </li>
 
         }
     </ul>

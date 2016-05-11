@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Microsoft.AspNet.Identity;
 
 namespace BoldQuizMVC.Controllers
 {
@@ -25,10 +25,17 @@ namespace BoldQuizMVC.Controllers
         }
 
         // GET: Quiz
-        //Getting the 10 questions by giving a levelID. Afterwards populating the data in the viewModels!
+        //Getting the 10 questions by giving a levelID. Afterwards populating the data in the viewModels! If questions is empty, then generate 10 random questions.
         public ActionResult Index(int levelID, int roomID)
         {
-            List<Question> question = questionLogic.Get10Questions(levelID);
+           
+            List<Question> question;
+            question = questionLogic.playerQuestion(int.Parse(User.Identity.GetUserId()), levelID);
+            if (question.Count == 0)
+            {
+                question = questionLogic.Get10Questions(levelID);
+
+            }
             QuizViewModel viewModel = new QuizViewModel();
             viewModel.LevelID = levelID;
             viewModel.RoomID = roomID;

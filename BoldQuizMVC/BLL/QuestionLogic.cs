@@ -34,9 +34,15 @@ namespace BLL
 
 
         }
+
+        public List<Question> playerQuestion(int playerID, int level_ID)
+        {
+          return  questionRepository.playerQuestion(playerID, level_ID);
+        }
         
     }
 
+    
     
 
 }

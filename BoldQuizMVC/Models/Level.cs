@@ -10,10 +10,11 @@ namespace Models
     {   public int ID { get; set; }
         public string Name { get; private set; }
         public int Score { get; private set; }
-        public Section Section { get; private set; }
-        public List<Room> Rooms { get; private set; }
-        public List<Question> Quetions { get; private set; }
+        public Section Section { get;  set; }
+        public List<Question> Quetions { get;  set; }
+        public List<Room_levels> room_levels { get; set; }
         public int Next_level { get; set; }
+
 
         public Level() { }
 
@@ -23,7 +24,6 @@ namespace Models
             this.Name = Name;
             this.Score = Score;
             this.Section = Section;
-            Rooms = new List<Room>();
             Quetions = new List<Question>();
         }
       
