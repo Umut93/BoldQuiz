@@ -35,6 +35,7 @@ namespace BLL
 
         }
 
+        // Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method saves the questions in the database for re-create it. For loading the questions again, so the user can resume!
         public List<Question> playerQuestion(int playerID, int level_ID)
         {
           return  questionRepository.playerQuestion(playerID, level_ID);

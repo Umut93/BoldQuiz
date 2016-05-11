@@ -50,7 +50,7 @@ namespace DAL
            
         }
 
-
+        //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method saves the questions in the database for re-create it --> cookies
         public List<Question> playerQuestion(int playerID, int level_ID)
         {
             string sql = "SELECT * FROM Player_question JOIN Question on question_id = Question.ID where player_id = @user_ID AND level_id = @level_id";

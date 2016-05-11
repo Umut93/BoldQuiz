@@ -25,7 +25,8 @@ namespace BoldQuizMVC.Controllers
         }
 
         // GET: Quiz
-        //Getting the 10 questions by giving a levelID. Afterwards populating the data in the viewModels! If questions is empty, then generate 10 random questions.
+        //Getting the 10 questions by giving a levelID. Afterwards populating the data in the viewModels! If questions is empty, then generate 10 random questions. 
+        //If the list of questions are empty then it should generate random-questions (loading the page for first time), if not then we keep the questions until the user is finished (loading for second time). 
         public ActionResult Index(int levelID, int roomID)
         {
            
