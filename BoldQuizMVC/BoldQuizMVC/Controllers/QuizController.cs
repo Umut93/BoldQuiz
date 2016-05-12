@@ -27,16 +27,20 @@ namespace BoldQuizMVC.Controllers
         // GET: Quiz
         //Getting the 10 questions by giving a levelID. Afterwards populating the data in the viewModels! If questions is empty, then generate 10 random questions. 
         //If the list of questions are empty then it should generate random-questions (loading the page for first time), if not then we keep the questions until the user is finished (loading for second time). 
+        // orderby: The questions order...??
         public ActionResult Index(int levelID, int roomID)
         {
-           
+            int userID = int.Parse(User.Identity.GetUserId());
             List<Question> question;
-            question = questionLogic.playerQuestion(int.Parse(User.Identity.GetUserId()), levelID);
+            question = questionLogic.playerQuestion(userID, levelID);
             if (question.Count == 0)
             {
                 question = questionLogic.Get10Questions(levelID);
+                questionLogic.savePlayerUnfinishedQuiz(question, levelID, userID);
 
             }
+            question = question.OrderBy(x => x.ID).ToList();
+
             QuizViewModel viewModel = new QuizViewModel();
             viewModel.LevelID = levelID;
             viewModel.RoomID = roomID;

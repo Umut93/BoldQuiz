@@ -50,15 +50,43 @@ namespace DAL
            
         }
 
-        //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method saves the questions in the database for re-create it --> cookies
+        //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method saves the questions in the database for re-create it --> cookies. It retrieves from the database
         public List<Question> playerQuestion(int playerID, int level_ID)
         {
-            string sql = "SELECT * FROM Player_question JOIN Question on question_id = Question.ID where player_id = @user_ID AND level_id = @level_id";
-            return con.Query<Question>(sql, new { user_ID = playerID, level_id = level_ID }).ToList();
+            string sql = "SELECT * FROM Player_question JOIN Question on question_id = Question.ID JOIN Answer on Question.ID = Answer.question_id where player_id = @user_ID AND level_id = @level_id";
 
+            List<Question> quetions = new List<Question>();
+
+            con.Query<Question, Answer, Question>(sql, (question, answer) => {
+
+                if (quetions.FirstOrDefault(x => x.ID == question.ID) == null)
+
+                {
+                    quetions.Add(question);
+
+                }
+                quetions.FirstOrDefault(x => x.ID == question.ID).Answers.Add(answer);
+
+
+                return question;
+
+            }, new { user_ID = playerID, level_id = level_ID });
+              return quetions;
         }
 
+        public void savePlayerUnfinishedQuiz (List<Question> quetions, int levelID, int playerID)
+        {
+            
+            string sql = "INSERT INTO Player_question values (@player_id, @level_id, @question_id)";
 
+            foreach(Question question in quetions)
+            {
+                con.Execute(sql, new { player_id = playerID, level_id = levelID, question_id = question.ID});
+            }
+            
+
+
+        }
     }
 }
 

@@ -41,6 +41,11 @@ namespace BLL
           return  questionRepository.playerQuestion(playerID, level_ID);
         }
         
+        public void savePlayerUnfinishedQuiz(List<Question> quetions, int levelID, int playerID)
+        {
+            questionRepository.savePlayerUnfinishedQuiz(quetions, levelID, playerID);
+        }
+
     }
 
     
