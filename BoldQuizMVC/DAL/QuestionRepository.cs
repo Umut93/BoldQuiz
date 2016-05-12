@@ -74,6 +74,7 @@ namespace DAL
               return quetions;
         }
 
+        //When the user clicks in a given level, then the upcoming questions is inserted in the Player_question tabel for the sake of resuming.
         public void savePlayerUnfinishedQuiz (List<Question> quetions, int levelID, int playerID)
         {
             

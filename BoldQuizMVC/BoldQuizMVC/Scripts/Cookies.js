@@ -1,5 +1,6 @@
 ﻿
-//Selecting all the checked buttons inclusive their ID's. It is stores in a array.
+// The selector selects the id of the selected possible answers and then populating them in the array.
+
 function handleSeleteced()
 {
     var array = [];
