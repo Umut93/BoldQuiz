@@ -5,7 +5,7 @@
 }
 
 @Scripts.Render("~/bundles/jquery")
-<script src="~/Scripts/Cookies.js"></script>
+
 
 
 
@@ -22,15 +22,16 @@
    @for (int i = 0; i < Model.questions.Count; i++)
 
    {
-       
-         var item = Model.questions[i];
+   
+
+ var item = Model.questions[i];
         <input type="hidden" name="@Html.NameFor(x=> Model.questions[i].QuestionID)" value=" @item.QuestionID" />
         <div>
             <strong>@item.QuestionTitle</strong>
     <ul style="list-style: none;">
         @for(int index =0; index < item.Answers.Count; index++)
         {
-            <li><input onclick="handleSeleteced()" class="button-answer" type="radio" name="@Html.NameFor(x=> Model.questions[i].SelectedAnswerID)" value=" @Model.questions[i].Answers[index].ID" />@Model.questions[i].Answers[index].AnswerText </li>
+            <li><input onclick="handleSeleteced()" id="@("Answer-" + Model.questions[i].Answers[index].ID)" class="button-answer" type="radio" name="@Html.NameFor(x=> Model.questions[i].SelectedAnswerID)" value=" @Model.questions[i].Answers[index].ID" />@Model.questions[i].Answers[index].AnswerText </li>
 
         }
     </ul>
@@ -41,4 +42,4 @@
     }
     <button> Godkend </button>
 </form>
-
+<script src="~/Scripts/Cookies.js"></script>
