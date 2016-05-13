@@ -47,6 +47,9 @@ namespace BLL
             questionRepository.savePlayerUnfinishedQuiz(quetions, levelID, playerID);
         }
 
+
+        //After finishing in a given level, the database deletes the player_quetions (data), because you dig into next level. 
+        // The database shows overall the levels a person have been thorugh.
         public void deletePlayerQuestions(int levelID, int playerID)
         {
             questionRepository.deletePlayerQuestions(levelID, playerID);

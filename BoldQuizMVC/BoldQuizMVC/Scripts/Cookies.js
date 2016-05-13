@@ -1,4 +1,5 @@
 ﻿//Cheked buttons must apperear when the user has cheked them already. Formatting to objects.
+//$ -> jQuery --> attr. checked buttons!
 
 var gettingcokie = getCookie("SelectedAnswers");
 var answerArray = gettingcokie.split(","); 
@@ -11,7 +12,7 @@ for (var i = 0; i < answerArray.length; i++)
    
 }
 
-// The selector selects the id of the selected possible answers and then populating them in the array.
+// The selector selects the id of the selected possible answers and then populating them in the array. Cookie name = SelectedAnswers, value = array, expire 10 days
 
 function handleSeleteced()
 {
@@ -26,7 +27,7 @@ function handleSeleteced()
 }
 
 //http://www.w3schools.com/js/js_cookies.asp = 10 days
-//Setting a cookie by its name, value and expiredays. The values are the values in the array which is selected possible answers (ID)!
+//Setting a cookie by its name, value and expiredays. The values are the values in the array which is selected possible answers (ID)! The path is localhost
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
