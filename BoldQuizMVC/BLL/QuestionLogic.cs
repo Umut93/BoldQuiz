@@ -47,6 +47,10 @@ namespace BLL
             questionRepository.savePlayerUnfinishedQuiz(quetions, levelID, playerID);
         }
 
+        public void deletePlayerQuestions(int levelID, int playerID)
+        {
+            questionRepository.deletePlayerQuestions(levelID, playerID);
+        }
     }
 
     

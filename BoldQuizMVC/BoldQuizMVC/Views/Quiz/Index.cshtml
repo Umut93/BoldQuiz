@@ -31,7 +31,7 @@
     <ul style="list-style: none;">
         @for(int index =0; index < item.Answers.Count; index++)
         {
-            <li><input onclick="handleSeleteced()" id="@("Answer-" + Model.questions[i].Answers[index].ID)" class="button-answer" type="radio" name="@Html.NameFor(x=> Model.questions[i].SelectedAnswerID)" value=" @Model.questions[i].Answers[index].ID" />@Model.questions[i].Answers[index].AnswerText </li>
+            <li><input onclick="handleSeleteced()" id="@("Answer-" + Model.questions[i].Answers[index].ID)" class="button-answer" type="radio" required  name="@Html.NameFor(x=> Model.questions[i].SelectedAnswerID)" value=" @Model.questions[i].Answers[index].ID" />@Model.questions[i].Answers[index].AnswerText </li>
 
         }
     </ul>

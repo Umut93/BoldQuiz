@@ -106,7 +106,9 @@ namespace BoldQuizMVC.Controllers
                 room_LevelsLogic.updateRoomLevel(nextRoomLevel);
           
             }
- 
+
+            int userID = int.Parse(User.Identity.GetUserId());
+            questionLogic.deletePlayerQuestions(model.LevelID, userID);
             return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10";
         }
     }
