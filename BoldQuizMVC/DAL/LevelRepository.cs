@@ -12,8 +12,13 @@ namespace DAL
     {
         public LevelRepository(string connectionstring) : base(connectionstring)
         {
+
         }
 
-        
+        public List<Level> getLevelsForASection(int sectionID)
+        {
+            string sql = "SELECT * FROM [Level] WHERE section_id = @section_ID";
+            return con.Query<Level>(sql, new { section_ID = sectionID }).ToList();
+        }
     }
 }

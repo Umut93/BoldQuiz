@@ -13,6 +13,7 @@ namespace BLL
         private SectionLogic sectionLogic;
         private RoomRepository roomRepository;
         private Room_LevelsRepository room_LevelsRepository;
+        private LevelLogic levelLogic;
 
         //Instantiating the classes and repository classes
         public RoomLogic()
@@ -20,16 +21,38 @@ namespace BLL
             roomRepository = new RoomRepository("DefaultConnection");
             room_LevelsRepository = new Room_LevelsRepository("DefaultConnection");
             sectionLogic = new SectionLogic();
+            levelLogic = new LevelLogic();
         }
 
 
         //Creating the room
+        // We are getting levels for in a given section and assigning the Room_levels properties with level (index). 
+        //Finally we set the first level as true as defualt.
         public void createRoom(Room room)
         {
-            roomRepository.createRoom(room);
+            var levels = levelLogic.getLevelsForASection(room.SectionID);
 
+            List<Room_levels> Room_levels = new List<Room_levels>();
+
+            foreach (var level in levels)
+            {
+                Room_levels room_Levels = new Room_levels();
+                room_Levels.Level = level;
+                room_Levels.Room = room;
+                Room_levels.Add(room_Levels);
             }
 
+            Room_levels.FirstOrDefault().IsUnlocked = true;
+
+            roomRepository.createRoom(room);
+
+            foreach (var room_level in Room_levels)
+            {
+                room_LevelsRepository.addRoomLevel(room_level);
+            }
+
+
+        }
 
         //Getting the room by searching the ID
         public Room getRoom(int id)

@@ -32,6 +32,12 @@ namespace BLL
         {
            room_LevelsRepository.updateRoomLevel(room_level);
         }
+
+        public void addRoomLevel(Room_levels room_level)
+        {
+            room_LevelsRepository.addRoomLevel(room_level);
+
+        }
     }
 
     
