@@ -35,7 +35,7 @@ namespace DAL
             con.Execute(sql, new {isUnlocked = roomLevel.IsUnlocked, isCompleted = roomLevel.IsCompleted, savedScore = roomLevel.SavedScore, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID });
         }
 
-        // Adding the values in the Room_levels table
+        // Inserting values into Room_levels (table). 
         public void addRoomLevel(Room_levels roomLevel)
         {
             string sql = "INSERT INTO Room_levels VALUES (@isUnlocked, @isCompleted, @room_id, @level_id, @savedScore)";

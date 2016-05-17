@@ -18,6 +18,8 @@ namespace BLL
 
         }
 
+
+        //Getting levels from a specific section.
         public List<Level> getLevelsForASection(int sectionID)
         {
            return LevelRepository.getLevelsForASection(sectionID);

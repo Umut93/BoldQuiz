@@ -25,9 +25,12 @@ namespace BLL
         }
 
 
-        //Creating the room
-        // We are getting levels for in a given section and assigning the Room_levels properties with level (index). 
-        //Finally we set the first level as true as defualt.
+        //Getting the levels for a specific Section
+        //For each level in a section we a room_level and assinging its properties with list of levels.
+        //The first room_level (level 1) is by default true, becuase it is starting point of the game
+        //Finally we create a room
+        
+        //For each room_level in the list we add a room_level in the table.
         public void createRoom(Room room)
         {
             var levels = levelLogic.getLevelsForASection(room.SectionID);

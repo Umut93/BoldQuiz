@@ -33,6 +33,7 @@ namespace BLL
            room_LevelsRepository.updateRoomLevel(room_level);
         }
 
+        //Inserting values into Room_levels (table). 
         public void addRoomLevel(Room_levels room_level)
         {
             room_LevelsRepository.addRoomLevel(room_level);

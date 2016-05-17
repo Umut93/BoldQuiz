@@ -39,8 +39,6 @@ namespace BoldQuizMVC.Controllers
         {
             List<Section> sections = sectionLogic.getSections();
 
-
-
             return View(sections);
         }
 
