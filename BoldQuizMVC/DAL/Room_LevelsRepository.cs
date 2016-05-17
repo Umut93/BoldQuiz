@@ -14,6 +14,7 @@ namespace DAL
         {
         }
 
+
         //Jeg joiner to tabeller Room_levels og Level sammen og deres information befolker jeg på hver af deres objekter. Returner jeg Room_levels! I det room_level som har en enkelt Level som objekt, bliver den befolket med level. Se det som venstre tabel og højre tabel!
         public List<Room_levels> getRoom_Levels(int room_id)
         {
