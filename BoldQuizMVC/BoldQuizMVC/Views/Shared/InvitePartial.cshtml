@@ -4,9 +4,10 @@
 
 @*Den generer et html input som er gemt. Den mapper propertien viewmodels userName. 
   These piece of information are on the current view --> inviteViewModel.
+  The name for that input type is --> userName
 *@
 <form method="post" action="/Invite/InvitePlayer">
-    @Html.HiddenFor(x=> x.roomID)
+    @Html.HiddenFor((x => x.roomID))
 <input type="text" name="@Html.NameFor(x=> x.UserName)" class="hidden" id="inviteTextBox" />
 
  </form>
