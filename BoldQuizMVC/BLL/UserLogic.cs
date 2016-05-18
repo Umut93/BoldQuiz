@@ -38,5 +38,12 @@ namespace BLL
 
             return room;
         }
+
+        //Finding one player by its username
+        public Player findPLayer (String userName)
+        {
+          return playerRepository.findOnePlayer(userName);
+
+        }
     }
 }

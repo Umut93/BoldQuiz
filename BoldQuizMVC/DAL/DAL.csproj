@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AdminRepository.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="InviteRepository.cs" />
     <Compile Include="LevelRepository.cs" />
     <Compile Include="PlayerRepository.cs" />
     <Compile Include="Room_LevelsRepository.cs" />

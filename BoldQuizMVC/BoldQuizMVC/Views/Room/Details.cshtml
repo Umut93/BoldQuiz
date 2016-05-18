@@ -8,18 +8,20 @@
 <h2>@Model.Section.Name </h2>
 
 @*The button for inviting a friend and excuted with javascript (show/hide box). *@
+<style>
+    .invite {background-color:blue;
+            color:white;
 
-<button onclick="ShowToggleInput()" > Inviter ven </button>
-
-<input type="text" class ="hidden" id="inviteTextBox" />
-
-<script>
-    function ShowToggleInput () 
-    {
-        $("#inviteTextBox").toggleClass("hidden")
     }
+</style>
 
-</script>
+@*SuperViewet har til opgave give de rigtige værdier til subViewet ! It is null because the user has not typed yet
+Partial view enables that will be rendered inside a parent view --> render the partial view into parental view
+Parental view --> Details (strongly typed Room)
+Partial view --> InvitePartial (strongly typed on InviteViewModel)
+ *@
+@Html.Partial("InvitePartial", new BoldQuizMVC.Models.InviteViewModel(null, Model.ID))
+
 
 
 <h3> @Model.Point Point</h3>

@@ -94,19 +94,21 @@ namespace BoldQuizMVC.Controllers
                 
             }
             room_level.SavedScore = correctedAnswers;
-            room_LevelsLogic.updateRoomLevel(room_level);
+           
 
             // The requirements for opening the next level. NextroomLevel opens the nezt level IF you have achieved the earned points!
             if (correctedAnswers >= room_level.Level.Score)
             {
                 Room_levels nextRoomLevel = room_LevelsLogic.getRoom_level(model.RoomID, room_level.Level.Next_level);
 
+                room_level.IsUnlocked = false;
+
                 nextRoomLevel.IsUnlocked = true;
 
                 room_LevelsLogic.updateRoomLevel(nextRoomLevel);
           
             }
-
+            room_LevelsLogic.updateRoomLevel(room_level);
             int userID = int.Parse(User.Identity.GetUserId());
             questionLogic.deletePlayerQuestions(model.LevelID, userID);
             return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10";

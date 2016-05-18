@@ -60,6 +60,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Identity\IdentityModels.cs" />
+    <Compile Include="Invite.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
