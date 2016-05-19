@@ -24,7 +24,11 @@ namespace BLL
     {
             inviteRepository.addInvite(invite);
     }
-
+        //Finding invites for one person (for a reciepent). 
+        public List<Invite> findInviteForOnePerson(int user_id)
+        {
+          return  inviteRepository.findInviteForOnePerson(user_id);
+        }
     }
 
     

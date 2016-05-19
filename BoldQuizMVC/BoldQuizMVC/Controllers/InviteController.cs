@@ -27,12 +27,29 @@ namespace BoldQuizMVC.Controllers
         {
             int userID = int.Parse(User.Identity.GetUserId());
             Player player = UserLogic.findPLayer(inviteViewModel.UserName);
+
             Invite invite = new Invite(userID, player.Id, inviteViewModel.roomID);
+
 
             inviteLogic.invitePLayer(invite);
 
             return RedirectToAction("Details", "Room", new {id = inviteViewModel.roomID }); 
 
+
+
+        }
+        
+        //After logging in, the user gets its invites.
+        //JSonrequestBehaviour = den skal gør det den endelig skal gøre = nemlig hente = sikkerhed
+        //Data=SenderID, receipentid, roomID = object (in array)
+        //MVC doenst allow you to responds to an HTTP get request with a JSON payload. 
+        //If you need to send JSON in response to a GET, you'll need to explicitly allow the behaviour (security reasons).
+        public ActionResult findInvitesForOnePerson()
+        {
+            int userID = int.Parse(User.Identity.GetUserId());
+            List<Invite> invites = inviteLogic.findInviteForOnePerson(userID);
+
+            return Json(invites, JsonRequestBehavior.AllowGet);
         }
     }
 

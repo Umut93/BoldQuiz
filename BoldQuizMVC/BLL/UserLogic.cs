@@ -15,13 +15,13 @@ namespace BLL
 
 
         //Instantiating classes and repository classes.
-        public UserLogic ()
+        public UserLogic()
         {
             playerRepository = new PlayerRepository("DefaultConnection");
             sectionLogic = new SectionLogic();
             roomLogic = new RoomLogic();
 
-    }
+        }
 
         //After finding the section - creating the room and assigning the player in a room. 
         public Room chooseSection(int id, string userName)
@@ -40,10 +40,17 @@ namespace BLL
         }
 
         //Finding one player by its username
-        public Player findPLayer (String userName)
+        public Player findPLayer(String userName)
         {
-          return playerRepository.findOnePlayer(userName);
+            return playerRepository.findOnePlayer(userName);
+
+        }
+
+        //Finding a player by ID
+        public Player findPLayer(int userID)
+        {
+            return playerRepository.findOnePlayer(userID);
 
         }
     }
-}
+    }

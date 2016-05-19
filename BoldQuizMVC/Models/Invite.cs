@@ -10,15 +10,15 @@ namespace Models
     {
         public int SenderID { get; set; }
         public int RecipientID { get; set; }
-        public int RoomID { get; set; }
+        public int Room_id { get; set; }
 
 
 
-        public Invite(int SenderID, int RecipientID, int RoomID)
+        public Invite(int SenderID, int RecipientID, int Room_id)
         {
             this.SenderID = SenderID;
             this.RecipientID = RecipientID;
-            this.RoomID = RoomID;
+            this.Room_id = Room_id;
         }
 
         public Invite() { }

@@ -5,6 +5,7 @@
 @*Den generer et html input som er gemt. Den mapper propertien viewmodels userName. 
   These piece of information are on the current view --> inviteViewModel.
   The name for that input type is --> userName
+   HiddenFor ikke noget brugeren skal til at skrive
 *@
 <form method="post" action="/Invite/InvitePlayer">
     @Html.HiddenFor((x => x.roomID))

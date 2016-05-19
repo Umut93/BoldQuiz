@@ -23,5 +23,16 @@ namespace DAL
             con.Execute(sql, invite);
 
         }
+
+        //Finding invites for one person (for a reciepent). 
+        public List<Invite> findInviteForOnePerson(int user_id)
+        {
+
+          string sql = "SELECT * FROM INVITE where RecipientID  = @recipientID";
+          return con.Query<Invite>(sql, new { recipientID = user_id }).ToList();
+
+        }
+
+
     }
 }
