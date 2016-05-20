@@ -10,11 +10,12 @@ using Microsoft.AspNet.Identity;
 
 namespace BoldQuizMVC.Controllers
 {
+    [Authorize]
     public class InviteController: Controller
     {
         private InviteLogic inviteLogic;
         private UserLogic UserLogic;
-
+        
         public InviteController ()
     {
         inviteLogic = new InviteLogic();
