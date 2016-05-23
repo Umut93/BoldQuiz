@@ -32,7 +32,8 @@ namespace BLL
           return  inviteRepository.findInvitesForOnePerson(user_id);
         }
 
-        //
+        //Finding the player (RecipientID) and giving the player a new room as well. Its roomid is assigned to the requested roomid and then we are updating the player's room to that which it has accepted.
+        //After accepting, we remove the recent generated invite.
         public void acceptInvite(Invite invite)
         {
             Player recipient = userLogic.findPLayer(invite.RecipientID);
@@ -43,10 +44,10 @@ namespace BLL
 
         }
 
+        //Finding a specific invite by a composite key.
         public Invite findOneInvite (int senderID, int recipientID)
         {
          return inviteRepository.findInviteForOne(senderID, recipientID);
-
 
         }
     }

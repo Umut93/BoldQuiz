@@ -53,7 +53,7 @@ namespace BLL
 
         }
 
-        //
+        //Updating player's room_id and gender (not gonna channge at all).
         public void updatePlayer (Player player)
         {
             playerRepository.updatePlayer(player);

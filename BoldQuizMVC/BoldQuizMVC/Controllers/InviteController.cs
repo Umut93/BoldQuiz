@@ -54,7 +54,10 @@ namespace BoldQuizMVC.Controllers
         }
 
         [HttpPost]
-        //fortæller status om serveren. 200 er gået godt. Validering efter accept!
+        //Finding one invite by senderID and recipientID.
+        //Finding the player (Recipient) and giving the player a new room as well. Its roomid is assigned to the requested roomid and then we are updating the player's room to that which it has accepted.
+        //After accepting, we remove the recent generated invite.
+        //Fortæller status om serveren (http header for en succeful request). Validering efter accept!
         public ActionResult acceptInvite (int senderID, int recipientID)
         {
           Invite invite =  inviteLogic.findOneInvite(senderID, recipientID);

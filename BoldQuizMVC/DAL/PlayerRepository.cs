@@ -40,11 +40,11 @@ namespace DAL
         }
 
         //Updating a player by searching the player.
-        public void updatePlayer(Player player) {
+        public void updatePlayer(Player player)
+        {
 
             string sql = "Update Player set gender = @gender, room_id = @room_id WHERE userID = @userID";
             con.Execute(sql, new { gender = player.Gender, room_id = player.Room.ID, userID = player.Id });
-
 
         }
 

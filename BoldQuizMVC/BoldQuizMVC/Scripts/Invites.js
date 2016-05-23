@@ -6,6 +6,7 @@
 //Plain object (in the array) (senderID,roomId,recipentid)
 //Null = vi skal ikke sende noget brugerId afsted? 
 //Selector!
+//if confirmed then we are posting our data to the server for validating.
 
 $.getJSON("/Invite/findInvitesForOnePerson", null, function (data)
 {
