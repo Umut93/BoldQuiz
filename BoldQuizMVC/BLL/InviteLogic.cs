@@ -50,6 +50,14 @@ namespace BLL
          return inviteRepository.findInviteForOne(senderID, recipientID);
 
         }
+
+        public void declineInvite (Invite invite)
+        {
+            Player recipient = userLogic.findPLayer(invite.RecipientID);
+            recipient.Room = new Room();
+         
+
+        }
     }
 
     
