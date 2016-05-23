@@ -52,6 +52,20 @@ namespace BoldQuizMVC.Controllers
 
             return Json(invites, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        //fortæller status om serveren. 200 er gået godt. Validering efter accept!
+        public ActionResult acceptInvite (int senderID, int recipientID)
+        {
+          Invite invite =  inviteLogic.findOneInvite(senderID, recipientID);
+          inviteLogic.acceptInvite(invite);
+
+          return new HttpStatusCodeResult(200);
+
+
+
+
+        }
     }
 
    

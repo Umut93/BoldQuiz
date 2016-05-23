@@ -52,5 +52,12 @@ namespace BLL
             return playerRepository.findOnePlayer(userID);
 
         }
+
+        //
+        public void updatePlayer (Player player)
+        {
+            playerRepository.updatePlayer(player);
+
+        }
     }
     }

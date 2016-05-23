@@ -19,20 +19,33 @@ namespace DAL
         //Adding a invite object into the table. The invite contains the sender/reciepent and finally what room the sender has sent the invite. 
         public void addInvite (Invite invite)
         {
-            string sql = "INSERT INTO Invite VALUES (@SenderID, @RecipientID, @RoomID)";
+            string sql = "INSERT INTO Invite VALUES (@SenderID, @RecipientID, @room_id)";
             con.Execute(sql, invite);
 
         }
 
-        //Finding invites for one person (for a reciepent). 
-        public List<Invite> findInviteForOnePerson(int user_id)
+        //Finding a LIST of invites for one person (for a recipient). The invite contains the sender's ID og recipient's ID and which room the sender has invited on.
+        public List<Invite> findInvitesForOnePerson(int user_id)
         {
 
           string sql = "SELECT * FROM INVITE where RecipientID  = @recipientID";
           return con.Query<Invite>(sql, new { recipientID = user_id }).ToList();
 
         }
+        //Finding ONE invite for a specifik person (for a recipient). The invite contains the sender's ID og recipient's id and which room the sender has invited on.
+        public Invite findInviteForOne(int senderID, int recipientID)
+        {
+            string sql = "SELECT * FROM INVITE where senderID = @senderID AND RecipientID = @RecipientID";
+            return con.Query<Invite>(sql, new { senderID = senderID, RecipientID = recipientID }).Single();
 
+        }
+
+        //Deleting a invite by senderID and recipientID  (as a combination).
+        public void removeInvite(int senderID, int RecipientID)
+        {
+            string sql = "DELETE FROM Invite where senderID = @senderID AND RecipientID = @RecipientID";
+            con.Execute(sql, new { senderID = senderID, RecipientID = RecipientID });
+        }
 
     }
 }
