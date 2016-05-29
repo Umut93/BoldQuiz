@@ -8,11 +8,11 @@ namespace Models
 {
     public class Room_levels
     {
-        public string ID { get; set; }
-        public bool IsUnlocked { get; set; }
-        public bool IsCompleted { get; set; }
-        public Room Room { get; set; }
-        public Level Level { get; set;} 
+        public string ID {get; set;}
+        public bool IsUnlocked {get; set;}
+        public bool IsCompleted {get; set;}
+        public Room Room {get; set;}
+        public Level Level {get; set;} 
         public int SavedScore {get; set;}
        
         public Room_levels() { }

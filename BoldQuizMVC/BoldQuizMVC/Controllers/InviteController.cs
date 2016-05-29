@@ -15,11 +15,13 @@ namespace BoldQuizMVC.Controllers
     {
         private InviteLogic inviteLogic;
         private UserLogic UserLogic;
-        
+    
+
         public InviteController ()
     {
         inviteLogic = new InviteLogic();
         UserLogic = new UserLogic();
+      
     }
         //This method takes InviteViewModel as a argument. The invite gets the id of the sender and the reciepten's id and the roomID as well (just like the table shows). 
         //We are getting the userName which is parsed in the input(viewmodel).
@@ -67,11 +69,11 @@ namespace BoldQuizMVC.Controllers
 
         }
 
-        public ActionResult declineInvite(int senderID, int recipientID)
-        {
-            Invite deniedInvite = inviteLogic.findOneInvite(senderID, recipientID);
-            inviteLogic.
-        }
+        //public ActionResult declineInvite(int senderID, int recipientID)
+        //{
+          //  Invite deniedInvite = inviteLogic.findOneInvite(senderID, recipientID);
+        //    inviteLogic.declineInvite(deniedInvite);
+       // }
     }
     
    

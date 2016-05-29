@@ -148,7 +148,7 @@ namespace BoldQuizMVC.Controllers
             return View();
         }
 
-        //
+        //Linie 164 = not assinged to a room yet
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]

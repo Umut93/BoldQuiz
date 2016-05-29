@@ -10,7 +10,7 @@ namespace Models
     {
         
         public int ID { get; set; }
-        public string Name { get; private set; }
+        public string Name { get; set; }
         public List<Level> Levels{ get; set; }
         public List<Room> Rooms { get; set; }
         public List<Question> Quetions { get; set; }

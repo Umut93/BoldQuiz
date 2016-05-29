@@ -12,6 +12,7 @@ namespace BLL
     {
         private InviteRepository inviteRepository;
         private UserLogic userLogic;
+        private RoomLogic roomLogic;
 
 
     public InviteLogic()
@@ -19,7 +20,9 @@ namespace BLL
 
             inviteRepository = new InviteRepository("DefaultConnection");
             userLogic = new UserLogic();
-    }
+            roomLogic = new RoomLogic();
+            
+        }
 
         //Adding a invite object into the table. The invite contains the sender/reciepent and finally what room the sender has sent the invite. 
         public void invitePLayer(Invite invite)
@@ -51,11 +54,12 @@ namespace BLL
 
         }
 
+        //Decline a invite and perserve the room you are allocated to.
         public void declineInvite (Invite invite)
         {
-            Player recipient = userLogic.findPLayer(invite.RecipientID);
-            recipient.Room = new Room();
-         
+           inviteRepository.removeInvite(invite.SenderID, invite.RecipientID);
+
+
 
         }
     }

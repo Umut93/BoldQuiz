@@ -8,10 +8,11 @@ namespace Models
 {
    public class Invite
     {
-        public int SenderID { get; set; }
-        public int RecipientID { get; set; }
-        public int Room_id { get; set; }
+        public int SenderID {get; set;}
+        public int RecipientID {get; set;}
+        public int Room_id {get; set;}
 
+        public Invite() { }
 
 
         public Invite(int SenderID, int RecipientID, int Room_id)
@@ -21,7 +22,7 @@ namespace Models
             this.Room_id = Room_id;
         }
 
-        public Invite() { }
+       
 
     }
 }

@@ -13,7 +13,7 @@ namespace Models.Identity
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser<int, BoldQuizUserLogin, BoldQuizUserRole, BoldQuizUserClaim>
     {
-        public string user_type { get; set; }
+        public string user_type {get; set;}
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser, int> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
