@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace BoldQuizMVC.Controllers
 {
+    
     public class QuizController : Controller
     {
         private QuestionLogic questionLogic;

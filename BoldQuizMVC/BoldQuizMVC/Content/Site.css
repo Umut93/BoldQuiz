@@ -27,7 +27,7 @@ textarea {
     background-color:gray;
  
 }
-/*The first button*/
+/*The first button* --> div-class --> Details/ 
 .level_buttons button:nth-of-type(1)
 {
     background-color: green;

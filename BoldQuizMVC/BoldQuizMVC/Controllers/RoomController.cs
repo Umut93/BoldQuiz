@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace BoldQuizMVC.Controllers
 {
+    [Authorize]
     public class RoomController : Controller
     {
         private RoomLogic roomLogic;
