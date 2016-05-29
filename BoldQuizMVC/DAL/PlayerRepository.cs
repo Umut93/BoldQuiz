@@ -17,6 +17,7 @@ namespace DAL
 
 
         //Inserting a player in the Player-Table. @user and @gender is the values - we assign them with help of player's objects propeties!
+
         public void addPlayer(Player player) {
         con.Execute("INSERT INTO Player(userId, gender) VALUES (@userID, @gender)", new {userID = player.Id, gender = player.Gender}); 
 
@@ -26,7 +27,7 @@ namespace DAL
         //Finding ONE player by searching the ID in the table. Note that we are using AspNetUsers which from microsoft entity framwork which maps the users.
         public Player findOnePlayer(int id)
         {
-            string sql = "Select * from AspNetUsers JOIN Player on Id = userID where Id = @id";
+            string sql = "SELECT * FROM AspNetUsers JOIN Player on Id = userID where Id = @id";
             return  con.Query<Player>(sql, new { id = id }).Single(); 
 
         }
@@ -34,7 +35,7 @@ namespace DAL
         //Finding a player by searchinng the Username.
         public Player findOnePlayer(string UserName)
         {
-            string sql = "Select * from AspNetUsers JOIN Player on Id = userID where UserName = @userName";
+            string sql = "SELECT * FROM AspNetUsers JOIN Player on Id = userID where UserName = @userName";
             return con.Query<Player>(sql, new { userName = UserName }).Single();
 
         }
@@ -43,7 +44,7 @@ namespace DAL
         public void updatePlayer(Player player)
         {
 
-            string sql = "Update Player set gender = @gender, room_id = @room_id WHERE userID = @userID";
+            string sql = "Update Player SET gender = @gender, room_id = @room_id WHERE userID = @userID";
             con.Execute(sql, new { gender = player.Gender, room_id = player.Room.ID, userID = player.Id });
 
         }

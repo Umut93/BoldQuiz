@@ -20,7 +20,7 @@ namespace BLL
 
         }
 
-        //Getting the specific room with its level.
+        //Getting the specific/one room:level based on the room and level you are on.
         public Room_levels getRoom_level(int room_id, int level_id)
 
         {
@@ -33,7 +33,7 @@ namespace BLL
            room_LevelsRepository.updateRoomLevel(room_level);
         }
 
-        //Inserting values into Room_levels (table). 
+        //Updating a room_level table after processing the quiz based on the room and level you are on.
         public void addRoomLevel(Room_levels room_level)
         {
             room_LevelsRepository.addRoomLevel(room_level);

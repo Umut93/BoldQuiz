@@ -17,7 +17,7 @@ namespace BLL
             questionRepository = new QuestionRepository("DefaultConnection");
         }
 
-        //Getting the 10 questions based on level. Guid the random generator which takes 10!
+        //Getting the 10 questions based on level. Guid the random generator which takes 10 from 50 questions!
         public List<Question> Get10Questions(int levelID)
         {
         List<Question> questions =  questionRepository.getQuetionsForLevel(levelID);
@@ -25,7 +25,7 @@ namespace BLL
            
         }
 
-        // Getting the answer id and seeing if it is true
+        // Getting one answer by searhing its id
         public bool isAnsweredCorrect (int id)
         {
             var answer = questionRepository.getAnswer(id);

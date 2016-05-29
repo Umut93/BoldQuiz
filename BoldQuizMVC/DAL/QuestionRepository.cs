@@ -15,8 +15,7 @@ namespace DAL
         }
 
 
-        //Every level corresponds to a section. In that section they contain about 50 questions which points to the right levelID.
-        //Eliminerer samme forekomst 2 gange
+        //The sql statement return 50 quetions based on the level_id. It turns out that the question shows 3 times, thats why firstorDefault is used.
         //Tjek om spørgsmålet allerede findes på listen (linje 27-28) Linjen 33 så er den allerede på listen selvom det er samme kode osv.
 
         public List<Question> getQuetionsForLevel(int levelID)
@@ -50,6 +49,8 @@ namespace DAL
 
         }
 
+        //FirstorDefault is used because questions shows 3 times and we only want one and its answers! Linje 76 = 10 quetions and its answers
+        //SQL: Shows all the 10-questions the user has got.
         //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method saves the questions in the database for re-create it --> cookies. It retrieves from the database
         public List<Question> playerQuestion(int playerID, int level_ID)
         {

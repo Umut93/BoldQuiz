@@ -16,14 +16,14 @@ namespace DAL
         //Retriving all the sections
         public List<Section> getSections()
         {
-            string sql = "Select * from Section";
+            string sql = "SELECT * FROM Section";
             return con.Query<Section>(sql).ToList();
 
         }
         //Retrieving one Section
         public Section findOneSection(int id) {
 
-            string sql = "Select * FROM Section where ID = @id";
+            string sql = "SELECT * FROM Section where ID = @id";
             return  con.Query<Section>(sql, new { id = id }).First();
 
         }

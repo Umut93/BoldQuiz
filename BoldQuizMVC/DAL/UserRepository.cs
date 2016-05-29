@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using Dapper;
 using System.Threading.Tasks;
-using IDAL;
 using System.Configuration;
 using Models;
 using Models.Identity;

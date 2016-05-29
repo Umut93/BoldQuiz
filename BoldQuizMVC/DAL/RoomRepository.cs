@@ -15,6 +15,7 @@ namespace DAL
             
          //Creating a room by passing the properties in the database.  
          // Scope_identity tager den sidste generede identiy i tabellen.
+         //ExcuScalar used when the query returns a single value (the total rows). 
          public void createRoom(Room room)
         {
             string findID = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid); select scope_identity()";
@@ -28,7 +29,7 @@ namespace DAL
             return con.Query<Room>(sql, new { Id = id }).Single();
         }
 
-        //Deleing a specific piece of a room.
+        //Deleing a room.
         public void deleteRoom(Room room)
         {
             string sql = "DELETE FROM Room where ID = @Id ";

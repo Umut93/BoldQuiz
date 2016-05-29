@@ -54,14 +54,12 @@ namespace BLL
 
         }
 
-        //Decline a invite and perserve the room you are allocated to.
-        public void declineInvite (Invite invite)
-        {
-           inviteRepository.removeInvite(invite.SenderID, invite.RecipientID);
-
-
-
-        }
+        //    //Decline a invite and perserve the room you are allocated to.
+        //    public void declineInvite (Invite invite)
+        //    {
+        //       inviteRepository.removeInvite(invite.SenderID, invite.RecipientID);
+        //    }
+        //
     }
 
     
