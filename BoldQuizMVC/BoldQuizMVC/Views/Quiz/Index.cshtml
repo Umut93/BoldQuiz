@@ -9,7 +9,8 @@
 
 
 
-@* For every question, it will show up the main question and then the and responsible answers as well. NameFor is the location of the object in the array - the range is 0-9. Html.NameFor returns a string *@
+@* For every question, it will show up the main question and then the and responsible answers as well. NameFor is the location of the object in the array - the range is 0-9. 
+ Hidden is used to hide to the end user and to post to the server.Html.NameFor returns a string. *@
 
 <form method="post" action="/Quiz/submitQuiz"> 
 
@@ -23,7 +24,6 @@
 
    {
    
-
  var item = Model.questions[i];
         <input type="hidden" name="@Html.NameFor(x=> Model.questions[i].QuestionID)" value=" @item.QuestionID" />
         <div>

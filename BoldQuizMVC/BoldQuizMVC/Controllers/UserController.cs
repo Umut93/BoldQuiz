@@ -43,6 +43,7 @@ namespace BoldQuizMVC.Controllers
         }
 
         //After choosing the section you redirect to a specific room(id).
+        //Linje 54: action/controller/routevalues (room number)
 
         [HttpPost]
         public ActionResult chooseSection(int sectionTeam)
@@ -50,8 +51,6 @@ namespace BoldQuizMVC.Controllers
 
             Room room = userLogic.chooseSection(sectionTeam, User.Identity.Name);
 
-
-            
             return RedirectToAction("Details", "Room", new { id = room.ID });
 
         }
