@@ -19,6 +19,7 @@
 Partial view enables that will be rendered inside a parent view --> render the partial view into parental view
 Parental view --> Details (strongly typed Room)
 Partial view --> InvitePartial (strongly typed on InviteViewModel)
+model --> Levelid+roomid + quetions(10)
  *@
 @Html.Partial("InvitePartial", new BoldQuizMVC.Models.InviteViewModel(null, Model.ID))
 

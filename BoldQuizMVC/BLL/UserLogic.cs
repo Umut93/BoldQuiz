@@ -23,7 +23,7 @@ namespace BLL
 
         }
 
-        //After registering you direct to categories. The showed categories are done in linie 31.
+        //After registering, you direct to categories. The showed categories are done in linie 31.
         //After finding the section - creating the room and assigning the player in a room. 
 
         public Room chooseSection(int id, string userName)

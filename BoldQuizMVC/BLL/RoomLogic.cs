@@ -25,9 +25,11 @@ namespace BLL
         }
 
 
-        //Getting the levels for a specific Section
+        //Getting the levels for a specific Section by the room's sectionid.
+        //
+        //Assigning a room_level in a specific room
         //For each level in a section we a room_level and assinging its properties with list of levels.
-        //The first room_level (level 1) is by default true, becuase it is starting point of the game (48)
+        //The first room_level (level 1) is by default true, becuase it is starting point of the game.
         //Finally we create a room
         
         //For each room_level in the list we add a room_level in the table.

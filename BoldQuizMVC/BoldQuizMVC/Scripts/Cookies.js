@@ -1,5 +1,7 @@
 ﻿//Cheked buttons must apperear when the user has cheked them already. Formatting to objects.
 //$ -> jQuery --> attr. checked buttons!
+//#answer (select the list item id)
+//13 --> radio buttons preserved.
 
 var gettingcokie = getCookie("SelectedAnswers");
 var answerArray = gettingcokie.split(","); 
@@ -12,7 +14,8 @@ for (var i = 0; i < answerArray.length; i++)
    
 }
 
-// The selector selects the id of the selected possible answers and then populating them in the array. Cookie name = SelectedAnswers, value = array, expire 10 days
+// The selector selects the id of the selected possible answers and then populating them in the array. Cookie name = SelectedAnswers, value = array, expire 20 days
+//Each --> loop on jQuery object --> excuting for each matched element. index and the element
 
 function handleSeleteced()
 {
@@ -23,7 +26,7 @@ function handleSeleteced()
 
     })
     console.log(array);
-    setCookie("SelectedAnswers", array, 10)
+    setCookie("SelectedAnswers", array, 20)
 }
 
 //http://www.w3schools.com/js/js_cookies.asp = 10 days

@@ -23,7 +23,8 @@ namespace BoldQuizMVC.Controllers
         UserLogic = new UserLogic();
       
     }
-        //This method takes InviteViewModel as a argument. The invite gets the id of the sender and the reciepten's id and the roomID as well (just like the table shows). 
+        //This method takes InviteViewModel as a argument. The invite gets the id of the sender and the recieptent's id and the roomID as well (just like the table shows). 
+        //senderID, recepientID, roomid 35
         //We are getting the userName which is parsed in the input(viewmodel).
         //ActionName/Controller/id
         public ActionResult  InvitePlayer (InviteViewModel inviteViewModel)

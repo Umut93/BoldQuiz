@@ -14,7 +14,7 @@ using Models;
 
 namespace BoldQuizMVC.Controllers
 {
-    //Se også --> Linje 153
+    //Se også --> Linje 153 !!
     [Authorize]
     public class AccountController : Controller
     {

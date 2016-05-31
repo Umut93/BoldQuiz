@@ -217,7 +217,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\test.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Home\boldquiz.jpg" />
     <Content Include="Web.config" />
@@ -261,10 +260,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Answer\" />
-    <Folder Include="Views\Player\" />
-    <Folder Include="Views\Question\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

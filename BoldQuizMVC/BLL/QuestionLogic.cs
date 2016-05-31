@@ -17,7 +17,8 @@ namespace BLL
             questionRepository = new QuestionRepository("DefaultConnection");
         }
 
-        //Getting the 10 questions based on level. Guid the random generator which takes 10 from 50 questions!
+        //25: The list gets all 50 questions based on the levelID
+       //  Guid the random generator which takes 10 random questions!
         public List<Question> Get10Questions(int levelID)
         {
         List<Question> questions =  questionRepository.getQuetionsForLevel(levelID);
@@ -25,7 +26,7 @@ namespace BLL
            
         }
 
-        // Getting one answer by searhing its id
+        // This method gives the result if a given answer is correct or not.
         public bool isAnsweredCorrect (int id)
         {
             var answer = questionRepository.getAnswer(id);
@@ -35,7 +36,7 @@ namespace BLL
 
         }
 
-        // Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method saves the questions in the database for re-create it. For loading the questions again, so the user can resume!
+        // Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method retrieves the questions in the database for re-create it. For loading the questions again, so the user can resume!
         public List<Question> playerQuestion(int playerID, int level_ID)
         {
           return  questionRepository.playerQuestion(playerID, level_ID);
