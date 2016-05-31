@@ -20,7 +20,6 @@ namespace DAL
 
         public List<Question> getQuetionsForLevel(int levelID)
         {
-
             List<Question> quetions = new List<Question>();
 
             string sql = "SELECT * FROM Level_Question JOIN Question ON question_id = ID JOIN Answer on question.ID = Answer.question_id where level_id = @levelID; ";
@@ -41,17 +40,16 @@ namespace DAL
             return quetions;
         }
 
-        //Getting the PK from Answer
+        //Getting a answer by its id.
         public Answer getAnswer(int id)
         {
             string sql = "Select * FROM Answer where id = @id;";
             return con.Query<Answer>(sql, new { id = id }).Single();
 
         }
-
-        //FirstorDefault is used because questions shows 3 times and we only want one and its answers! Linje 76 = 10 quetions and its answers
-        //SQL: Shows all the 10-questions the user has got.
-        //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method saves the questions in the database for re-create it --> cookies. It retrieves from the database
+        //Just finding the player's 10 questions based its playerid and which level he is on (by sql).
+        //FirstorDefault is used because questions shows 3 times and we only want one and its answers! 
+        //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method retrieves the questions in the database for re-create it --> cookies. It retrieves from the database
         public List<Question> playerQuestion(int playerID, int level_ID)
         {
             string sql = "SELECT * FROM Player_question JOIN Question on question_id = Question.ID JOIN Answer on Question.ID = Answer.question_id where player_id = @user_ID AND level_id = @level_id";
@@ -76,7 +74,7 @@ namespace DAL
             return quetions;
         }
 
-        //When the user clicks in a given level, then the upcoming questions is inserted in the Player_question tabel for the sake of resuming.
+        //When the user clicks in a given level, then the upcoming questions is inserted in the Player_question tabel for the sake of resuming and saving.
         public void savePlayerUnfinishedQuiz(List<Question> quetions, int levelID, int playerID)
         {
 

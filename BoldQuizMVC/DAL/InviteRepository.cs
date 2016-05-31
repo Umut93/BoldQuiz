@@ -28,7 +28,6 @@ namespace DAL
         //Finding a LIST of invites for one person (for a recipient). The invite contains the sender's ID og recipient's ID and which room the sender has invited on.
         public List<Invite> findInvitesForOnePerson(int user_id)
         {
-
           string sql = "SELECT * FROM INVITE where RecipientID  = @recipientID";
           return con.Query<Invite>(sql, new { recipientID = user_id }).ToList();
 

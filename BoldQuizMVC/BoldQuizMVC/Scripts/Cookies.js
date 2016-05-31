@@ -36,7 +36,7 @@ function setCookie(cname, cvalue, exdays) {
 }
 //Get cookie http://www.w3schools.com/js/js_cookies.asp
 // Return the value of specified cookie.
-//35 if cookies is found otherwise return "".
+//51 if cookies is found otherwise return "".
 //charat takes a specific character from a string.
 //substring takes character from a string in specific string.
 //indexOF?

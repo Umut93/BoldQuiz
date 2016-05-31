@@ -18,9 +18,9 @@ namespace DAL
 
         //Inserting a player in the Player-Table. @user and @gender is the values - we assign them with help of player's objects propeties!
 
-        public void addPlayer(Player player) {
+        public void addPlayer(Player player)
+        {
         con.Execute("INSERT INTO Player(userId, gender) VALUES (@userID, @gender)", new {userID = player.Id, gender = player.Gender}); 
-
 
         }
 

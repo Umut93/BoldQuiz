@@ -13,7 +13,7 @@ namespace DAL
         {
         }
             
-         //Creating a room by passing the properties in the database.  
+         //Creating a room by passing the properties in the database. Every room is assigned to a section.
          // Scope_identity tager den sidste generede identiy i tabellen.
          //ExcuScalar used when the query returns a single value (the total rows). 
          public void createRoom(Room room)

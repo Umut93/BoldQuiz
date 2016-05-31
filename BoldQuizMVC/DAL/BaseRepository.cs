@@ -10,6 +10,7 @@ using Dapper;
 
 namespace DAL
 {
+    //The base Repository class takes a DefaultConnection as a argument and the connectionstring gets from the web.config.
     public abstract class BaseRepository
     {
         protected SqlConnection con;

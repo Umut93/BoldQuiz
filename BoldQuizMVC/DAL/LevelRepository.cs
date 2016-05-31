@@ -16,8 +16,7 @@ namespace DAL
         }
 
 
-        //Getting levels from a specific section.
-        //Each section has its own ID
+        //Getting (5) levels from a specific section by its id.
         public List<Level> getLevelsForASection(int sectionID)
         {
             string sql = "SELECT * FROM [Level] WHERE section_id = @section_ID";
