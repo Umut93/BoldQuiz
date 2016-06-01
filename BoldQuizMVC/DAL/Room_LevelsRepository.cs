@@ -17,6 +17,7 @@ namespace DAL
         //Room_Levels id og Level id joines i forbindelse med det room man er i. Joining af de to tabeller, deres information befolker jeg på hver af deres objekter
         //Liste over de LEVELS man er i ud fra sit room_id!!!
         // I det room_level som har en enkelt Level som objekt, bliver den befolket med level. Se det som venstre tabel og højre tabel!
+        //Multimapping in Dapper: map a single row to multiple objects
         public List<Room_levels> getRoom_Levels(int room_id)
         {
             string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID where room_id = @room_id";

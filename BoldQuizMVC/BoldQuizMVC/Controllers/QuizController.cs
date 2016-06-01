@@ -122,5 +122,7 @@ namespace BoldQuizMVC.Controllers
             questionLogic.deletePlayerQuestions(model.LevelID, userID);
             return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10";
         }
+
     }
+    
 }
