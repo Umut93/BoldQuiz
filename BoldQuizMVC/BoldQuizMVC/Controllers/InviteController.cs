@@ -70,6 +70,7 @@ namespace BoldQuizMVC.Controllers
 
         }
 
+        //Decline a invite (recipient)
         public ActionResult declineInvite(int senderID, int recipientID)
         {
            Invite deniedInvite = inviteLogic.findOneInvite(senderID, recipientID);

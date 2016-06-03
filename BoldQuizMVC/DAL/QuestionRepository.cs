@@ -48,6 +48,7 @@ namespace DAL
 
         }
         //Just finding the player's 10 questions based its roomID and which level he is on (by sql).
+        //x.id (object) 
         //FirstorDefault is used because questions shows 3 times and we only want one and its answers! 
         //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method retrieves the questions in the database for re-create it --> cookies. It retrieves from the database
         public List<Question> playerQuestion(int room_ID, int level_ID)
