@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="InviteLogic.cs" />
     <Compile Include="LevelLogic.cs" />
+    <Compile Include="Player_StatusLogic.cs" />
     <Compile Include="QuestionLogic.cs" />
     <Compile Include="RoomLogic.cs" />
     <Compile Include="Room_LevelsLogic.cs" />

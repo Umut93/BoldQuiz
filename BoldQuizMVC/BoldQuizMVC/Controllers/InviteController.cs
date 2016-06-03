@@ -70,11 +70,13 @@ namespace BoldQuizMVC.Controllers
 
         }
 
-        //public ActionResult declineInvite(int senderID, int recipientID)
-        //{
-          //  Invite deniedInvite = inviteLogic.findOneInvite(senderID, recipientID);
-        //    inviteLogic.declineInvite(deniedInvite);
-       // }
+        public ActionResult declineInvite(int senderID, int recipientID)
+        {
+           Invite deniedInvite = inviteLogic.findOneInvite(senderID, recipientID);
+           inviteLogic.declineInvite(deniedInvite);
+
+            return new HttpStatusCodeResult(200);
+        }
     }
     
    

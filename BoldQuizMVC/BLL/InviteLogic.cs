@@ -54,14 +54,14 @@ namespace BLL
 
         }
 
-        //    //Decline a invite and perserve the room you are allocated to.
-        //    public void declineInvite (Invite invite)
-        //    { 
-        //       Player recipient = userLogic.findPLayer(invite.RecipientID);       
+           //Decline a invite and perserve the room you are allocated to.
+            public void declineInvite (Invite invite)
+            { 
+             Player recipient = userLogic.findPLayer(invite.RecipientID);       
 
-        //       inviteRepository.removeInvite(invite.SenderID, invite.RecipientID);
-        //    }
-        //
+              inviteRepository.removeInvite(invite.SenderID, invite.RecipientID);
+            }
+        
     }
 
 

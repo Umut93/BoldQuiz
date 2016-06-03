@@ -38,15 +38,15 @@ namespace DAL
         //Updating a room_level based on the room and level you are on.
         public void updateRoomLevel(Room_levels roomLevel)
         {
-            string sql = "UPDATE Room_Levels SET isUnlocked = @isUnlocked, isCompleted = @isCompleted, savedScore = @savedScore where room_id = @room_id AND level_id = @level_id ";
-            con.Execute(sql, new {isUnlocked = roomLevel.IsUnlocked, isCompleted = roomLevel.IsCompleted, savedScore = roomLevel.SavedScore, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID });
+            string sql = "UPDATE Room_Levels SET isUnlocked = @isUnlocked, isCompleted = @isCompleted,  where room_id = @room_id AND level_id = @level_id ";
+            con.Execute(sql, new {isUnlocked = roomLevel.IsUnlocked, isCompleted = roomLevel.IsCompleted, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID });
         }
 
         // Inserting values into Room_levels (table). 
         public void addRoomLevel(Room_levels roomLevel)
         {
-            string sql = "INSERT INTO Room_levels VALUES (@isUnlocked, @isCompleted, @room_id, @level_id, @savedScore)";
-            con.Execute(sql, new { isUnlocked = roomLevel.IsUnlocked, isCompleted = roomLevel.IsCompleted, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID, savedScore = roomLevel.SavedScore});
+            string sql = "INSERT INTO Room_levels VALUES (@isUnlocked, @isCompleted, @room_id, @level_id)";
+            con.Execute(sql, new { isUnlocked = roomLevel.IsUnlocked, isCompleted = roomLevel.IsCompleted, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID});
         }
     }
 

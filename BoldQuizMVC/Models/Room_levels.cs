@@ -13,7 +13,7 @@ namespace Models
         public bool IsCompleted {get; set;}
         public Room Room {get; set;}
         public Level Level {get; set;} 
-        public int SavedScore {get; set;}
+       
        
         public Room_levels() { }
 

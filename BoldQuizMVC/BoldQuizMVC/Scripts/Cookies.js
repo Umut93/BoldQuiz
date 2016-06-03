@@ -26,11 +26,14 @@ function handleSeleteced()
 
     })
     console.log(array);
-    setCookie("SelectedAnswers", array, 20)
+    setCookie("SelectedAnswers", array, 10)
 }
 
 //http://www.w3schools.com/js/js_cookies.asp = 10 days
+//exdays*24*60..
+//path the directory where it should be valid on (=/) = rest
 //Setting a cookie by its name, value and expiredays. The values are the values in the array which is selected possible answers (ID)! The path is localhost
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
@@ -39,9 +42,13 @@ function setCookie(cname, cvalue, exdays) {
 }
 //Get cookie http://www.w3schools.com/js/js_cookies.asp
 // Return the value of specified cookie.
-//51 if cookies is found otherwise return "".
-//charat takes a specific character from a string.
-//substring takes character from a string in specific string.
+//name variable = searching
+//Ca = cookie array
+//split() --> keep key/values seperated
+//555 if cookies is found otherwise return "".
+//charat takes a specific character from a string. 
+//indexof= searhing a string and output the number of the index.
+//substring takes character from a string in specific range.
 //indexOF?
 function getCookie(cname) {
     var name = cname + "=";

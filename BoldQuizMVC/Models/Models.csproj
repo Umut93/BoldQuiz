@@ -63,6 +63,8 @@
     <Compile Include="Invite.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Player_Question.cs" />
+    <Compile Include="Player_Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Room.cs" />

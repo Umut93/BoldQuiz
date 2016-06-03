@@ -42,7 +42,7 @@ namespace BoldQuizMVC.Controllers
             return View(sections);
         }
 
-        //After choosing the section you redirect to a specific room(id).
+        //After choosing the section you redirect to a specific room(id). Get request to a specicfic action.
         //Linje 54: action/controller/routevalues (room number)
 
         [HttpPost]

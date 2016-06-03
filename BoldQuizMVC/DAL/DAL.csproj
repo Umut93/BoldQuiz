@@ -67,6 +67,7 @@
     <Compile Include="InviteRepository.cs" />
     <Compile Include="LevelRepository.cs" />
     <Compile Include="PlayerRepository.cs" />
+    <Compile Include="Player_statusRepository.cs" />
     <Compile Include="Room_LevelsRepository.cs" />
     <Compile Include="SectionRepository.cs" />
     <Compile Include="QuestionRepository.cs" />
