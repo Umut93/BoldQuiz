@@ -72,7 +72,7 @@ namespace BLL
         }
 
 
-
+        //Finding all players on the same room.
         public List<Player> FindAllPlayerOneRoom(int roomID)
         {
           return  roomRepository.FindAllPlayerOneRoom(roomID);

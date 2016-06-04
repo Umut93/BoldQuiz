@@ -70,7 +70,6 @@
     <Compile Include="Room.cs" />
     <Compile Include="Room_levels.cs" />
     <Compile Include="Section.cs" />
-    <Compile Include="User_.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

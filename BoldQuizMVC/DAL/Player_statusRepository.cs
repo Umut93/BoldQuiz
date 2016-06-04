@@ -30,7 +30,7 @@ namespace DAL
 
         }
 
-        //Updating a player_status in the table
+        //Updating a player_status table
         public void updatePlayerStatus(Player_Status player_status)
         {
             string sql = "UPDATE Player_status SET savedScore = @SavedScore, player_id = @playerID, room_levels_id = @Room_levels_id WHERE ID = @id ";

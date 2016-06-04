@@ -25,7 +25,7 @@ namespace DAL
 
         }
 
-
+        //Getting one specific room with its room_level. The first overload!
         public Room_levels getRoom_level(int room_level_id)
         {
             string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID JOIN Room on room_id = Room.ID where Room_levels.ID =@room_level_id";
@@ -36,6 +36,7 @@ namespace DAL
 
         // Joiner Room_levels + Level + Room -> returnerer Room_levels. Dette tages højde for hvilket rum og level man er i.
         //Viser EN Room_level ud fra det room og level man er id.
+        //Second overload.
         //SingleOrDefault: If the sequnce is empty or if no conditions is not satified --> no error. Throw a exception if one more element in the sequense satifies the given condition.
         public Room_levels getRoom_level(int room_id, int level_id)
         {

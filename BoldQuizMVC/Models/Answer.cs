@@ -11,7 +11,7 @@ namespace Models
         public int ID {get; set;}
         public Question Question {get; set;}
         public string AnswerText {get; set;}
-        public Boolean IsCorrect {get; set;}
+        public bool IsCorrect {get; set;}
 
         public Answer() { }
 

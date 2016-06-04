@@ -22,7 +22,8 @@ namespace BLL
             UserLogic = new UserLogic();
         }
 
-
+        //Finding a specific room with its level_id. This looks into how a player has cope with it. (savedscore,playerid,room_levels_id). You get a Player_status.
+        //A way of securing that a player_status is in the table before retrievning from the table.
         public Player_Status findPlayerStatus(int playerID, int room_level_id)
 
         {
@@ -42,7 +43,8 @@ namespace BLL
 
         }
 
-        //add it if it is not in the table.
+        //Adding a player_status if it is not already in the table.
+        //50: Use a external method!
         public void addPlayerStatus(Player_Status player_status)
         {
             if (findPlayerStatus(player_status.Player.Id, player_status.Room_levels.ID)==null)
@@ -51,7 +53,7 @@ namespace BLL
             }
            
         }
-
+        //Updating a player_status after processing a level.
         public void updatePlayerStatus(Player_Status player_status)
         {
             player_statusRepository.updatePlayerStatus(player_status);

@@ -16,6 +16,7 @@ namespace DAL
          //Creating a room by passing the properties in the database. Every room is assigned to a section.
          // Scope_identity tager den sidste generede identiy i tabellen.
          //ExcuScalar used when the query returns a single value (the total rows). 
+         //Creating a room based on the section you choose.
          public void createRoom(Room room)
         {
             string findID = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid); select scope_identity()";
@@ -37,6 +38,7 @@ namespace DAL
 
         }
 
+        //Finding a list of players based on that room they are on
         public List<Player> FindAllPlayerOneRoom(int roomID)
         {
             string sql = "SELECT * FROM AspNetUsers JOIN Player on Id = userID where room_id = @room_id";
