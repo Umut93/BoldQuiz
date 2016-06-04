@@ -39,6 +39,13 @@ namespace BLL
             room_LevelsRepository.addRoomLevel(room_level);
 
         }
+
+
+        public Room_levels getRoom_level(int room_level_id)
+        {
+          return room_LevelsRepository.getRoom_level(room_level_id);
+        }
+
     }
 
     

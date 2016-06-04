@@ -21,6 +21,7 @@ namespace DAL
 
             con = new SqlConnection(connectionString);
             con.Open();
+            
         }
     }
 }

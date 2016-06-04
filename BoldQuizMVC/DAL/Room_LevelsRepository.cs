@@ -22,7 +22,17 @@ namespace DAL
         {
             string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID where room_id = @room_id";
             return con.Query<Room_levels, Level, Room_levels>(sql, (room_level, level) => { room_level.Level = level; return room_level; }, new { room_id = room_id }).ToList();
+
         }
+
+
+        public Room_levels getRoom_level(int room_level_id)
+        {
+            string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID JOIN Room on room_id = Room.ID where Room_levels.ID =@room_level_id";
+            return con.Query<Room_levels, Level, Room, Room_levels>(sql, (room_level, level, room) => { room_level.Level = level; room_level.Room = room; return room_level; }, new { room_level_id = room_level_id }).SingleOrDefault();
+
+        }
+
 
         // Joiner Room_levels + Level + Room -> returnerer Room_levels. Dette tages højde for hvilket rum og level man er i.
         //Viser EN Room_level ud fra det room og level man er id.
@@ -38,7 +48,7 @@ namespace DAL
         //Updating a room_level based on the room and level you are on.
         public void updateRoomLevel(Room_levels roomLevel)
         {
-            string sql = "UPDATE Room_Levels SET isUnlocked = @isUnlocked, isCompleted = @isCompleted,  where room_id = @room_id AND level_id = @level_id ";
+            string sql = "UPDATE Room_Levels SET isUnlocked = @isUnlocked, isCompleted = @isCompleted where room_id = @room_id AND level_id = @level_id ";
             con.Execute(sql, new {isUnlocked = roomLevel.IsUnlocked, isCompleted = roomLevel.IsCompleted, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID });
         }
 
@@ -49,6 +59,8 @@ namespace DAL
             con.Execute(sql, new { isUnlocked = roomLevel.IsUnlocked, isCompleted = roomLevel.IsCompleted, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID});
         }
     }
+
+
 
 
 }

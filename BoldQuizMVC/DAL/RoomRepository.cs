@@ -37,10 +37,15 @@ namespace DAL
 
         }
 
-        
+        public List<Player> FindAllPlayerOneRoom(int roomID)
+        {
+            string sql = "SELECT * FROM AspNetUsers JOIN Player on Id = userID where room_id = @room_id";
+            return con.Query<Player>(sql, new { room_id = roomID}).ToList();
+        }
 
 
-      
+
+
 
     }
 }

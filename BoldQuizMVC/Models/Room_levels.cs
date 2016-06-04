@@ -8,7 +8,7 @@ namespace Models
 {
     public class Room_levels
     {
-        public string ID {get; set;}
+        public int ID {get; set;}
         public bool IsUnlocked {get; set;}
         public bool IsCompleted {get; set;}
         public Room Room {get; set;}
@@ -17,7 +17,7 @@ namespace Models
        
         public Room_levels() { }
 
-        public Room_levels(string ID, bool IsUnclocked, bool IsCompleted, Room room, Level level)  {
+        public Room_levels(int ID, bool IsUnclocked, bool IsCompleted, Room room, Level level)  {
 
             this.ID = ID;
             this.IsUnlocked =IsUnlocked ;

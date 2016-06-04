@@ -71,6 +71,14 @@ namespace BLL
             return room;
         }
 
+
+
+        public List<Player> FindAllPlayerOneRoom(int roomID)
+        {
+          return  roomRepository.FindAllPlayerOneRoom(roomID);
+
+        }
+
      
 
     }

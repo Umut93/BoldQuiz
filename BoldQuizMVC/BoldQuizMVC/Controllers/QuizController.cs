@@ -17,6 +17,7 @@ namespace BoldQuizMVC.Controllers
         private QuestionLogic questionLogic;
         private Room_LevelsLogic room_LevelsLogic;
         private Player_StatusLogic player_StatusLogic;
+        private RoomLogic RoomLogic;
 
 
         // Instantiating the questionLogic
@@ -26,6 +27,7 @@ namespace BoldQuizMVC.Controllers
             room_LevelsLogic = new Room_LevelsLogic();
             player_StatusLogic = new Player_StatusLogic();
             UserLogic = new UserLogic();
+            RoomLogic = new RoomLogic();
 
         }
 
@@ -94,7 +96,9 @@ namespace BoldQuizMVC.Controllers
         //SelectedAnswerdID --> QuestionViewModel
         [HttpPost]
         public string submitQuiz(QuizViewModel model)
+
         {
+           int userid = int.Parse(User.Identity.GetUserId());
            var room_level = room_LevelsLogic.getRoom_level(model.RoomID, model.LevelID);
 
             int correctedAnswers = 0;
@@ -111,14 +115,35 @@ namespace BoldQuizMVC.Controllers
 
                 
             }
-       
-           
+            Player_Status playerStatus = player_StatusLogic.findPlayerStatus(userid, room_level.ID);
+            playerStatus.SavedScore = correctedAnswers;
+            player_StatusLogic.updatePlayerStatus(playerStatus);
+
+
+
 
             // The requirements for opening the next level. NextroomLevel opens the nezt level IF you have achieved the earned points!
             //Finding the room and its level before contiuning to the next level.
             //Previous one locked and the next open.
-            if (correctedAnswers >= room_level.Level.Score)
+
+            List<Player> players =   RoomLogic.FindAllPlayerOneRoom(model.RoomID);
+
+            bool isCompleted = true;
+
+            foreach (Player player in players)
             {
+                Player_Status player_status =   player_StatusLogic.findPlayerStatus(player.Id, room_level.ID);
+                
+                if(player_status == null || player_status.SavedScore < room_level.Level.Score )
+                {
+                    isCompleted = false;
+                }
+                
+            }
+
+            if (isCompleted)
+            {
+          
                 Room_levels nextRoomLevel = room_LevelsLogic.getRoom_level(model.RoomID, room_level.Level.Next_level);
 
                 room_level.IsUnlocked = false;
