@@ -39,6 +39,7 @@ namespace BoldQuizMVC.Controllers
         //57: For each questions (10) populating them and its answers in the viewmodel.
         //Getting the 10 questions by giving a levelID. Afterwards populating the data in the viewModels! If questions is empty, then generate 10 random questions. 
         //Linie 43 if 10 keep going or empty generate!
+        //Creating a player_status. Populating level,room as objects and get a specific room_level_id (info).
         //If the list of questions are empty then it should generate random-questions (loading the page for first time), if not then we keep the questions until the user is finished (loading for second time). 
         // Linie 48: It retrieves the already generated questions which are not finished yet and then ordering the questions by their ID's. We save them as well for resuming the game.
         public ActionResult Index(int levelID, int roomID)
