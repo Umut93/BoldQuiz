@@ -1,11 +1,11 @@
-﻿@model Models.Room
+﻿@model BoldQuizMVC.Models.RoomDetailsViewModel
 @{
     ViewBag.Title = "Details";
 }
 
 <h1>Detaljer</h1>
 
-<h2>@Model.Section.Name </h2>
+<h2>@Model.SectionName </h2>
 
 @*The button for inviting a friend and excuted with javascript (show/hide box). *@
 <style>
@@ -21,11 +21,10 @@ Parental view --> Details (strongly typed Room)
 Partial view --> InvitePartial (strongly typed on InviteViewModel)
 model --> Levelid+roomid + quetions(10)
  *@
-@Html.Partial("InvitePartial", new BoldQuizMVC.Models.InviteViewModel(null, Model.ID))
+@Html.Partial("InvitePartial", new BoldQuizMVC.Models.InviteViewModel(null, Model.roomID))
 
 
 
-<h3> @Model.Point Point</h3>
 
 @* For every level name, it's get passed in the button. Data-toggle="modal" opens the modal window and data-target="#myModal" points tot the id of the modal.
    Linie 22-->. If the level IsUnlocked(true), then it is not greyed out. If it is greyed out then it is disabled.
@@ -33,18 +32,18 @@ model --> Levelid+roomid + quetions(10)
 
 *@
 <div class="level_buttons">
-@foreach (var item in Model.Levels)
+@foreach (var item in Model.playerstatus)
     
 {
     
     if (item.IsUnlocked)
     {
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="@item.Level.ID">@item.Level.Name</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="@item.Room_levels.Level.ID">@item.Room_levels.Level.Name</button>
 
     }
     else
     {
-        <button type="button" class="btn btn-primary btn-lg" disabled>@item.Level.Name</button>
+        <button type="button" class="btn btn-primary btn-lg" disabled>@item.Room_levels.Level.Name</button>
     }
 
 }
@@ -72,7 +71,7 @@ model --> Levelid+roomid + quetions(10)
     var id = e.relatedTarget.dataset.id;
     
     @* jQuery: Selector takes the iframeID and sets both the arguments. roomID assigns to Room.ID *@
-    $("#quizFrame").attr("src", "/Quiz/index?levelID=" + id + "&roomID=@(Model.ID)");
+    $("#quizFrame").attr("src", "/Quiz/index?levelID=" + id + "&roomID=@(Model.roomID)");
 })</script>
 
 <!--Invites pop-up--> 

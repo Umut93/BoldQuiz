@@ -46,12 +46,8 @@ namespace BoldQuizMVC.Controllers
         {
             int userID = int.Parse(User.Identity.GetUserId());
             List<Question> question;
-            Player_Status player_status = new Player_Status();
 
-            player_status.Room_levels = room_LevelsLogic.getRoom_level(roomID, levelID);
-            player_status.Player = UserLogic.findPLayer(userID);
-            player_StatusLogic.addPlayerStatus(player_status);
-
+      
             question = questionLogic.playerQuestion(roomID, levelID);
             if (question.Count == 0)
             {
@@ -116,8 +112,13 @@ namespace BoldQuizMVC.Controllers
 
                 
             }
-            Player_Status playerStatus = player_StatusLogic.findPlayerStatus(userid, room_level.ID);
+            Player player = UserLogic.findPLayer(userid);
+            Player_Status playerStatus = player_StatusLogic.findPlayerStatus(player, room_level);
             playerStatus.SavedScore = correctedAnswers;
+            if(playerStatus.SavedScore < room_level.Level.Score)
+            {
+                playerStatus.Warnings++;
+            }
             player_StatusLogic.updatePlayerStatus(playerStatus);
 
 
@@ -127,13 +128,13 @@ namespace BoldQuizMVC.Controllers
             //Finding the room and its level before contiuning to the next level.
             //Previous one locked and the next open.
 
-            List<Player> players =   RoomLogic.FindAllPlayerOneRoom(model.RoomID);
+            List<Player> players =  RoomLogic.FindAllPlayerOneRoom(model.RoomID);
 
             bool isCompleted = true;
 
-            foreach (Player player in players)
+            foreach (Player roomPlayer in players)
             {
-                Player_Status player_status =   player_StatusLogic.findPlayerStatus(player.Id, room_level.ID);
+                Player_Status player_status =   player_StatusLogic.findPlayerStatus(roomPlayer, room_level);
                 
                 if(player_status == null || player_status.SavedScore < room_level.Level.Score )
                 {
@@ -144,19 +145,34 @@ namespace BoldQuizMVC.Controllers
 
             if (isCompleted)
             {
-          
-                Room_levels nextRoomLevel = room_LevelsLogic.getRoom_level(model.RoomID, room_level.Level.Next_level);
 
-                room_level.IsUnlocked = false;
+                foreach (Player roomPlayer in players)
+                {
 
-                nextRoomLevel.IsUnlocked = true;
+                    Room_levels nextRoomLevel = room_LevelsLogic.getRoom_level(model.RoomID, room_level.Level.Next_level);
+                    Player_Status nextPlayerStatus = player_StatusLogic.findPlayerStatus(roomPlayer, nextRoomLevel);
+                    nextPlayerStatus.IsUnlocked = true;
+                    player_StatusLogic.updatePlayerStatus(nextPlayerStatus);
 
-                room_LevelsLogic.updateRoomLevel(nextRoomLevel);
-          
+                }
+
             }
             room_LevelsLogic.updateRoomLevel(room_level);
        
             questionLogic.deletePlayerQuestions(model.LevelID, model.RoomID);
+
+            if(playerStatus.Warnings == 1)
+            {
+                //gult kort
+                return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10. Det er ikke nok. Du har fået gult kort";
+            }
+            else if(playerStatus.Warnings == 2)
+            {
+                //rødt kort
+                
+                return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10. Det er ikke nok. Du har fået rødt kort og er blevet sparket af holdet.";
+            }
+
             return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10";
         }
 

@@ -11,15 +11,13 @@ namespace BLL
    public class RoomLogic
     {
         private SectionLogic sectionLogic;
-        private RoomRepository roomRepository;
-        private Room_LevelsRepository room_LevelsRepository;
+        private Room_LevelsLogic room_LevelsLogic;
         private LevelLogic levelLogic;
 
         //Instantiating the classes and repository classes
         public RoomLogic()
         {
-            roomRepository = new RoomRepository("DefaultConnection");
-            room_LevelsRepository = new Room_LevelsRepository("DefaultConnection");
+            room_LevelsLogic = new Room_LevelsLogic();
             sectionLogic = new SectionLogic();
             levelLogic = new LevelLogic();
         }
@@ -47,35 +45,43 @@ namespace BLL
                 Room_levels.Add(room_Levels);
             }
 
-            Room_levels.FirstOrDefault().IsUnlocked = true;
 
-            roomRepository.createRoom(room);
+            using (RoomRepository roomRepository = new RoomRepository("DefaultConnection"))
+            {
+                roomRepository.createRoom(room);
+            }
 
             foreach (var room_level in Room_levels)
             {
-                room_LevelsRepository.addRoomLevel(room_level);
+                room_LevelsLogic.addRoomLevel(room_level);
             }
 
-
+            
         }
 
         //Getting the room by searching the ID
         public Room getRoom(int id)
         {
-            Room room = roomRepository.findOneRoom(id);
+            using (RoomRepository roomRepository = new RoomRepository("DefaultConnection"))
+            {
+                Room room = roomRepository.findOneRoom(id);
 
-            room.Section = sectionLogic.findOneSection(room.SectionID);
+                room.Section = sectionLogic.findOneSection(room.SectionID);
 
-            room.Levels = room_LevelsRepository.getRoom_Levels(id);
+                room.Levels = room_LevelsLogic.getRoomLevels(id);
+                return room;
+            }
 
-            return room;
         }
 
 
         //Finding all players on the same room.
         public List<Player> FindAllPlayerOneRoom(int roomID)
         {
-          return  roomRepository.FindAllPlayerOneRoom(roomID);
+            using (RoomRepository roomRepository = new RoomRepository("DefaultConnection"))
+            {
+                return roomRepository.FindAllPlayerOneRoom(roomID);
+            }
 
         }
 

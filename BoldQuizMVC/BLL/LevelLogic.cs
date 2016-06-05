@@ -10,11 +10,9 @@ namespace BLL
 {
   public  class LevelLogic
     {
-        LevelRepository LevelRepository;
 
         public LevelLogic()
         {
-            LevelRepository = new LevelRepository("DefaultConnection");
 
         }
 
@@ -22,7 +20,11 @@ namespace BLL
         //Getting all levels from a specific section.
         public List<Level> getLevelsForASection(int sectionID)
         {
-           return LevelRepository.getLevelsForASection(sectionID);
+          
+            using (LevelRepository LevelRepository = new LevelRepository("DefaultConnection"))
+            {
+                return LevelRepository.getLevelsForASection(sectionID); 
+            }
         }
 
     }

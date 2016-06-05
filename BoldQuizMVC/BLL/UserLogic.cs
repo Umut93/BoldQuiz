@@ -9,17 +9,17 @@ namespace BLL
 {
     public class UserLogic
     {
-        private PlayerRepository playerRepository;
         private SectionLogic sectionLogic;
         private RoomLogic roomLogic;
+        private Player_StatusLogic player_status;
 
 
         //Instantiating classes and repository classes.
         public UserLogic()
         {
-            playerRepository = new PlayerRepository("DefaultConnection");
             sectionLogic = new SectionLogic();
             roomLogic = new RoomLogic();
+            player_status = new Player_StatusLogic();
 
         }
 
@@ -28,37 +28,50 @@ namespace BLL
 
         public Room chooseSection(int id, string userName)
         {
-            Section section = sectionLogic.findOneSection(id);
+            using (PlayerRepository playerRepository = new PlayerRepository("DefaultConnection"))
+            {
+                Section section = sectionLogic.findOneSection(id);
 
-            Room room = new Room(0, section);
+                Room room = new Room(0, section);
 
-            roomLogic.createRoom(room);
-            Player player = playerRepository.findOnePlayer(userName);
+                roomLogic.createRoom(room);
+                Player player = playerRepository.findOnePlayer(userName);
 
-            player.Room = room;
-            playerRepository.updatePlayer(player);
+                player.Room = room;
+                playerRepository.updatePlayer(player);
+                player_status.CreatePlayerStatusForARoom(player, room);
 
-            return room;
+                return room; 
+            }
         }
 
         //Finding one player by its username
         public Player findPLayer(String userName)
         {
-            return playerRepository.findOnePlayer(userName);
+            using (PlayerRepository playerRepository = new PlayerRepository("DefaultConnection"))
+            {
+                return playerRepository.findOnePlayer(userName);
+            }
 
         }
 
         //Finding a player by ID
         public Player findPLayer(int userID)
         {
-            return playerRepository.findOnePlayer(userID);
+            using (PlayerRepository playerRepository = new PlayerRepository("DefaultConnection"))
+            {
+                return playerRepository.findOnePlayer(userID);
+            }
 
         }
 
         //Updating player's room_id and gender (not gonna channge at all).
         public void updatePlayer (Player player)
         {
-            playerRepository.updatePlayer(player);
+            using (PlayerRepository playerRepository = new PlayerRepository("DefaultConnection"))
+            {
+                playerRepository.updatePlayer(player);
+            }
 
         }
     }

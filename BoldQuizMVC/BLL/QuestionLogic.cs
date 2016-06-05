@@ -10,28 +10,34 @@ namespace BLL
 {
     public class QuestionLogic
     {
-        private QuestionRepository questionRepository;
 
         public QuestionLogic ()
         {
-            questionRepository = new QuestionRepository("DefaultConnection");
+            
         }
 
         //25: The list gets all 52 questions based on the levelID. Aftwards randonmly take 10.
        //  Guid the random generator which takes 10 random questions!
         public List<Question> Get10Questions(int levelID)
         {
-        List<Question> questions =  questionRepository.getQuetionsForLevel(levelID);
-        return questions = questions.OrderBy(x=>Guid.NewGuid()).Take(10).ToList();
+
+            using (QuestionRepository questionRepository = new QuestionRepository("DefaultConnection"))
+            {
+                List<Question> questions = questionRepository.getQuetionsForLevel(levelID);
+                return questions = questions.OrderBy(x => Guid.NewGuid()).Take(10).ToList(); 
+            }
            
         }
 
         // This method gives the result if a given answer is correct or not.
         public bool isAnsweredCorrect (int id)
         {
-            var answer = questionRepository.getAnswer(id);
+            using (QuestionRepository questionRepository = new QuestionRepository("DefaultConnection"))
+            {
+                var answer = questionRepository.getAnswer(id);
 
-            return answer.IsCorrect;
+                return answer.IsCorrect;
+            }
 
 
         }
@@ -40,13 +46,19 @@ namespace BLL
         //Room_id --> team as whole in the same room
         public List<Question> playerQuestion(int room_id, int level_ID)
         {
-          return  questionRepository.playerQuestion(room_id, level_ID);
+            using (QuestionRepository questionRepository = new QuestionRepository("DefaultConnection"))
+            {
+                return questionRepository.playerQuestion(room_id, level_ID);
+            }
         }
 
         //When the user clicks in a given level, then the upcoming questions is inserted in the Player_question tabel for the sake of resuming.
         public void savePlayerUnfinishedQuiz(List<Question> quetions, int levelID, int room_id)
         {
-            questionRepository.savePlayerUnfinishedQuiz(quetions, levelID, room_id);
+            using (QuestionRepository questionRepository = new QuestionRepository("DefaultConnection"))
+            {
+                questionRepository.savePlayerUnfinishedQuiz(quetions, levelID, room_id);
+            }
         }
 
 
@@ -54,7 +66,10 @@ namespace BLL
         // The database shows overall the levels a person have been thorugh.
         public void deletePlayerQuestions(int levelID, int room_id)
         {
-            questionRepository.deletePlayerQuestions(levelID, room_id);
+            using (QuestionRepository questionRepository = new QuestionRepository("DefaultConnection"))
+            {
+                questionRepository.deletePlayerQuestions(levelID, room_id);
+            }
         }
     }
 

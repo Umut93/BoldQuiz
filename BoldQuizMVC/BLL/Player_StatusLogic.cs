@@ -11,34 +11,37 @@ namespace BLL
 {
     public class Player_StatusLogic
     {
-        private Player_statusRepository player_statusRepository;
+       
         private Room_LevelsLogic Room_LevelsLogic;
-        private UserLogic UserLogic;
+        
 
         public Player_StatusLogic()
         {
-            player_statusRepository = new Player_statusRepository("DefaultConnection");
+            
             Room_LevelsLogic = new Room_LevelsLogic();
-            UserLogic = new UserLogic();
+          
         }
 
         //Finding a specific room with its level_id. This looks into how a player has cope with it. (savedscore,playerid,room_levels_id). You get a Player_status.
         //A way of securing that a player_status is in the table before retrievning from the table.
-        public Player_Status findPlayerStatus(int playerID, int room_level_id)
+        public Player_Status findPlayerStatus(Player player, Room_levels room_levels)
 
         {
 
-           Player_Status playerStatus = player_statusRepository.findPlayerStatus(playerID, room_level_id);
-
-            if(playerStatus != null)
+            using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))
             {
-                
-                playerStatus.Room_levels =  Room_LevelsLogic.getRoom_level(room_level_id);
-                playerStatus.Player = UserLogic.findPLayer(playerID);
+                Player_Status playerStatus = player_statusRepository.findPlayerStatus(player.Id, room_levels.ID);
+
+
+                if (playerStatus != null)
+                {
+
+                    playerStatus.Room_levels = room_levels;
+                    playerStatus.Player = player;
+                }
+
+                return playerStatus;
             }
-
-            return playerStatus;
-
 
 
         }
@@ -47,19 +50,60 @@ namespace BLL
         //50: Use a external method!
         public void addPlayerStatus(Player_Status player_status)
         {
-            if (findPlayerStatus(player_status.Player.Id, player_status.Room_levels.ID)==null)
+            using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))
             {
-                player_statusRepository.addPlayerStatus(player_status) ;
+                if (findPlayerStatus(player_status.Player, player_status.Room_levels) == null)
+                {
+                    player_statusRepository.addPlayerStatus(player_status);
+                }
             }
            
         }
         //Updating a player_status after processing a level.
         public void updatePlayerStatus(Player_Status player_status)
         {
-            player_statusRepository.updatePlayerStatus(player_status);
+            using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))
+            {
+                player_statusRepository.updatePlayerStatus(player_status);
+            }
         }
 
 
+        public void CreatePlayerStatusForARoom(Player player, Room room)
+        {
+            using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))
+            {
+                List<Room_levels> room_levels = Room_LevelsLogic.getRoomLevels(room.ID);
+
+                for (int i = 0; i < room_levels.Count(); i++)
+
+                {
+                    Room_levels room_level = room_levels[i];
+
+                    Player_Status player_status = new Player_Status();
+
+                    if (i == 0)
+                    {
+                        player_status.IsUnlocked = true;
+                    }
+
+
+                    player_status.Player = player;
+                    player_status.Room_levels = room_level;
+
+                    addPlayerStatus(player_status);
+
+                }
+            }
+            
+        }
+        public List<Player_Status> GetAllPlayerStatusForOnePLayer(Player player)
+        {
+            using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))
+            {
+                return player_statusRepository.GetAllPlayerStatusForOnePLayer(player);
+            }
+        }
 
     }
 }

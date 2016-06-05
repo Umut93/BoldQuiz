@@ -3,6 +3,7 @@
 //#answer (select the list item id)
 //13 --> radio buttons preserved.
 
+
 var gettingcokie = getCookie("SelectedAnswers");
 var answerArray = gettingcokie.split(","); 
 

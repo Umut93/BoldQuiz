@@ -11,7 +11,7 @@ using Dapper;
 namespace DAL
 {
     //The base Repository class takes a DefaultConnection as a argument and the connectionstring gets from the web.config.
-    public abstract class BaseRepository
+    public abstract class BaseRepository : IDisposable
     {
         protected SqlConnection con;
 
@@ -23,5 +23,38 @@ namespace DAL
             con.Open();
             
         }
+
+        public void Dispose()
+        {
+            con.Close();
+            con.Dispose();
+        }
+    }
+
+    public class DBConnection
+    {
+        private static DBConnection instance;
+
+        public SqlConnection Con
+        {
+            get;
+            private set;
+        }
+
+        private DBConnection() {
+            Con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            Con.Open();
+        }
+
+        public static DBConnection GetInstance()
+        {
+            if(instance == null)
+            {
+                instance = new DBConnection();
+            }
+            return instance;
+        }
+        
+        
     }
 }
