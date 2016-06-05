@@ -28,7 +28,7 @@ namespace BLL
             }
         }
 
-
+        //Getting a list of room_levels based on the roomID.
         public List<Room_levels> getRoomLevels(int roomID)
         {
             using (Room_LevelsRepository room_LevelsRepository = new Room_LevelsRepository("DefaultConnection"))
@@ -57,7 +57,7 @@ namespace BLL
 
         }
 
-        //Getting a specific room based on its levelid.
+        //Getting a specific room_level based on its room_level_id.
         public Room_levels getRoom_level(int room_level_id)
         {
             using (Room_LevelsRepository room_LevelsRepository = new Room_LevelsRepository("DefaultConnection"))

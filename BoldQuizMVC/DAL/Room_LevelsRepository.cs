@@ -15,8 +15,7 @@ namespace DAL
         }
 
         //Room_Levels id og Level id joines i forbindelse med det room man er i. Joining af de to tabeller, deres information befolker jeg på hver af deres objekter
-        //Liste over de LEVELS man er i ud fra sit room_id!!!
-        // I det room_level som har en enkelt Level som objekt, bliver den befolket med level. Se det som venstre tabel og højre tabel!
+        //Returner liste over de LEVELS man er i ud fra sit room_id!!!
         //Multimapping in Dapper: map a single row to multiple objects
         public List<Room_levels> getRoom_Levels(int room_id)
         {
@@ -46,7 +45,6 @@ namespace DAL
         }
         
         //Updating a room_level table after processing the quiz based on the room and level you are on.
-        //Updating a room_level based on the room and level you are on.
         public void updateRoomLevel(Room_levels roomLevel)
         {
             string sql = "UPDATE Room_Levels SET isCompleted = @isCompleted where room_id = @room_id AND level_id = @level_id ";

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+
+    //Player is not used.
    public class Player_Question
     {
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    //Iscompleted is not used.
     public class Room_levels
     {
         public int ID {get; set;}
@@ -16,6 +17,7 @@ namespace Models
        
         public Room_levels() { }
 
+ 
         public Room_levels(int ID, bool IsCompleted, Room room, Level level)  {
 
             this.ID = ID;

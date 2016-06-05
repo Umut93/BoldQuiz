@@ -14,6 +14,7 @@ namespace DAL
         {
         }
 
+       
         //Finding a player status (savedScore, playerid, a specifik room with a specific levelid)
         public Player_Status findPlayerStatus(int playerID, int room_levels_id)
         {
@@ -22,7 +23,8 @@ namespace DAL
 
         }
 
-        //Adding player_status in the table
+        //SavedScore is score the user has got, players are assigned with a ID, room_levels are the specific level on a specific room, IsUnlocked  tells about if the level itself is open or closed, warnings are the faults the user has made.
+        //Adding player_status in the table. 
         public void addPlayerStatus(Player_Status player_status)
         {
             string sql = "INSERT INTO Player_status VALUES (@SavedScore, @playerID, @Room_levels_id, @isUnlocked, @Warnings)";
@@ -30,7 +32,7 @@ namespace DAL
 
         }
 
-        //Updating a player_status table
+        //Updating a player_status table by the unique identier tuple.
         public void updatePlayerStatus(Player_Status player_status)
         {
             string sql = "UPDATE Player_status SET savedScore = @SavedScore, player_id = @playerID, isUnlocked = @isUnlocked, Warnings = @Warnings, room_levels_id = @Room_levels_id WHERE ID = @id ";
@@ -39,6 +41,7 @@ namespace DAL
         }
 
 
+        //Getting all the player status for one Person in that room_levels he/has participated in.
         public List<Player_Status> GetAllPlayerStatusForOnePLayer(Player player)
         {
             string sql = "Select * from Player_status JOIN Room_levels on room_levels_id = room_levels.ID JOIN[Level] on[Level].ID = level_id where player_id = @player_id";

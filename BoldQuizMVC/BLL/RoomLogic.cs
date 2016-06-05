@@ -24,12 +24,11 @@ namespace BLL
 
 
         //Getting the levels for a specific Section by the room's sectionid.
-        //
-        //Assigning a room_level in a specific room
-        //For each level in a section we a room_level and assinging its properties with list of levels.
-        //The first room_level (level 1) is by default true, becuase it is starting point of the game.
+        // Creating a room based on the section, players, room_levels.
+        //34: Levels = 5. Level 1-5 pass to room_levels.level. + room
+        //55 Each level is passed into a room_level
+        //For Each level we assign them in a room_level and the room we create is also passed in.
         //Finally we create a room
-        
         //For each room_level in the list we add a room_level in the table.
         public void createRoom(Room room)
         {

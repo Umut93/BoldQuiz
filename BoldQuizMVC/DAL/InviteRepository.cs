@@ -32,7 +32,7 @@ namespace DAL
           return con.Query<Invite>(sql, new { recipientID = user_id }).ToList();
 
         }
-        //Finding ONE invite for a specifik person (for a recipient). The invite contains the sender's ID og recipient's id and which room the sender has invited on.
+        //Finding ONE invite for a specific person (for a recipient). The invite contains the sender's ID og recipient's id and which room the sender has invited on.
         public Invite findInviteForOne(int senderID, int recipientID)
         {
             string sql = "SELECT * FROM invite WHERE senderID = @senderID AND RecipientID = @RecipientID";

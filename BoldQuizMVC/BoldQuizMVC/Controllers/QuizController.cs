@@ -124,9 +124,7 @@ namespace BoldQuizMVC.Controllers
 
 
 
-            // The requirements for opening the next level. NextroomLevel opens the nezt level IF you have achieved the earned points!
-            //Finding the room and its level before contiuning to the next level.
-            //Previous one locked and the next open.
+            //Getting all the players in the room. The first room_level is open.
 
             List<Player> players =  RoomLogic.FindAllPlayerOneRoom(model.RoomID);
 
@@ -164,13 +162,13 @@ namespace BoldQuizMVC.Controllers
             if(playerStatus.Warnings == 1)
             {
                 //gult kort
-                return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10. Det er ikke nok. Du har fået gult kort";
+                return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10. Det er ikke nok. Du har fået et gult kort!";
             }
             else if(playerStatus.Warnings == 2)
             {
                 //rødt kort
                 
-                return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10. Det er ikke nok. Du har fået rødt kort og er blevet sparket af holdet.";
+                return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10. Det er ikke nok. Du har fået rødt kort og er blevet sparket af holdet!!";
             }
 
             return "Du har svaret rigtigt på " + correctedAnswers.ToString() + "/10";

@@ -17,7 +17,6 @@ namespace Models
 
         public Section() { }
 
-
         public Section(int ID, string Name)
         {
             this.ID = ID;

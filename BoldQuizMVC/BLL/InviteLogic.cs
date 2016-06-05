@@ -8,6 +8,8 @@ using Models;
 
 namespace BLL
 {
+
+    //Using is used in the methods for the sake of Database timeout which caused the connections when several wants to connect.
     public class InviteLogic
     {
         private UserLogic userLogic;
@@ -17,8 +19,6 @@ namespace BLL
 
         public InviteLogic()
         {
-
-
             userLogic = new UserLogic();
             roomLogic = new RoomLogic();
             Player_statusLogic = new Player_StatusLogic();

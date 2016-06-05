@@ -24,7 +24,7 @@ namespace BoldQuizMVC.Controllers
       
     }
         //This method takes InviteViewModel as a argument. The invite gets the id of the sender and the recieptent's id and the roomID as well (just like the table shows). 
-        //senderID, recepientID, roomid 35
+        //senderID, recepientID, roomid
         //We are getting the userName which is parsed in the input(viewmodel).
         //ActionName/Controller/id
         public ActionResult  InvitePlayer (InviteViewModel inviteViewModel)

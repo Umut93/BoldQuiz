@@ -9,6 +9,7 @@ using Models.Identity;
 
 namespace BLL
 {
+    //Using is used for the sake of Database timeout which caused the connections when several wants to connect.
     public class Player_StatusLogic
     {
        
@@ -22,8 +23,8 @@ namespace BLL
           
         }
 
-        //Finding a specific room with its level_id. This looks into how a player has cope with it. (savedscore,playerid,room_levels_id). You get a Player_status.
-        //A way of securing that a player_status is in the table before retrievning from the table.
+        //Finding a player_status based on the player ID and the room_levels id.
+        //If the player_status is not null, the playerStatus is set to the specific room with its specific level and the player is also assigned as well.
         public Player_Status findPlayerStatus(Player player, Room_levels room_levels)
 
         {
@@ -47,7 +48,7 @@ namespace BLL
         }
 
         //Adding a player_status if it is not already in the table.
-        //50: Use a external method!
+        //Finding a player_status by searching the player and player's room_levels. If the player is not already in the table, we add it.
         public void addPlayerStatus(Player_Status player_status)
         {
             using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))
@@ -68,7 +69,8 @@ namespace BLL
             }
         }
 
-
+        //Getting all the Room_level based on roomID. Iterating over 5 times and the the room_level index is passed in the objects and the first element (level) for a player is set to true because of the starting point.
+        //Finally we pass the player and room information in the player_status. Adding the playerStatus (external call)
         public void CreatePlayerStatusForARoom(Player player, Room room)
         {
             using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))
@@ -97,6 +99,7 @@ namespace BLL
             }
             
         }
+        //Getting all player_staus for ONE player.
         public List<Player_Status> GetAllPlayerStatusForOnePLayer(Player player)
         {
             using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))

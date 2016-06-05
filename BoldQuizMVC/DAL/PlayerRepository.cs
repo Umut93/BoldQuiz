@@ -16,7 +16,7 @@ namespace DAL
         }
 
 
-        //Inserting a player in the Player-Table. @user and @gender is the values - we assign them with help of player's objects propeties!
+        //Inserting a player in the Player-Table. 
 
         public void addPlayer(Player player)
         {
