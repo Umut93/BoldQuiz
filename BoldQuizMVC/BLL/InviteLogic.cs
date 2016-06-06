@@ -25,7 +25,7 @@ namespace BLL
 
         }
 
-        //Adding a invite object into the table. The invite contains the sender/reciepent and finally what room the sender has sent the invite. 
+        //Adding a invite into the table. The invite contains the sender/reciepent and finally what room the sender has sent the invite. 
         public void invitePLayer(Invite invite)
         {
             using (InviteRepository inviteRepository = new InviteRepository("DefaultConnection"))
@@ -33,7 +33,7 @@ namespace BLL
                 inviteRepository.addInvite(invite);
             }
         }
-        //Finding invites for one person (for a reciepent). 
+        //Finding a list of invites for one person (for a reciepent). 
         public List<Invite> findInviteForOnePerson(int user_id)
         {
             using (InviteRepository inviteRepository = new InviteRepository("DefaultConnection"))
@@ -42,7 +42,10 @@ namespace BLL
             }
         }
 
-        //Finding the player (RecipientID) and giving the player a new room as well. Its roomid is assigned to the requested roomid and then we are updating the player's room to that which it has accepted.
+
+
+        //Finding the player (RecipientID) by the invite and giving the player a new room as well.
+        //Its roomid is assigned to the requested roomid and then we are updating the player's room to that which it has accepted.
         //After accepting, we remove the recent generated invite.
         public void acceptInvite(Invite invite)
         {

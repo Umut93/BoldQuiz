@@ -24,12 +24,10 @@ namespace BLL
 
 
         //Getting the levels for a specific Section by the room's sectionid.
-        // Creating a room based on the section, players, room_levels.
-        //34: Levels = 5. Level 1-5 pass to room_levels.level. + room
-        //55 Each level is passed into a room_level
-        //For Each level we assign them in a room_level and the room we create is also passed in.
-        //Finally we create a room
+        // Creating a room based on the section, players, room_levels.   
         //For each room_level in the list we add a room_level in the table.
+        //By creating the room, we need to get all the levels based on that section is taken.
+        //Every level is assigned to a specific level on a specific room. Afterwards add them in the list.
         public void createRoom(Room room)
         {
             var levels = levelLogic.getLevelsForASection(room.SectionID);

@@ -23,7 +23,7 @@ namespace BLL
           
         }
 
-        //Finding a player_status based on the player ID and the room_levels id.
+        //Finding a player_status based on the player and the room_levels.
         //If the player_status is not null, the playerStatus is set to the specific room with its specific level and the player is also assigned as well.
         public Player_Status findPlayerStatus(Player player, Room_levels room_levels)
 
@@ -69,8 +69,10 @@ namespace BLL
             }
         }
 
-        //Getting all the Room_level based on roomID. Iterating over 5 times and the the room_level index is passed in the objects and the first element (level) for a player is set to true because of the starting point.
+
         //Finally we pass the player and room information in the player_status. Adding the playerStatus (external call)
+        // We create a playerStatus for one person when is on a room.
+        //Iterating over 5 times and the the room_level index is passed in the objects and the first element (level 1->unlocked) for a player is set to true because of the starting point.
         public void CreatePlayerStatusForARoom(Player player, Room room)
         {
             using (Player_statusRepository player_statusRepository = new Player_statusRepository("DefaultConnection"))

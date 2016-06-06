@@ -17,7 +17,7 @@ namespace BLL
         }
 
         //25: The list gets all 52 questions based on the levelID. Aftwards randonmly take 10.
-       //  Guid the random generator which takes 10 random questions!
+       //  Guid the random generator generates 10 question of 52 questions!
         public List<Question> Get10Questions(int levelID)
         {
 
@@ -53,6 +53,7 @@ namespace BLL
         }
 
         //When the user clicks in a given level, then the upcoming questions is inserted in the Player_question tabel for the sake of resuming.
+        // The 10 questions are saved based on the level_id and room_id.
         public void savePlayerUnfinishedQuiz(List<Question> quetions, int levelID, int room_id)
         {
             using (QuestionRepository questionRepository = new QuestionRepository("DefaultConnection"))
@@ -63,7 +64,7 @@ namespace BLL
 
 
         //After finishing in a given level, the database deletes the player_quetions (data), because you dig into next level. 
-        // The database shows overall the levels a person have been thorugh.
+        // The players questions are deleted based on the level and room he is on.
         public void deletePlayerQuestions(int levelID, int room_id)
         {
             using (QuestionRepository questionRepository = new QuestionRepository("DefaultConnection"))

@@ -38,7 +38,7 @@ namespace BLL
 
         }
 
-        //Updating a room_level's properties based on the room and level you are on.
+        //Updating a room_level's properties based on the specific level which is in the specidic room.
         public void updateRoomLevel(Room_levels room_level)
         {
             using (Room_LevelsRepository room_LevelsRepository = new Room_LevelsRepository("DefaultConnection"))
