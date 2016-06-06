@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 namespace Models.Identity
 
 {
+    /// <summary>
+    /// This class is intented to make custom classes so that i can map my AspNetUsers on the player table. 
+    /// Changed the id so it is an int instead of a string.
+    /// </summary>
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser<int, BoldQuizUserLogin, BoldQuizUserRole, BoldQuizUserClaim>
     {

@@ -124,7 +124,7 @@ namespace BoldQuizMVC.Controllers
 
 
 
-            //Getting all the players in the room. The first room_level is open.
+            //Getting all the players in the room. The first room_level is open and looking at their results in a given level.
 
             List<Player> players =  RoomLogic.FindAllPlayerOneRoom(model.RoomID);
 

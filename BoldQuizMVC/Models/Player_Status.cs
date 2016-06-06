@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-  public  class Player_Status
+    /// <summary>
+    /// Every Player_status has an ID. 
+    /// Retrieving a specific player_status gives us a piece of information about achieved score, the player who has participated in the specific level on a room.
+    /// The unlocked is used to see if the levels in a specific room whether is unlocked or not and finally warnings are the wrongdoing from the player. If == 1 (yellow card), if == 2 (red card).
+    /// </summary>
+    public class Player_Status
     {
         public int ID { get; set; }
         public int SavedScore { get; set; }

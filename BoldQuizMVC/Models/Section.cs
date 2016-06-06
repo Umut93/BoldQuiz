@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// Every section has a ID, Name, list of levels, rooms and questions as well.
+    /// </summary>
     public class Section
     {
         

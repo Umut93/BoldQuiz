@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// Every single answer has ID and linked on a question and a text. The selected answers tells wwhether is true or false based on the id.
+    /// </summary>
     public class Answer
     {
         public int ID {get; set;}

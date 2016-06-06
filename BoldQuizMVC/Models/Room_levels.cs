@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    //Iscompleted is not used.
+    /// <summary>
+    /// Every room contains a specific single level. They are retrieved by looking at the ID and what room and level the Room_levels is on.
+    /// isCompleted is not used - so don't pay attention on that.
+    /// </summary>
     public class Room_levels
     {
         public int ID {get; set;}

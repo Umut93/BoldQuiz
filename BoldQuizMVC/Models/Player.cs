@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// TA player has a gender and is linked on a room.
+    /// </summary>
     public class Player : ApplicationUser
 
     {   public string Gender {get; set;}

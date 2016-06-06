@@ -5,7 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Models
+
 {
+    /// <summary>
+    /// Every room is linked on a Section(category), has its own id and it contains a list of players and list of specific room_levels.
+    /// Don't pay attention on Point, it is not used at all.
+    /// </summary>
+    /// 
     public class Room
     {
         public int SectionID {get; set;}

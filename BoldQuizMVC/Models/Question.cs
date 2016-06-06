@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// Every question has its own ID, title and list of possible answers. Every question is linked on one section (category).
+    /// Don't pay attention to Point, which is not used at all.
+    /// </summary>
     public class Question
     {
         public int ID { get; set; }

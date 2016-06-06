@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// One invite contains the sender and recipient id and as well the roomID which the sender has sent on.
+    /// </summary>
    public class Invite
     {
         public int SenderID {get; set;}

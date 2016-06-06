@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace Models
 {
 
-    //Player is not used.
+    /// <summary>
+    /// Every player has 10-question based on a specific level on a certain room.
+    /// Don't pay attetion on SavedScore, the responsibility lies on the player_status object.
+    /// </summary>
    public class Player_Question
     {
 

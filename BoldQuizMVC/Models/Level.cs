@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-   public class Level
+    /// <summary>
+    /// Every level has a ID, name and score (criteria). It is linked on a Section and have a list of questions and list of specific level on a specific room. 
+    /// The next_level knows about the next level if the player has succeeded.
+    /// </summary>
+    public class Level
     {
         public int ID {get; set;}
         public string Name { get; set;}
