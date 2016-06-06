@@ -16,7 +16,7 @@ namespace DAL
         }
 
 
-        //Inserting a player in the Player-Table. 
+        //Inserting one player in the Player-Table. 
 
         public void addPlayer(Player player)
         {
@@ -40,7 +40,7 @@ namespace DAL
 
         }
 
-        //Updating a player by searching the player.
+        //Updating a player when we take a player as argument.
         public void updatePlayer(Player player)
         {
 

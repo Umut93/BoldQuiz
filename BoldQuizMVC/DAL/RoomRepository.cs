@@ -12,12 +12,13 @@ namespace DAL
         public RoomRepository(string connectionstring) : base(connectionstring)
         {
         }
-            
-         //Creating a room by passing the properties in the database. Every room is assigned to a section.
-         // Scope_identity tager den sidste generede identiy i tabellen.
-         //ExcuScalar used when the query returns a single value (the total rows). 
-         //Creating a room based on the section you choose.
-         public void createRoom(Room room)
+
+
+        //Creating a room based on the section you choose.
+        //Creating a room by taking a room as argument. The point property is not used and we assign the section when creating a room.
+        //Scope_identity takes the last generated identiy/row int the table.
+        //ExcuScalar used when the query returns a single value (the total rows). 
+        public void createRoom(Room room)
         {
             string findID = "INSERT INTO Room(point, section_id) VALUES (0, @sectionid); select scope_identity()";
             room.ID =  con.ExecuteScalar<int>(findID, new { sectionid = room.Section.ID});
@@ -30,7 +31,7 @@ namespace DAL
             return con.Query<Room>(sql, new { Id = id }).Single();
         }
 
-        //Deleing a room.
+        //Deleing a room object in the database by passing the id.
         public void deleteRoom(Room room)
         {
             string sql = "DELETE FROM Room where ID = @Id ";

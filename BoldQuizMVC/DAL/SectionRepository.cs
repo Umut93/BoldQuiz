@@ -13,7 +13,7 @@ namespace DAL
         {
         }
 
-        //Retriving all the sections
+        //Retriving all the sections(categories).
         public List<Section> getSections()
         {
             string sql = "SELECT * FROM Section";

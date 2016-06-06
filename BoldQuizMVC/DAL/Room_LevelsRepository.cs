@@ -14,9 +14,10 @@ namespace DAL
         {
         }
 
-        //Room_Levels id og Level id joines i forbindelse med det room man er i. Joining af de to tabeller, deres information befolker jeg på hver af deres objekter
-        //Returner liste over de LEVELS man er i ud fra sit room_id!!!
-        //Multimapping in Dapper: map a single row to multiple objects
+        
+        //Joining af de to tabeller, deres information befolker jeg på hver af deres objekter
+        //Return a list of specific levels on a specific room based on the roomID.
+        //Multimapping in Dapper: map a single row to multiple objects (linie 24)
         public List<Room_levels> getRoom_Levels(int room_id)
         {
             string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID where room_id = @room_id";
@@ -24,7 +25,7 @@ namespace DAL
 
         }
 
-        //Getting one specific room with its room_level. The first overload!
+        //Getting one specific level on a specific room. The first overload!
         public Room_levels getRoom_level(int room_level_id)
         {
             string sql = "SELECT * FROM Room_levels JOIN [Level] on level_id = Level.ID JOIN Room on room_id = Room.ID where Room_levels.ID =@room_level_id";
@@ -33,8 +34,7 @@ namespace DAL
         }
 
 
-        // Joiner Room_levels + Level + Room -> returnerer Room_levels. Dette tages højde for hvilket rum og level man er i.
-        //Viser EN Room_level ud fra det room og level man er id.
+        // Getting a specific level on a specific room by searhing the roomid and the level id.
         //Second overload.
         //SingleOrDefault: If the sequnce is empty or if no conditions is not satified --> no error. Throw a exception if one more element in the sequense satifies the given condition.
         public Room_levels getRoom_level(int room_id, int level_id)
@@ -44,14 +44,14 @@ namespace DAL
             
         }
         
-        //Updating a room_level table after processing the quiz based on the room and level you are on.
+        //Updating a room_level based on the room and level you are on. Pay attention isCompleted is not used at all, but other columns are used.
         public void updateRoomLevel(Room_levels roomLevel)
         {
             string sql = "UPDATE Room_Levels SET isCompleted = @isCompleted where room_id = @room_id AND level_id = @level_id ";
             con.Execute(sql, new { isCompleted = roomLevel.IsCompleted, room_id = roomLevel.Room.ID, level_id = roomLevel.Level.ID });
         }
 
-        // Inserting values into Room_levels (table). 
+        // Inserting values into Room_levels based on the room and level you are on. 
         public void addRoomLevel(Room_levels roomLevel)
         {
             string sql = "INSERT INTO Room_levels VALUES (@isCompleted, @room_id, @level_id)";

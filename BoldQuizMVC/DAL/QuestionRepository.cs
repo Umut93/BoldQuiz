@@ -16,7 +16,7 @@ namespace DAL
 
 
         //The sql statement return 52 quetions based on the level_id. It turns out that the question shows 3 times, thats why firstorDefault is used, so identical questions doesnt get into the list .
-        //Tjek om spørgsmålet allerede findes på listen (linje 27-28) Linjen 33 så er den allerede på listen selvom det er samme kode osv.
+        //Tjek om spørgsmålet allerede findes på listen (linje 27-28).
 
         public List<Question> getQuetionsForLevel(int levelID)
         {
@@ -47,7 +47,7 @@ namespace DAL
             return con.Query<Answer>(sql, new { id = id }).Single();
 
         }
-        //Just finding the player's 10 questions based its roomID and which level he is on (by sql).
+        //Just finding the player's 10 questions based its roomID and which level he is on.
         //x.id (object) 
         //FirstorDefault is used because questions shows 3 times and we only want one and its answers! 
         //Every single player has a 10-question in a given level and he/she might not complete its quiz-progress. This method retrieves the questions in the database for re-create it --> cookies. It retrieves from the database
