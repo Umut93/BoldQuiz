@@ -151,6 +151,7 @@ namespace BoldQuizMVC.Controllers
 
         //Linie 164 = not assinged to a room yet
         // POST: /Account/Register
+        //When the user register itself its information gets passed over here.
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

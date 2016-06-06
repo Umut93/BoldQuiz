@@ -91,6 +91,10 @@ namespace BoldQuizMVC.Controllers
         //Couting the right answers x/x in a specifik Room_level.
         // The logic finds the right RoomID and levelID as well.
         //SelectedAnswerdID --> QuestionViewModel
+        //Getting the player who is logged in and getting all his specific room_levels by searching the room and level he is on.
+        //For every question he has selected right is assigned to isCorrect. 
+        //If the player score is less than the requirement then he gets a warning
+
         [HttpPost]
         public string submitQuiz(QuizViewModel model)
 
@@ -124,8 +128,8 @@ namespace BoldQuizMVC.Controllers
 
 
 
-            //Getting all the players in the room. The first room_level is open and looking at their results in a given level.
-
+            //Getting all the players in the room. The first room_level is open and looking at their results in a given level. If the player is done yet or the score is less than score, they are not carrying on.
+            //If they have cope with the score, they go to the next level.
             List<Player> players =  RoomLogic.FindAllPlayerOneRoom(model.RoomID);
 
             bool isCompleted = true;

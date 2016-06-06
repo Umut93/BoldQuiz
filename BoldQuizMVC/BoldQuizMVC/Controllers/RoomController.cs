@@ -31,6 +31,7 @@ namespace BoldQuizMVC.Controllers
 
         //Room view
         //If the player has failed twice he is sacked of the team.
+        //RoomDetailsViewModel
         public ActionResult Details(int id)
 
         {
