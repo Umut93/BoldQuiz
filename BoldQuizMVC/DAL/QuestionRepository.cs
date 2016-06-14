@@ -17,6 +17,7 @@ namespace DAL
 
         //The sql statement return 52 quetions based on the level_id. It turns out that the question shows 3 times, thats why firstorDefault is used, so identical questions doesnt get into the list .
         //Tjek om spørgsmålet allerede findes på listen (linje 27-28).
+        //Multimap: map a single row to multiple objects
 
         public List<Question> getQuetionsForLevel(int levelID)
         {

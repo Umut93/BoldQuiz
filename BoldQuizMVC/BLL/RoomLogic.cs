@@ -24,10 +24,12 @@ namespace BLL
 
 
         //Getting the levels for a specific Section by the room's sectionid.
+        //Assigning all the levels in the a specific room.
         // Creating a room based on the section, players, room_levels.   
         //For each room_level in the list we add a room_level in the table.
         //By creating the room, we need to get all the levels based on that section is taken.
-        //Every level is assigned to a specific level on a specific room. Afterwards add them in the list.
+        //The method argument takes a room (section is choosen)
+     
         public void createRoom(Room room)
         {
             var levels = levelLogic.getLevelsForASection(room.SectionID);
@@ -47,7 +49,7 @@ namespace BLL
             {
                 roomRepository.createRoom(room);
             }
-
+            //after creating the room its levels get passed in
             foreach (var room_level in Room_levels)
             {
                 room_LevelsLogic.addRoomLevel(room_level);

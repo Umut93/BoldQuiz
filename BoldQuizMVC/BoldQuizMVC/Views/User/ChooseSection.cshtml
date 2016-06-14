@@ -7,6 +7,7 @@
 
 <!--form action = "URL" - Where to send the form-data when the form is submitted. You redict to the quiz game with a new room --> 
 <!-- Every section is created as a button and here is where you choose your section. Afterwareds you direct to a room (id) -->
+<!--SectionID and SectionName-->
 <form method="post" action="@Url.Action("chooseSection", "User")">
 
 @foreach (var item in Model)

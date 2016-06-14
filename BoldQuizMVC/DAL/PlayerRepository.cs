@@ -40,7 +40,7 @@ namespace DAL
 
         }
 
-        //Updating a player when we take a player as argument.
+        //Updating a player's room
         public void updatePlayer(Player player)
         {
 

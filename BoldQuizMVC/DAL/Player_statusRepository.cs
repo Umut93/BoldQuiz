@@ -40,11 +40,17 @@ namespace DAL
             con.Execute(sql, new {SavedScore = player_status.SavedScore, playerID = player_status.Player.Id, room_levels_id = player_status.Room_levels.ID, id = player_status.ID, isUnlocked = player_status.IsUnlocked, Warnings = player_status.Warnings});
         }
 
+        public void deletePlayerStatus (Player_Status player_status)
+        {
+            string sql = "Delete from Player_status where ID = @id";
+            con.Execute(sql, new { id = player_status.ID });
+        }
 
         //Getting all the player status for one Person in that room_levels he/has participated in.
+        //Multi-mapning : map a single row to multiple objects
         public List<Player_Status> GetAllPlayerStatusForOnePLayer(Player player)
         {
-            string sql = "Select * from Player_status JOIN Room_levels on room_levels_id = room_levels.ID JOIN[Level] on[Level].ID = level_id where player_id = @player_id";
+            string sql = "Select * from Player_status JOIN Room_levels on room_levels_id = room_levels.ID JOIN [Level] on [Level].ID = level_id where player_id = @player_id";
             return con.Query<Player_Status, Room_levels, Level, Player_Status> (sql,
                 (playerStatus, Room_levels, level) => {
                     playerStatus.Room_levels = Room_levels;

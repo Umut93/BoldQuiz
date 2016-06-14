@@ -55,6 +55,10 @@ namespace BLL
                 recipient.Room = new Room();
                 recipient.Room.ID = invite.Room_id;
                 userLogic.updatePlayer(recipient);
+                foreach(Player_Status status in Player_statusLogic.GetAllPlayerStatusForOnePLayer(recipient))
+                 {
+                  Player_statusLogic.deletePlayerStatus(status);
+                }
                 Player_statusLogic.CreatePlayerStatusForARoom(recipient, recipient.Room);
                 inviteRepository.removeInvite(invite.SenderID, invite.RecipientID);
             }

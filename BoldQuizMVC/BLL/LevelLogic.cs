@@ -17,7 +17,7 @@ namespace BLL
         }
 
 
-        //Getting all levels from a specific section.
+        //Getting all levels (1-5) from a specific section.
         public List<Level> getLevelsForASection(int sectionID)
         {
           

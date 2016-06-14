@@ -13,13 +13,15 @@
 
 $.getJSON("/Invite/findInvitesForOnePerson", null, function (data)
 {
-    console.log(data);
+    
     if(data.length > 0)
     {
         if (confirm("Du er blivet inviteret til et rum. Vil du deltage?"))
         {
-            $.post("/invite/acceptInvite", data[0], function ()
+            $.post("/invite/acceptInvite", data[0], function (response)
             {
+                
+                window.location.href = "/Room/details/" + response.room_id;
                 console.log("Invitiation er accepteret");
 
             })

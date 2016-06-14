@@ -45,6 +45,7 @@ namespace DAL
         }
         
         //Updating a room_level based on the room and level you are on. Pay attention isCompleted is not used at all, but other columns are used.
+
         public void updateRoomLevel(Room_levels roomLevel)
         {
             string sql = "UPDATE Room_Levels SET isCompleted = @isCompleted where room_id = @room_id AND level_id = @level_id ";

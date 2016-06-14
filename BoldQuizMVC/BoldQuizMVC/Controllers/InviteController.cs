@@ -25,6 +25,7 @@ namespace BoldQuizMVC.Controllers
     }
         //This method takes InviteViewModel as a argument. The invite gets the id of the sender and the recieptent's id and the roomID as well (just like the table shows). 
         //senderID, recepientID, roomid
+        //InviteViewmodel: User who has sent a invite and from what room he has sent. Player (recipient)
         //We are getting the userName which is parsed in the input(viewmodel).
         //ActionName/Controller/id
         public ActionResult  InvitePlayer (InviteViewModel inviteViewModel)
@@ -61,12 +62,14 @@ namespace BoldQuizMVC.Controllers
         //Finding the player (Recipient) and giving the player a new room as well. Its roomid is assigned to the requested roomid and then we are updating the player's room to that which it has accepted.
         //After accepting, we remove the recent generated invite.
         //Fortæller status om serveren (http header for en succeful request). Validering efter accept!
+        //StatusCOde = succesful
         public ActionResult acceptInvite (int senderID, int recipientID)
         {
           Invite invite =  inviteLogic.findOneInvite(senderID, recipientID);
           inviteLogic.acceptInvite(invite);
 
-          return new HttpStatusCodeResult(200);
+          return Json(new { room_id = invite.Room_id }, JsonRequestBehavior.AllowGet);
+          //return new HttpStatusCodeResult(200);
 
         }
 

@@ -26,7 +26,7 @@ namespace BLL
         //After registering, you direct to categories. 
         //Finding the section by the id, and creating a room for that section. 
         //Finding a player by its username and then assigning that player in a room .
-        //After finding the section - creating the room and assigning the player in a room. 
+        //After finding the section - creating the room and assigning the player in a room (updating the player's room). 
         //For creating a room we need to know the sectionID and the userName who has chosen that.
         //We create a section and a room.
         public Room chooseSection(int id, string userName)

@@ -42,6 +42,8 @@ namespace BoldQuizMVC.Controllers
         //Creating a player_status. Populating level,room as objects and get a specific room_level_id (info).
         //If the list of questions are empty then it should generate random-questions (loading the page for first time), if not then we keep the questions until the user is finished (loading for second time). 
         // Linie 48: It retrieves the already generated questions which are not finished yet and then ordering the questions by their ID's. We save them as well for resuming the game.
+        //Populating the viewmodel properties withe question and answers --> because of validating the correct ID's
+        //Players are connected on (same level id and roomID) = same questions.
         public ActionResult Index(int levelID, int roomID)
         {
             int userID = int.Parse(User.Identity.GetUserId());
@@ -90,10 +92,12 @@ namespace BoldQuizMVC.Controllers
 
         //Couting the right answers x/x in a specifik Room_level.
         // The logic finds the right RoomID and levelID as well.
-        //SelectedAnswerdID --> QuestionViewModel
+        //For every questions(10) --> examines every questions questionID and selectedAnswerID for valdidating whether is true or not
+        //After calculating the results, we find that person and m
         //Getting the player who is logged in and getting all his specific room_levels by searching the room and level he is on.
         //For every question he has selected right is assigned to isCorrect. 
         //If the player score is less than the requirement then he gets a warning
+        //room_level (25)
 
         [HttpPost]
         public string submitQuiz(QuizViewModel model)
@@ -130,6 +134,7 @@ namespace BoldQuizMVC.Controllers
 
             //Getting all the players in the room. The first room_level is open and looking at their results in a given level. If the player is done yet or the score is less than score, they are not carrying on.
             //If they have cope with the score, they go to the next level.
+            //For all players we are looking at their room_levels (player_status) (player_room_levels). Still setting the same room_level.
             List<Player> players =  RoomLogic.FindAllPlayerOneRoom(model.RoomID);
 
             bool isCompleted = true;
@@ -144,7 +149,7 @@ namespace BoldQuizMVC.Controllers
                 }
                 
             }
-
+            //If completed we find the next room_level id and open it up for each players.
             if (isCompleted)
             {
 
@@ -159,6 +164,7 @@ namespace BoldQuizMVC.Controllers
                 }
 
             }
+            //Udpdating the current one u have played
             room_LevelsLogic.updateRoomLevel(room_level);
        
             questionLogic.deletePlayerQuestions(model.LevelID, model.RoomID);
