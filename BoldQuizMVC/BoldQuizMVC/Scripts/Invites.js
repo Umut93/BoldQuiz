@@ -11,6 +11,7 @@
 //Data the first in the array
 //if confirmed then we are posting our data to the server for validating.
 
+
 $.getJSON("/Invite/findInvitesForOnePerson", null, function (data)
 {
     

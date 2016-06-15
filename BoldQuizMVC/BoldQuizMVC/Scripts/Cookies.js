@@ -2,7 +2,8 @@
 //$ -> jQuery --> attr. checked buttons!
 //#answer (select the list item id)
 //13 --> radio buttons preserved.
-
+//answerArray [] længde (10)
+//#Anser-xx (stemme overens med den i quizviewmodel)
 
 var gettingcokie = getCookie("SelectedAnswers");
 var answerArray = gettingcokie.split(","); 
@@ -17,6 +18,8 @@ for (var i = 0; i < answerArray.length; i++)
 
 // The selector selects the id of the selected possible answers and then populating them in the array. Cookie name = SelectedAnswers, value = array, expire 20 days
 //Each --> loop on jQuery object --> excuting for each matched element. index and the element
+//i = the selected radio buttons which is pushed in the array
+//array(chosen )
 
 function handleSeleteced()
 {
@@ -34,7 +37,8 @@ function handleSeleteced()
 //exdays*24*60..
 //path the directory where it should be valid on (=/) = rest
 //Setting a cookie by its name, value and expiredays. The values are the values in the array which is selected possible answers (ID)! The path is localhost
-
+//cvalue []
+//d = 10 days later
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
@@ -51,6 +55,11 @@ function setCookie(cname, cvalue, exdays) {
 //indexof= searhing a string and output the number of the index.
 //substring takes character from a string in specific range.
 //indexOF?
+//cname = SelectedAnswers
+//splitting the array(xx,x,x)
+//name.lenghth (16)
+//ca.length = 1
+//document.cookie.split []
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');

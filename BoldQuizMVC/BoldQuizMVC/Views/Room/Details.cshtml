@@ -33,9 +33,9 @@ model --> Levelid+roomid + quetions(10)
 *@
 <div class="level_buttons">
 @foreach (var item in Model.playerstatus)
-    
+
 {
-    
+    <!-- Data-toogle: open the modal window, data-target= points to the id of the modal -->
     if (item.IsUnlocked)
     {
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="@item.Room_levels.Level.ID">@item.Room_levels.Level.Name</button>
@@ -48,7 +48,7 @@ model --> Levelid+roomid + quetions(10)
 
 }
 </div>
-<!-- Modal BootStrap -->
+<!-- Modal BootStrap. modal-content (styles the modal)-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -66,7 +66,7 @@ model --> Levelid+roomid + quetions(10)
         </div>
     </div>
 </div>
-<!-- 	$("#---") RelatedTarget you know the id of the level when you click the button -->
+<!-- 	$("#---") RelatedTarget you know the id of the level when you click the button. Occurs when the modal is about to be shown -->
 <script>$("#myModal").on("show.bs.modal", function (e) {
     var id = e.relatedTarget.dataset.id;
     
